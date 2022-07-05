@@ -1,0 +1,16 @@
+/* style */
+:root {
+  --enabled-color : #8A51F3;
+  --disabled-color : #DBCBFA;
+  --border-color : #E0E0E0;
+  --account-color-text : #828282;
+  --content-color-text : #333333;
+}
+
+* {
+  color: #000000;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-style: none;
+}
+
