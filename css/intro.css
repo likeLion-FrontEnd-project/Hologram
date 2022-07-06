@@ -1,0 +1,156 @@
+body {
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    var(--enabled-color) 0%,
+    rgba(138, 81, 243, 0) 100%
+  );
+  animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s; /* Firefox */
+  -webkit-animation: fadeIn 2s; /* Safari and Chrome */
+  -o-animation: fadeIn 2s; /* Opera */
+}
+
+/* 로고 */
+
+.logo-img {
+  position: absolute;
+  left: 50%;
+  top: 200px;
+  width: 144px;
+  transform: translateX(-50%);
+}
+
+/* 소셜 계정으로 로그인 */
+
+.sns-login-sec {
+  position: absolute;
+  bottom: 0;
+  padding: 50px 34px;
+  width: 100%;
+  background-color: var(--background-color);
+  border-radius: 20px 20px 0 0;
+}
+
+.sns-login-list {
+  margin-bottom: 20px;
+}
+
+.sns-login-item {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  border-radius: 44px;
+}
+
+.sns-login-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.login-kakao {
+  border: 1px solid #f2c94c;
+}
+.login-google {
+  border: 1px solid #767676;
+}
+
+.login-facebook {
+  border: 1px solid #2d9cdb;
+}
+
+.sns-login-link {
+  display: block;
+  padding: 13px 14px;
+  font-size: 14px;
+  color: var(--gray-text-color);
+}
+
+.sns-login-link::before {
+  margin-top: -5px;
+  display: block;
+  content: '';
+  width: 24px;
+  height: 24px;
+  float: left;
+}
+
+.icon-kakao::before {
+  background-image: url(../assets/images/icon-kakao.svg);
+}
+
+.icon-google::before {
+  background-image: url(../assets/images/icon-google.svg);
+}
+
+.icon-facebook::before {
+  background-image: url(../assets/images/icon-facebook.svg);
+}
+
+/* 이메일로 로그인 - 회원가입 */
+
+.other-login-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.other-login-link {
+  font-size: 12px;
+  color: var(--gray-text-color);
+}
+
+.join-link::before {
+  display: inline-block;
+  content: '|';
+  padding: 0 12px;
+}
+
+/* keyframe - Safari/Chrome/Firefox/Opera 지원 */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox */
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Opera */
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 반응형 */
+
+@media (min-width: 390px) {
+  .sns-login-list {
+    width: 330px;
+    margin: 0 auto 20px;
+  }
+}
