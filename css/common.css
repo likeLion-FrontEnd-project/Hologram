@@ -2,10 +2,13 @@
 :root {
   --enabled-color : #8A51F3;
   --disabled-color : #DBCBFA;
-  --border-color : #E0E0E0;
-  --account-color-text : #828282;
+  --error-message-color : #EB5757;
   --content-color-text : #333333;
-}
+  --gray-text-color : #767676;
+  --light-gray-color :  #DBDBDB;
+  --background-color : #fff;
+  --background-gray-color : #F2F2F2;
+} 
 
 * {
   color: #000000;
@@ -14,3 +17,26 @@
   border-style: none;
 }
 
+.sr-only {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+button, input {
+  border: none;
+  outline:none;
+}
