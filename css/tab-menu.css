@@ -31,7 +31,7 @@ body {
 .home-footer .tab-menu #home-link::before {
   content: '';
   display: block;
-  background-image: url(images/tab-menu-sprites.png);
+  background-image: url(../assets/tab-menu-sprites.png);
   background-repeat: no-repeat;
   background-position: -5px -39px;
   background-size: 68px 68px;
@@ -43,7 +43,7 @@ body {
 .home-footer .tab-menu #home-link:focus::before {
   content: '';
   display: block;
-  background-image: url(images/tab-menu-sprites-color.png);
+  background-image: url(../assets/tab-menu-sprites-color.png);
   background-repeat: no-repeat;
   background-position: -5px -39px;
   background-size: 68px 68px;
@@ -55,7 +55,7 @@ body {
 .home-footer .tab-menu #chat-link::before {
   content: '';
   display: block;
-  background-image: url(images/tab-menu-sprites.png);
+  background-image: url(../assets/tab-menu-sprites.png);
   background-repeat: no-repeat;
   background-position: -39px -5px;
   background-size: 68px 68px;
@@ -67,7 +67,7 @@ body {
 .home-footer .tab-menu #chat-link:focus::before {
   content: '';
   display: block;
-  background-image: url(images/tab-menu-sprites-color.png);
+  background-image: url(../assets/tab-menu-sprites-color.png);
   background-repeat: no-repeat;
   background-position: -39px -5px;
   background-size: 68px 68px;
@@ -79,7 +79,7 @@ body {
 .home-footer .tab-menu #post-link::before {
   content: '';
   display: block;
-  background-image: url(images/tab-menu-sprites.png);
+  background-image: url(../assets/tab-menu-sprites.png);
   background-repeat: no-repeat;
   background-position: -5px -5px;
   background-size: 68px 68px;
@@ -91,7 +91,7 @@ body {
 .home-footer .tab-menu #post-link:focus::before {
   content: '';
   display: block;
-  background-image: url(images/tab-menu-sprites-color.png);
+  background-image: url(../assets/tab-menu-sprites-color.png);
   background-repeat: no-repeat;
   background-position: -5px -5px;
   background-size: 68px 68px;
@@ -103,7 +103,7 @@ body {
 .home-footer .tab-menu #profile-link::before {
   content: '';
   display: block;
-  background-image: url(images/tab-menu-sprites.png);
+  background-image: url(../assets/tab-menu-sprites.png);
   background-repeat: no-repeat;
   background-position: -39px -39px;
   background-size: 68px 68px;
@@ -115,7 +115,7 @@ body {
 .home-footer .tab-menu #profile-link:focus::before {
   content: '';
   display: block;
-  background-image: url(images/tab-menu-sprites-color.png);
+  background-image: url(../assets/tab-menu-sprites-color.png);
   background-repeat: no-repeat;
   background-position: -39px -39px;
   background-size: 68px 68px;
