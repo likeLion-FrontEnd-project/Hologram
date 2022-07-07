@@ -2,17 +2,27 @@ body {
     font-family: 'Pretendard';
 }
 
-.menu-sec {
+.nav {
     display: flex;
     justify-content: space-between;
+    padding: 9px 16px 6px;
     border-bottom: 0.5px solid var(--light-gray-color);
-    padding:8px 16px;
-}
-.menu-sec .back-btn ,.menu-btn {
-    background-color: var(--background-color);
-    border: none;
 }
 
+.nav .back-btn {
+    padding: 0;
+    background: transparent;
+    height: 32px;
+}
+
+.nav .back-btn img,.nav .menu-btn img {
+    width: 22px;
+}
+
+.nav .menu-btn {
+    padding: 0;
+    background: transparent;
+}
 
 .chatlist-container {
     position: relative;
