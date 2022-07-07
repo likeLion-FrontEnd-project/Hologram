@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>profile</title>
+  <link rel="stylesheet" href="../css/default.css">
+  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../css/tab-menu.css">
+</head>
+<body>
+  <header class="nav">
+    <button type="button" class="back-btn"><img src="../assets/icon-arrow-left.png" alt="뒤로가기"></button>
+    <button type="button" class="menu-btn"><img src="../assets/icon-more-vertical.png" alt="메뉴"></button>
+  </header>
+  <main class="main">
+    <section class="profile-section">
+      <div class="profile-wrap">
+        <h1 class="sr-only">프로필 페이지</h1>
+        <div class="follow-wrap">
+          <a class="follower-wrap" href="">
+            <strong class="follower-num">2950</strong>
+            <span>followers</span>
+          </a>
+          <div class="profile-img-wrap">
+            <img src="../assets/feed_room_03.jpg" alt="프로필">
+            <!-- <img src="../assets/basic-profile-img.png" alt="프로필"> -->
+          </div>
+          <a class="following-wrap" href="">
+            <strong class="following-num">128</strong>
+            <span>followings</span>
+          </a>
+        </div>
+        <strong class="profile-name">애월읍 (주) 봉국</strong>
+        <strong class="profile-id">@weniv_Mandarin</strong>
+        <p class="profile-intro">애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</p>
+        
+        <div class="follow-btns">
+          <!-- your profile follow-->
+          <!-- <button class="chat-btn" type="button"><img src="../assets/communication_small.png" alt="채팅"></button>
+          <button class="follow-btn" type="button">팔로우</button>
+          <button class="share-btn" type="button"><img src="../assets/icon-share.png" alt="공유하기"></button>
+           -->
+          <!-- my profile -->
+          <!-- <a class="profile-edit-btn" href="">프로필 수정</a>
+          <a class="product-register-btn" href="">상품 등록</a>
+           -->
+          <!-- your profile unfollow-->
+          <button class="chat-btn" type="button"><img src="../assets/communication_small.png" alt= "채팅"></button>
+          <button class="profile-unfollow-btn" type="button">언팔로우</button>
+          <button class="share-btn" type="button"><img src="../assets/icon-share.png" alt="공유하기"></button>
+        </div>
+      </div>
+    </section>
+
+    <article class="product-section">
+      <div class="product-wrap">
+        <h2>판매중인 상품</h2>
+        <ul class="product-list">
+          <li class="product-item">
+            <div class="product-img-box">
+              <img src="../assets/feed_room_03.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <strong class="product-title">화이트 침구</strong>
+              <strong class="product-price">35,000원</strong>
+            </div>
+          </li>
+          <li class="product-item">
+            <div class="product-img-box">
+              <img src="../assets/feed_room_03.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <strong class="product-title">화이트 침구</strong>
+              <strong class="product-price">35,000원</strong>
+            </div>
+          </li>
+          <li class="product-item">
+            <div class="product-img-box">
+              <img src="../assets/feed_room_03.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <strong class="product-title">화이트 침구</strong>
+              <strong class="product-price">35,000원</strong>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- post -->
+    <section class="post-section">
+      <h2 class="sr-only">게시글</h2>
+      <div class="post-btns">
+        <div class="post-btn-wrap">
+          <button class="post-list-btn" type="button"><span class="sr-only">리스트로 보기</span>
+          </button>
+          <button class="post-album-btn" type="button"><span class="sr-only">앨범으로 보기</span></button>
+        </div>
+      </div>
+
+      <div class="posts-wrap">
+        <!-- post list -->
+        
+        <!-- post album -->
+        <ul class="post-grid-wrap">
+          <li class="post-album multi-img">
+            <a href=""><img src="../assets/feed_room_1.jpg" alt=""></a>
+          </li>
+          <li class="post-album">
+            <a href=""><img src="../assets/feed_room_1.jpg" alt=""></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="home-footer">
+  <ul class="tab-menu">
+    <li>
+      <a href="#none" id="home-link">홈</a>
+    </li>
+    <li>
+      <a href="#none" id="chat-link">채팅</a>
+    </li>
+    <li>
+      <a href="#none" id="post-link">게시물 작성</a>
+    </li>
+    <li>
+      <a href="#none" id="profile-link">프로필</a>
+    </li>
+  </ul>
+  </footer>
+</body>
+</html>
