@@ -39,4 +39,5 @@ a, button {
 button, input {
   border: none;
   outline:none;
+  font-family: inherit;
 }
