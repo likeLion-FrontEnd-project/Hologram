@@ -1,0 +1,59 @@
+/* 헤더 부분 */
+.home-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px 11px 16px;
+  border-bottom: 1px solid var(--light-gray-color);
+  background-color: var(--background-color);
+}
+
+.home-header .home-title {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.home-header .search-icon {
+  background-color: transparent;
+}
+
+/* 메인 부분 */
+.home-main {
+  display: flex;
+  max-width: 100%;
+  height: 100vh;
+  justify-content: center;
+}
+
+.home-main-initial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-logo-image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.main-text {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--gray-text-color);
+  margin-bottom: 20px;
+}
+
+.main-search-button {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--background-color);
+  background-color: var(--enabled-color);
+  padding: 14px 35.47px 13.5px 35.53px;
+  border-radius: 30px;
+}
