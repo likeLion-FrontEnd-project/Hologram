@@ -43,7 +43,7 @@ body {
     padding:10px 0px 7px;
     font-size: 12px;
     font-weight: 400;
-    background: url("/Hologram/assets/direction-up.png") no-repeat right center;
+    background: url("/Hologram/assets/images/icon/icon-select.svg") no-repeat right center;
 }
 
 .category-sec .modal {
@@ -74,7 +74,7 @@ body {
     background-color: var(--background-color);
 }
 
-.category-list li {
+.category-list li:not(:last-child) {
     width:100%;
     border-bottom: 1px solid var(--light-gray-color);
 }
