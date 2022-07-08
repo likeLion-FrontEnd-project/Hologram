@@ -68,6 +68,6 @@ body {
     letter-spacing: 0em;
     position:absolute;
     right: -6px;
-    bottom: 3px;
-    color:var(--background-color);
+    bottom: 7px;
+    color:var(--light-gray-color);
 }
