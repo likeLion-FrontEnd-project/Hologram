@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상품 등록 | 홀로그램</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/font.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/product.css">
+</head>
+<body>
+  <header class="nav">
+    <button type="button" class="back-btn">
+      <img src="../assets/icon-arrow-left.png" alt="뒤로가기">
+    </button>
+    <button type="button" class="save-btn" disabled>저장</button>
+  </header>
+  <main class="main">
+    <section class="product-wrap">
+      <h2 class="sr-only">상품 정보 입력</h2>
+      <form action="product-form" autocomplete="off">
+        <h3 class="product-title">이미지 등록</h3>
+        <div class="productImg-wrap">
+          <button type="button">
+            <img src="../assets/img-gray-btn.png" alt="상품 이미지">
+          </button>
+        </div>
+        <div class="content-wrap">
+          <label class="product-title" for="product-title" >상품명</label>
+          <input class="product-input" type="text" name="product-title" id="product-title" placeholder="2~15자 이내여야 합니다." required>
+          <strong class="text-error">*2~15자 이내여야 합니다.</strong>
+        </div>
+
+        <div class="content-wrap">
+          <label class="product-title product-price" for="product-price">가격</label>
+          <input class="product-input" type="text" name="product-price" id="product-price" placeholder="숫자만 입력 가능합니다." required>
+          <strong class="text-error">*숫자만 입력 가능합니다.</strong>
+        </div>
+          
+        <input type="hidden" id="hidden-product-img">
+      </form>
+    </section>
+  </main>
+</body>
+</html>

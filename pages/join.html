@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입 | Hologram</title>
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/join.css" />
+  </head>
+  <body>
+    <section class="join-sec">
+      <h1 class="join-title">이메일로 회원가입</h1>
+      <form class="join-form">
+        <div class="join-input-box">
+          <label for="email-input" class="join-label">이메일 주소</label>
+          <input
+            type="email"
+            class="join-input email-input"
+            id="email-input"
+            required
+          />
+        </div>
+        <div class="join-input-box">
+          <label for="password-input" class="join-label">비밀번호</label>
+          <input
+            type="password"
+            class="join-input password-input"
+            id="password-input"
+            required
+          />
+          <ul class="check-list">
+            <li class="check-item">영문포함</li>
+            <li class="check-item">숫자포함</li>
+            <li class="check-item">8-20자 이내</li>
+          </ul>
+        </div>
+        <div class="join-input-box">
+          <label for="password-confirm-input" class="join-label"
+            >비밀번호 확인</label
+          >
+          <input
+            type="password"
+            class="join-input password-confirm-input"
+            id="password-confirm-input"
+            required
+          />
+          <span class="check-item">비밀번호 확인</span>
+        </div>
+        <button type="submit" class="join-btn" disabled>다음</button>
+      </form>
+    </section>
+  </body>
+</html>
