@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로필 수정 | Hologram</title>
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/editprofile.css" />
+  </head>
+  <body>
+    <header class="header-nav">
+      <button type="button" class="return-btn">
+        <img
+          src="../assets/images/icon-arrow-left.svg"
+          alt="뒤로가기"
+          class="icon-arrow-left-img"
+        />
+      </button>
+      <button type="button" class="save-btn">저장</button>
+    </header>
+    <section class="setProfile-sec">
+      <h1 class="sr-only">프로필 설정</h1>
+      <section class="setProfile-img">
+        <h2 class="sr-only">프로필 이미지를 설정</h2>
+        <button class="setProfile-img-upload-btn">
+          <img src="../assets/images/icon-image.svg" alt="이미지 업로드 버튼" />
+        </button>
+      </section>
+      <form class="setProfile-form">
+        <div class="setProfile-input-box">
+          <label for="setUsername-input" class="setProfile-label"
+            >사용자 이름</label
+          >
+          <input
+            type="text"
+            class="setProfile-input setUsername-input"
+            id="setUsername-input"
+            required
+            placeholder="2~10자 이내여야 합니다."
+          />
+        </div>
+
+        <div class="setProfile-input-box">
+          <label for="setAccId-input" class="setProfile-label">계정 ID</label>
+          <input
+            type="text"
+            class="setProfile-input setAccId-input"
+            id="setAccId-input"
+            required
+            placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다."
+          />
+        </div>
+
+        <div class="setProfile-input-box">
+          <label for="setIntroduce-input" class="setProfile-label">소개</label>
+          <input
+            type="text"
+            class="setProfile-input setIntroduce-input"
+            id="setIntroduce-input"
+            required
+            placeholder="자신과 판매할 상품에 대해 소개해 주세요!"
+          />
+        </div>
+
+        <button type="submit" class="submit-btn" disabled>시작하기</button>
+      </form>
+    </section>
+  </body>
+</html>

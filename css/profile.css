@@ -25,14 +25,9 @@ body {
 
 /* 프로필 */
 .main {
-      /* min-width: 390px; */
-    /* width: 100%; */
-    margin-top: 48px;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-content: center; */
-    min-height: 100vh;
-    background: var(--background-gray-color);
+  margin-top: 48px;
+  min-height: 100vh;
+  background: var(--background-gray-color);
 }
 .profile-section {
   display: flex;
@@ -158,8 +153,6 @@ body {
   padding : 8px 23px 7px;
 }
 .profile-unfollow-btn {
-  font-family: pretendard;
-
   margin: 0 10px;
   padding: 8px 34px 7px 35px;
 }
@@ -255,16 +248,16 @@ body {
 }
 .post-btn-wrap .post-list-btn{
   margin-right: 16px;
-  background: url('../assets/icon-post-list-off.png') no-repeat center;
+  background: url('../assets/images/icon/icon-post-list-off.svg') no-repeat center;
 }
 .post-btn-wrap .post-list-btn:focus{
-  background: url('../assets/icon-post-list-on.png') no-repeat center;
+  background: url('../assets/images/icon/icon-post-list-on.svg') no-repeat center;
 }
 .post-btn-wrap .post-album-btn{
-  background: url('../assets/icon-post-album-off.png') no-repeat center;
+  background: url('../assets/images/icon/icon-post-album-off.svg') no-repeat center;
 }
 .post-btn-wrap .post-album-btn:focus{
-  background: url('../assets/icon-post-album-on.png') no-repeat center;
+  background: url('../assets/images/icon/icon-post-album-on.svg') no-repeat center;
 }
 
 /* 게시글 - post 영역 */
@@ -297,5 +290,5 @@ body {
   height: 20px;
   right: 6px;
   top: 6px;
-  background: url('../assets/iccon-img-layers.png') no-repeat center;
+  background: url('../assets/images/icon/icon-img-layers.svg') no-repeat center;
 }

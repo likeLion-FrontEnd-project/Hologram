@@ -28,6 +28,10 @@ body {
   color: var(--gray-text-color);
 }
 
+.home-footer .tab-menu a:focus {
+  color: var(--enabled-color);
+}
+
 .home-footer .tab-menu #home-link::before {
   content: '';
   display: block;
