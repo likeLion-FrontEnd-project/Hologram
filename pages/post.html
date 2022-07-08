@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/font.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../css/post.css">
     <title>게시글 | Hologram</title>
 </head>
@@ -14,7 +12,7 @@
     <header class="header">
         <section class="upload-sec">
             <h2 class="sr-only">업로드 버튼</h2>
-            <button type="button" class="back-btn"><img src="../assets/back-arrow.png" alt="뒤로가기 버튼"></button>
+            <button type="button" class="back-btn"><img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기 버튼"></button>
             <button type="button" class="upload-btn">업로드</button>
         </section>
     </header>
@@ -24,18 +22,22 @@
             <section class="category-sec">
                 <h3 class="sr-only">카테고리 선택</h3>
                 <button type="button" class="select-btn">게시판 선택</button>
-                <ul class="category-list">
-                    <li><button type="button">오늘의 잡담</button></li>
-                    <li><button type="button">찬반대결</button></li>
-                    <li><button type="button">오늘의 팁</button></li>
-                </ul>
+                <article class="modal">
+                    <h3 class="sr-only">모달창</h3>
+                    <ul class="category-listp">
+                        <li><button type="button" class="button tit">게시판 선택</button></li>
+                        <li><button type="button" class="button category">오늘의 잡담</button></li>
+                        <li><button type="button" class="button category">찬반대결</button></li>
+                        <li><button type="button" class="button category">오늘의 팁</button></li>
+                    </ul>                    
+                </article>
             </section>
             <form action="" method="post" class="data-form">
                 <label for="title"></label>
                 <input type="text" id="title" name="post-tit"  class="upload-tit" placeholder="제목"/>
                 <label for="post"></label>
                 <textarea id="post" cols="40" rows="6" maxlength="200" placeholder="게시글 입력하기..." class="upload-txt"></textarea>
-                <label for="img"><img src="/Hologram/assets/upload-file.png" class="img-btn" alt="이미지업로드 버튼"></label>
+                <label for="img"><img src="/Hologram/assets/images/img-upload-btn.svg" class="img-btn" alt="이미지업로드 버튼"></label>
                 <input type="file" id="img" name="post-img" accept="image/*" class="upload-img" />
             </form>
         </section>
