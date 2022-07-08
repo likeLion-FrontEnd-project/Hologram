@@ -75,15 +75,15 @@ body {
 }
 
 .icon-kakao::before {
-  background-image: url(../assets/images/icon-kakao.svg);
+  background-image: url(../assets/images/icon/icon-kakao.svg);
 }
 
 .icon-google::before {
-  background-image: url(../assets/images/icon-google.svg);
+  background-image: url(../assets/images/icon/icon-google.svg);
 }
 
 .icon-facebook::before {
-  background-image: url(../assets/images/icon-facebook.svg);
+  background-image: url(../assets/images/icon/icon-facebook.svg);
 }
 
 /* 이메일로 로그인 - 회원가입 */

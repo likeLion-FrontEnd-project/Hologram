@@ -1,0 +1,25 @@
+.not-found-sec {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.img-404 {
+  margin-bottom: 30px;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.not-found-desc {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: var(--gray-text-color);
+}
+
+.return-btn {
+  padding: 13px 28px;
+  background-color: var(--enabled-color);
+  border-radius: 44px;
+  color: #fff;
+}

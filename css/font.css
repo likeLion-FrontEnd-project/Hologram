@@ -2,18 +2,18 @@
 
 @font-face {
   font-family: Pretendard;
-  src: url('../font/Pretendard-Regular.woff') format('woff');
+  src: url('../assets/font/Pretendard-Regular.woff') format('woff');
   font-weight: 400;
 }
 
 @font-face {
   font-family: Pretendard;
-  src: url('../font/Pretendard-Medium.woff') format('woff');
+  src: url('../assets/font/Pretendard-Medium.woff') format('woff');
   font-weight: 500;
 }
 
 @font-face {
   font-family: Pretendard;
-  src: url('../font/Pretendard-Bold.woff') format('woff');
+  src: url('../assets/font/Pretendard-Bold.woff') format('woff');
   font-weight: 700;
 }

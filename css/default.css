@@ -2,8 +2,8 @@
 
 /* base */
 
-@import url('reset.css');
 @import url('font.css');
+@import url('reset.css');
 @import url('./common.css');
 @import url('./style.css');
 

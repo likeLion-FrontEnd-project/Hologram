@@ -49,7 +49,7 @@
 .check-item::after {
   content: '';
   display: inline-block;
-  background-image: url(../assets/images/icon-check.svg);
+  background-image: url(../assets/images/icon/icon-check.svg);
   width: 15px;
   height: 15px;
   margin-left: 3px;

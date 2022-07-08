@@ -42,7 +42,7 @@
   padding: 13px 14px;
   width: 322px;
   font-size: 14px;
-  color: var(--background-color);
+  color: #fff;
   border-radius: 44px;
   background-color: var(--disabled-color);
 }

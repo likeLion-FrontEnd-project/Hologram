@@ -1,17 +1,17 @@
 /* style */
 :root {
-  --enabled-color : #8A51F3;
-  --disabled-color : #DBCBFA;
-  --error-message-color : #EB5757;
-  --content-color-text : #333333;
-  --gray-text-color : #767676;
-  --light-gray-color :  #DBDBDB;
-  --background-color : #fff;
-  --background-gray-color : #F2F2F2;
-} 
+  --enabled-color: #8a51f3;
+  --disabled-color: #dbcbfa;
+  --error-message-color: #eb5757;
+  --content-color-text: #333333;
+  --gray-text-color: #767676;
+  --light-gray-color: #dbdbdb;
+  --background-color: #fff;
+  --background-gray-color: #f2f2f2;
+}
 
 * {
-  color: #000000;
+  color: var(--content-color-text);
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-style: none;
@@ -32,12 +32,14 @@ a {
   text-decoration: none;
 }
 
-a, button {
+a,
+button {
   cursor: pointer;
 }
 
-button, input {
+button,
+input {
   border: none;
-  outline:none;
+  outline: none;
   font-family: inherit;
 }
