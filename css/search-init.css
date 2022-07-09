@@ -1,0 +1,31 @@
+/* 검색창 헤더 부분 */
+.search-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8.5px 16px;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--light-gray-color);
+}
+
+.back-button {
+  margin: 4px 20px 0 0;
+  background-color: transparent;
+  padding: 0;
+}
+
+.search-input {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 8px 0 7px 16px;
+  border-radius: 32px;
+  background-color: var(--background-gray-color);
+}
+
+.search-input:focus {
+  outline: 2px solid var(--enabled-color);
+}
