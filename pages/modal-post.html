@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>모달창(게시글) | Hologram</title>
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+  </head>
+  <body>
+    <!-- 페이지 중앙 모달창 -->
+    <article class="modal-window-center">
+      <h1 class="sr-only">게시글삭제 확인 모달창</h1>
+      <p class="modal-center-text">게시글을 삭제할까요?</p>
+      <div class="modal-center-btn">
+        <button type="button" id="cancel-btn" class="center-btn-left">
+          취소
+        </button>
+        <button type="button" id="logout-btn" class="center-btn-right">
+          삭제
+        </button>
+      </div>
+    </article>
+    <!-- 페이지 하단 모달창 -->
+    <article class="modal-window-bottom">
+      <h1 class="sr-only">게시글 모달창</h1>
+      <button type="button" class="modal-close-bar">
+        <img
+          src="../assets/images/icon/icon-modal-closebtn.svg"
+          alt="모달창 닫기 아이콘"
+          class="modal-close-icon"
+        />
+      </button>
+      <ul class="modal-list">
+        <li>
+          <button id="delete-post" class="modal-list-btn">삭제</button>
+        </li>
+        <li>
+          <button id="modify-post" class="modal-list-btn">수정</button>
+        </li>
+      </ul>
+    </article>
+  </body>
+</html>
