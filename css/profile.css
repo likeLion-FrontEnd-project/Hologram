@@ -1,5 +1,5 @@
-body {
-  font-family: pretendard;
+button {
+  background: transparent;
 }
 
 /* header */
@@ -17,7 +17,6 @@ body {
 .nav .back-btn, .nav .menu-btn {
   padding: 0;
   height: 22px;
-  background: transparent;
 }
 .back-btn img, .menu-btn img {
   width: 22px;
@@ -241,7 +240,6 @@ body {
 .post-btn-wrap button{
   width: 26px;
   height: 26px;
-  background: transparent;
 }
 .post-btn-wrap .post-list-btn{
   margin-right: 16px;
