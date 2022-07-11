@@ -70,13 +70,20 @@ body {
     border:1px solid var(--light-gray-color);
     padding:29px 14px 14px;
     transform: translateX(-50%) translateY(-50%);
-    background: url('../assets/images/icon/icon-close.svg') no-repeat right 15px top 10px;
     background-color: var(--background-color);
+    z-index: 10;
 }
 
-.category-list li:not(:last-child) {
+.category-list li:not(:last-child):not(:first-child) {
     width:100%;
     border-bottom: 1px solid var(--light-gray-color);
+}
+
+.category-list li .close {
+    background-color: var(--background-color);
+    position: absolute;
+    right: 15px;
+    top: 10px;
 }
 
 .category-list li .button{
@@ -124,6 +131,7 @@ body {
     font-size: 14px;
     font-weight: 400;  
     padding:10px 0px;
+    font-family: inherit;
 }
 
 .data-form .upload-txt::placeholder {
