@@ -7,13 +7,13 @@
   background-color: var(--background-color);
 }
 
-.home-footer .tab-menu {
+.tab-menu {
   display: flex;
   justify-content: space-between;
   padding: 10px 34px;
 }
 
-.home-footer .tab-menu a {
+.tab-menu a {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,102 +24,52 @@
   color: var(--gray-text-color);
 }
 
-.home-footer .tab-menu a:focus {
+.tab-menu div {
+  background-image: url(../assets/images/icon/icon-sprites_gray.png);
+  background-repeat: no-repeat;
+  background-size: 68px 68px;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 7px;
+}
+
+.tab-menu .home-icon {
+  background-position: -5px -39px;
+}
+
+.tab-menu .chat-icon {
+  background-position: -39px -5px;
+}
+
+.tab-menu .post-icon {
+  background-position: -5px -5px;
+}
+
+.tab-menu .profile-icon {
+  background-position: -39px -39px;
+}
+
+/* 클릭됐을 때 */
+.tab-menu > li > a.clicked {
   color: var(--enabled-color);
 }
 
-.home-footer .tab-menu #home-link::before {
-  content: '';
-  display: block;
-  background-image: url(../assets/images/icon/icon-sprites_gray.png);
-  background-repeat: no-repeat;
-  background-position: -5px -39px;
-  background-size: 68px 68px;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 7px;
-}
-
-.home-footer .tab-menu #home-link:focus::before {
-  content: '';
-  display: block;
+/* 홈 */
+.home-icon.clicked {
   background-image: url(../assets/images/icon/icon-sprites_purple.png);
-  background-repeat: no-repeat;
-  background-position: -5px -39px;
-  background-size: 68px 68px;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 7px;
 }
 
-.home-footer .tab-menu #chat-link::before {
-  content: '';
-  display: block;
-  background-image: url(../assets/images/icon/icon-sprites_gray.png);
-  background-repeat: no-repeat;
-  background-position: -39px -5px;
-  background-size: 68px 68px;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 7px;
-}
-
-.home-footer .tab-menu #chat-link:focus::before {
-  content: '';
-  display: block;
+/* 채팅 */
+.chat-icon.clicked {
   background-image: url(../assets/images/icon/icon-sprites_purple.png);
-  background-repeat: no-repeat;
-  background-position: -39px -5px;
-  background-size: 68px 68px;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 7px;
 }
 
-.home-footer .tab-menu #post-link::before {
-  content: '';
-  display: block;
-  background-image: url(../assets/images/icon/icon-sprites_gray.png);
-  background-repeat: no-repeat;
-  background-position: -5px -5px;
-  background-size: 68px 68px;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 7px;
-}
-
-.home-footer .tab-menu #post-link:focus::before {
-  content: '';
-  display: block;
+/* 게시물 */
+.post-icon.clicked {
   background-image: url(../assets/images/icon/icon-sprites_purple.png);
-  background-repeat: no-repeat;
-  background-position: -5px -5px;
-  background-size: 68px 68px;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 7px;
 }
 
-.home-footer .tab-menu #profile-link::before {
-  content: '';
-  display: block;
-  background-image: url(../assets/images/icon/icon-sprites_gray.png);
-  background-repeat: no-repeat;
-  background-position: -39px -39px;
-  background-size: 68px 68px;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 7px;
-}
-
-.home-footer .tab-menu #profile-link:focus::before {
-  content: '';
-  display: block;
+/* 프로필 */
+.profile-icon.clicked {
   background-image: url(../assets/images/icon/icon-sprites_purple.png);
-  background-repeat: no-repeat;
-  background-position: -39px -39px;
-  background-size: 68px 68px;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 7px;
 }
