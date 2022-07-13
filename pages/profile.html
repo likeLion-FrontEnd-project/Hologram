@@ -7,6 +7,7 @@
   <title>프로필 | Hologram</title>
   <link rel="stylesheet" href="../css/default.css">
   <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../css/feed.css">
   <link rel="stylesheet" href="../css/tab-menu.css">
 </head>
 <body>
@@ -42,13 +43,13 @@
           <button class="share-btn" type="button"><img src="../assets/images/icon/icon-share.svg" alt="공유하기"></button> -->
           
           <!-- my profile -->
-          <!-- <a class="profile-edit-btn" href="">프로필 수정</a>
-          <a class="product-register-btn" href="">상품 등록</a> -->
+          <a class="profile-edit-btn" href="../pages/editprofile.html">프로필 수정</a>
+          <a class="product-register-btn" href="../pages/product.html">상품 등록</a>
           
           <!-- your profile unfollow-->
-          <button class="chat-btn" type="button"><img src="../assets/images/icon/icon-chat.svg" alt= "채팅"></button>
+          <!-- <button class="chat-btn" type="button"><img src="../assets/images/icon/icon-chat.svg" alt= "채팅"></button>
           <button class="profile-unfollow-btn" type="button">언팔로우</button>
-          <button class="share-btn" type="button"><img src="../assets/images/icon/icon-share.svg" alt="공유하기"></button>
+          <button class="share-btn" type="button"><img src="../assets/images/icon/icon-share.svg" alt="공유하기"></button> -->
         </div>
       </div>
     </section>
@@ -93,42 +94,115 @@
       <h2 class="sr-only">게시글</h2>
       <div class="post-btns">
         <div class="post-btn-wrap">
-          <button class="post-list-btn" type="button"><span class="sr-only">리스트로 보기</span>
+          <button class="post-list-btn on" id="post-list-btn" type="button"><span class="sr-only">리스트로 보기</span>
           </button>
-          <button class="post-album-btn" type="button"><span class="sr-only">앨범으로 보기</span></button>
+          <button class="post-album-btn" id="post-album-btn" type="button"><span class="sr-only">앨범으로 보기</span></button>
         </div>
       </div>
 
       <!-- post list, post album -->
       <div class="posts-wrap">
         <!-- post list -->
-        <!-- post album -->
-        <ul class="post-grid-wrap">
-          <li class="post-album multi-img">
-            <a href=""><img src="../assets/images/feed_room_1.jpg" alt=""></a>
-          </li>
-          <li class="post-album">
-            <a href=""><img src="../assets/images/feed_room_1.jpg" alt=""></a>
+        <ul class="post-list-wrap on">
+          <li class="post-list-item">
+            <div class="post-img-wrap">
+              <img
+                src="../assets/images/feed_room_1.jpg"
+                alt="피드 게시물 이미지"
+                class="post-image"
+              />
+            </div>
+            <div class="post-nav">
+              <div class="post-user">
+                <img
+                  src="../assets/images/feed_room_03.jpg"
+                  alt="프로필 사진"
+                  class="profile-image"
+                />
+                <div>
+                  <h3 class="profile-name">wijeong0305</h3>
+                  <p class="profile-id">@wijeong0305</p>
+                </div>
+              </div>
+              <button class="post-menu-button">
+                <img
+                  src="../assets/images/icon/icon-post-menu.svg"
+                  alt="메뉴"
+                  class="post-menu-button-image"
+                />
+              </button>
+            </div>
+            <div class="post-main">
+              <span class="post-category">오늘의 잡담</span>
+              <h3 class="post-title">나만의 데스크 셋업 완성🔥</h3>
+              <p class="post-content">
+                이름을 이네들은 하나에 위에 위에도 헤는 벌레는 노루, 가슴속에
+                봅니다. 무엇인지 한 별에도 나는 했던 패, 까닭입니다. 이름을
+                하나에 이웃 새겨지는 하나에 위에 하늘에는 동경과 이름과
+                있습니다. 그러나 다 피어나듯이 별을 별 버리었습니다. 하나에
+                그리고 걱정도 그리워 별을 소...
+                <button class="detail-button">더보기</button>
+              </p>
+            </div>
+            <div class="post-footer">
+              <p class="post-time">20분 전</p>
+              <div class="post-footer-button">
+                <button type="button" class="like-button">
+                  <img
+                    src="../assets/images/icon/icon-like-gray.svg"
+                    alt="좋아요"
+                    class="like-button-image"
+                  />
+                </button>
+                <span class="like-num">8</span>
+                <button type="button" class="comment-button">
+                  <img
+                    src="../assets/images/icon/icon-comments.svg"
+                    alt="댓글"
+                    class="comment-button-image"
+                  />
+                </button>
+                <span class="comment-num">12</span>
+              </div>
+            </div>
           </li>
         </ul>
+
+
+        <!-- post album -->
+        <div class="post-album-div">
+          <ul class="post-album-wrap">
+            <li class="post-album multi-img">
+              <a href=""><img src="../assets/images/feed_room_1.jpg" alt=""></a>
+            </li>
+            <li class="post-album">
+              <a href=""><img src="../assets/images/feed_room_1.jpg" alt=""></a>
+            </li>
+            <li class="post-album">
+              <a href=""><img src="../assets/images/feed_room_1.jpg" alt=""></a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
   <footer class="home-footer">
-  <ul class="tab-menu">
-    <li>
-      <a href="#none" id="home-link">홈</a>
-    </li>
-    <li>
-      <a href="#none" id="chat-link">채팅</a>
-    </li>
-    <li>
-      <a href="#none" id="post-link">게시물 작성</a>
-    </li>
-    <li>
-      <a href="#none" id="profile-link">프로필</a>
-    </li>
-  </ul>
+    <ul class="tab-menu">
+      <li>
+        <a href="../pages/feed.html" id="home-link">홈</a>
+      </li>
+      <li>
+        <a href="../pages/chatroom.html" id="chat-link">채팅</a>
+      </li>
+      <li>
+        <a href="../pages/post.html" id="post-link">게시물 작성</a>
+      </li>
+      <li>
+        <a class="tab-profile-icon" href="../pages/profile.html" id="profile-link">프로필</a>
+      </li>
+    </ul>
   </footer>
+
+  <script src="../js/profile.js"></script>
 </body>
 </html>
