@@ -5,12 +5,39 @@ const postContent  = document.querySelector('.upload-txt');
 const postTitle    = document.querySelector('.upload-tit')
 const ImgList     = document.querySelector('.postimg-list');
 const postImage = document.querySelector(".upload-img");
-const uploadBtn = document.querySelector('.upload-btn');
+const uploadBtn = document.querySelector('.nav-btn');
 const postImgList = document.querySelector('.postimg-list');
 const dropboxCloseBtn = document.querySelector('.close');
 const url="https://mandarin.api.weniv.co.kr";
 let uploadURL=""
 const imgFile=[];
+
+
+// 카테고리 모달창 보여주기
+async function handleShowList() {
+    categoryList.classList.toggle('show');
+}
+
+selectBtn.addEventListener('click', handleShowList);
+
+// 카테고리 모달창 닫기
+async function handleRemoveList() {
+    categoryList.classList.remove('show'); 
+}
+
+dropboxCloseBtn.addEventListener('click', handleRemoveList);
+
+
+// 카테고리 선택
+async function handleSelectList(e) {
+    if (e.target.nodeName === "BUTTON") {
+        selectBtn.innerText = e.target.innerText;
+        categoryList.classList.remove('show');   
+    }
+}
+
+categoryList.addEventListener("click",handleSelectList);
+
 
 // 이미지 불러오기
 async function imageUpload(file) {
@@ -74,10 +101,10 @@ postImage.addEventListener("change",handleGetImageUrl);
 // 업로드 버튼 색상 on
 async function handleChangeBtnColor(e) {
     if(!(postTitle.value =="")) {
-        uploadBtn.classList.add('on');
+        uploadBtn.classList.add('enabled');
     }
     else {
-        uploadBtn.classList.remove('on');
+        uploadBtn.classList.remove('enabled');
     }
 }
 
@@ -86,7 +113,7 @@ postTitle.addEventListener('keyup', handleChangeBtnColor);
 // 게시물 업로드
 async function postUpload() {
     let imgUrl=""
-    if(uploadBtn.classList.contains("on")) {
+    if(uploadBtn.classList.contains("enabled")) {
         const categoryContent =selectBtn.innerText=== "게시판 선택" ? "오늘의 잡담" :  selectBtn.innerText;
         const post_txt = `${categoryContent},${postTitle.value},${postContent.value}`;
         if(uploadURL==""){
@@ -127,30 +154,6 @@ async function postUpload() {
 
 uploadBtn.addEventListener('click',postUpload);
 
-// 카테고리 모달창 보여주기
-async function handleShowList() {
-    categoryList.classList.toggle('show');
-}
-
-selectBtn.addEventListener('click', handleShowList);
-
-// 카테고리 모달창 닫기
-async function handleRemoveList() {
-    categoryList.classList.remove('show'); 
-}
-
-dropboxCloseBtn.addEventListener('click', handleRemoveList);
-
-
-// 카테고리 선택
-async function handleSelectList(e) {
-    if (e.target.nodeName === "BUTTON") {
-        selectBtn.innerText = e.target.innerText;
-        categoryList.classList.remove('show');   
-    }
-}
-
-categoryList.addEventListener("click",handleSelectList);
 
 
 
