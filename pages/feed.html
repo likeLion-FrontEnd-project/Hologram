@@ -6,31 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>홈피드 게시글 화면 | Hologram</title>
     <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/home.css" />
     <link rel="stylesheet" href="../css/tab-menu.css" />
     <link rel="stylesheet" href="../css/feed.css" />
   </head>
   <body>
-    <header class="home-header">
-      <h1 class="home-title">홀로그램 피드</h1>
-      <a href="./search-init.html" class="search-icon">
-        <img
-          src="../assets/images/icon/icon-search.svg"
-          alt="검색모양 아이콘 버튼"
-        />
+    <header class="nav">
+      <h1 class="feed-title">홀로그램 피드</h1>
+      <a href="./search-init.html" class="search-btn">
+        <img src="../assets/images/icon/icon-search.svg" alt="검색하기" />
       </a>
     </header>
     <main class="home-main">
       <section class="post-section">
         <h2 class="sr-only">피드 게시물 부분</h2>
-        <ul class="post-list">
+        <ul class="post-list-wrap">
           <!-- 포스트 오늘의 잡담 -->
           <li class="post-list-item">
-            <img
-              src="../assets/images/img-post-sample.png"
-              alt="피드 게시물 이미지"
-              class="post-image"
-            />
+            <div class="post-img-wrap">
+              <img
+                src="../assets/images/img-post-sample.png"
+                alt="피드 게시물 이미지"
+                class="post-image"
+              />
+            </div>
             <div class="post-nav">
               <div class="post-user">
                 <img
@@ -46,7 +46,7 @@
               <button class="post-menu-button">
                 <img
                   src="../assets/images/icon/icon-post-menu.svg"
-                  alt="메뉴 버튼 아이콘"
+                  alt="메뉴 버튼"
                   class="post-menu-button-image"
                 />
               </button>
@@ -67,24 +67,18 @@
               <p class="post-time">20분 전</p>
               <div class="post-footer-button">
                 <button type="button" class="like-button">
-                  <img
-                    src="../assets/images/icon/icon-like-gray.svg"
-                    alt="좋아요 버튼 아이콘"
-                    class="like-button-image"
-                  />
+                  <span class="sr-only">좋아요</span>
                 </button>
-                <span class="like-num">8</span>
+                <span class="like-num">0</span>
                 <button type="button" class="comment-button">
-                  <img
-                    src="../assets/images/icon/icon-comments.svg"
-                    alt="댓글 버튼 아이콘"
-                    class="comment-button-image"
-                  />
+                  <span class="sr-only">댓글</span>
                 </button>
                 <span class="comment-num">12</span>
               </div>
             </div>
           </li>
+          <!-- 포스트 오늘의 잡담 -->
+
           <!-- 포스트 찬반 대결 -->
           <li class="post-list-item">
             <img
@@ -123,23 +117,17 @@
             </div>
             <div class="post-footer thumbs-buttons">
               <button type="button" class="thumbs-up-button">
-                <img
-                  src="../assets/images/icon/icon-ThumbsUp-gray.svg"
-                  alt="찬성 버튼 아이콘"
-                  class="thumbs-up-image"
-                />
+                <span class="sr-only">찬성</span>
               </button>
               <button type="button" class="thumbs-down-button">
-                <img
-                  src="../assets/images/icon/icon-ThumbsDown-gray.svg"
-                  alt="반대 버튼 아이콘"
-                  class="thumbs-up-image"
-                />
+                <span class="sr-only">반대</span>
               </button>
             </div>
           </li>
+          <!-- 포스트 찬반 대결 -->
+
           <!-- 포스트 오늘의 팁 -->
-          <li class="post-list-item">
+          <!-- <li class="post-list-item">
             <img
               src="../assets/images/img-post-sample.png"
               alt="피드 게시물 이미지"
@@ -178,26 +166,20 @@
               <p class="post-time">20분 전</p>
               <div class="post-footer-button">
                 <button type="button" class="like-button">
-                  <img
-                    src="../assets/images/icon/icon-like-gray.svg"
-                    alt="좋아요 버튼 이미지"
-                    class="like-button-image"
-                  />
+                  <div class="sr-only">좋아요</div>
                 </button>
-                <span class="like-num">8</span>
+                <span class="like-num">0</span>
                 <button type="button" class="comment-button">
-                  <img
-                    src="../assets/images/icon/icon-comments.svg"
-                    alt="댓글 버튼 이미지"
-                    class="comment-button-image"
-                  />
+                  <div class="sr-only">댓글</div>
                 </button>
                 <span class="comment-num">12</span>
               </div>
             </div>
-          </li>
+          </li> -->
+          <!-- 포스트 오늘의 팁 -->
+
           <!-- 포스트 판매글 -->
-          <li class="post-list-item">
+          <!-- <li class="post-list-item">
             <img
               src="../assets/images/img-post-sample.png"
               alt="피드 게시물 이미지"
@@ -235,49 +217,42 @@
               <p class="post-time">20분 전</p>
               <div class="post-footer-button">
                 <button type="button" class="like-button">
-                  <img
-                    src="../assets/images/icon/icon-like-gray.svg"
-                    alt="좋아요 버튼 이미지"
-                    class="like-button-image"
-                  />
+                  <div class="sr-only">좋아요</div>
                 </button>
-                <span class="like-num">8</span>
+                <span class="like-num">0</span>
                 <button type="button" class="comment-button">
-                  <img
-                    src="../assets/images/icon/icon-comments.svg"
-                    alt="댓글 버튼 이미지"
-                    class="comment-button-image"
-                  />
+                  <div class="sr-only">댓글</div>
                 </button>
                 <span class="comment-num">12</span>
               </div>
             </div>
-          </li>
+          </li> -->
+          <!-- 포스트 판매글 -->
         </ul>
       </section>
     </main>
     <footer class="home-footer">
       <ul class="tab-menu">
         <li>
-          <a href="./home.html" class="home-link">
-            <div class="home-icon"></div>
+          <a href="./home.html" class="home-link clicked">
+            <div class="home-icon clicked"></div>
             홈
           </a>
         </li>
         <li>
-          <a href="#none" class="chat-link">
+          <a href="./chat.html" class="chat-link">
             <div class="chat-icon"></div>
             채팅
           </a>
         </li>
         <li>
-          <a href="#none" class="post-link">
+          <a href="./post.html" class="post-link">
             <div class="post-icon"></div>
             게시물 작성
           </a>
         </li>
         <li>
-          <a href="#none" class="profile-link">
+          <a href="./profile.html" class="profile-link">
             <div class="profile-icon"></div>
             프로필
           </a>
