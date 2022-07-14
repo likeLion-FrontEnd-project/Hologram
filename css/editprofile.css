@@ -1,25 +1,5 @@
-.header-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 16px;
-  width: 100%;
-  border-bottom: 1px solid var(--light-gray-color);
-}
-
-.return-btn {
-  width: 22px;
-  height: 22px;
-  background-color: transparent;
-}
-
-.save-btn {
-  padding: 8px 33px 7px 32px;
-  width: 90px;
-  font-size: 14px;
-  color: var(--background-color);
-  border-radius: 32px;
-  background-color: var(--disabled-color);
+.setProfile-sec {
+  margin-top: 102px;
 }
 
 .setProfile-title {
