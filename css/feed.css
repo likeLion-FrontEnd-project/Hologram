@@ -26,18 +26,19 @@
 .post-user .profile-image {
   width: 32px;
   height: 32px;
+  border: 0.5px solid var(--light-gray-color);
+  border-radius: 50%;
   margin-right: 5px;
-  border-radius: 16px;
 }
 
 .post-user .profile-name {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   margin-bottom: 2px;
 }
 
 .post-user .profile-id {
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 400;
   color: var(--gray-text-color);
 }
