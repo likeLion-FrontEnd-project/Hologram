@@ -1,0 +1,93 @@
+/* 저장 및 업로드 공통 nav 스타일 */
+.nav {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  width: 100%;
+  background-color: var(--background-color);
+  border-bottom: 0.5px solid var(--light-gray-color);
+}
+
+/* 저장 및 업로드 버튼 비활성 */
+.nav-btn {
+  border-radius: 32px;
+  background-color: var(--disabled-color);
+  color: #fff;
+}
+
+/* 저장 및 업로드 버튼 활성 */
+.nav-btn.enabled {
+  background-color: var(--enabled-color);
+}
+
+/* 뒤로가기 버튼 */
+.back-btn,
+.search-btn {
+  width: 22px;
+  height: 22px;
+}
+
+/* 저장 버튼 */
+.save {
+  padding: 8px 33px 7px 32px;
+}
+
+/* 업로드 버튼 */
+.upload {
+  padding: 8px 27px 7px 26px;
+}
+
+/* 더보기 메뉴 */
+.more-menu-btn {
+  line-height: 0;
+}
+
+/* 검색 버튼 nav 스타일 */
+.feed-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* 검색 input nav 스타일 */
+.search-nav {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 8px 16px;
+  width: 100%;
+  border-bottom: 0.5px solid var(--light-gray-color);
+  background-color: var(--background-color);
+}
+
+/* 검색 input */
+.search {
+  padding: 8px 16px 7px;
+  width: 100%;
+  background-color: var(--background-gray-color);
+  border-radius: 32px;
+}
+
+.search::placeholder {
+  color: var(--light-gray-color);
+}
+
+/* 타이틀 nav */
+.title-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 16px;
+  font-size: 14px;
+  border-bottom: 0.5px solid var(--light-gray-color);
+}
+
+.page-title {
+  font-weight: 500;
+}

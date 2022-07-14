@@ -20,6 +20,7 @@
             id="email-input"
             required
           />
+          <span class="email-result"></span>
         </div>
         <div class="join-input-box">
           <label for="password-input" class="join-label">비밀번호</label>
@@ -30,9 +31,9 @@
             required
           />
           <ul class="check-list">
-            <li class="check-item">영문포함</li>
-            <li class="check-item">숫자포함</li>
-            <li class="check-item">8-20자 이내</li>
+            <li class="check-item cond-include-english">영문포함</li>
+            <li class="check-item cond-include-number">숫자포함</li>
+            <li class="check-item cond-length">8-20자 이내</li>
           </ul>
         </div>
         <div class="join-input-box">
@@ -45,10 +46,60 @@
             id="password-confirm-input"
             required
           />
-          <span class="check-item">비밀번호 확인</span>
+          <span class="check-item cond-samePassword">비밀번호 확인</span>
         </div>
-        <button type="submit" class="join-btn" disabled>다음</button>
+        <button type="submit" class="join-btn">다음</button>
       </form>
     </section>
+
+    <section class="setProfile-sec">
+      <h1 class="setProfile-title">프로필 설정</h1>
+      <p class="setProfile-desc">나중에 언제든지 변경할 수 있습니다.</p>
+      <section class="setProfile-img">
+        <h2 class="sr-only">프로필 이미지를 설정</h2>
+        <button class="setProfile-img-upload-btn">
+          <img
+            src="../assets/images/icon/icon-image.svg"
+            alt="이미지 업로드 버튼"
+          />
+        </button>
+      </section>
+      <form class="setProfile-form">
+        <div class="setProfile-input-box">
+          <label for="setUsername-input" class="setProfile-label"
+            >사용자 이름</label
+          >
+          <input
+            type="text"
+            class="setProfile-input setUsername-input"
+            id="setUsername-input"
+            required
+            placeholder="2~10자 이내여야 합니다."
+          />
+        </div>
+        <div class="setProfile-input-box">
+          <label for="setAccId-input" class="setProfile-label">계정 ID</label>
+          <input
+            type="text"
+            class="setProfile-input setAccId-input"
+            id="setAccId-input"
+            required
+            placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다."
+          />
+        </div>
+        <div class="setProfile-input-box">
+          <label for="setIntroduce-input" class="setProfile-label">소개</label>
+          <input
+            type="text"
+            class="setProfile-input setIntroduce-input"
+            id="setIntroduce-input"
+            required
+            placeholder="자신과 판매할 상품에 대해 소개해 주세요!"
+          />
+        </div>
+        <button type="submit" class="submit-btn" disabled>시작하기</button>
+      </form>
+    </section>
+    <script src="../js/join.js"></script>
   </body>
 </html>

@@ -1,3 +1,5 @@
+/* join-section */
+
 .join-title {
   padding-top: 55px;
   margin-bottom: 40px;
@@ -18,6 +20,12 @@
   margin-bottom: 16px;
 }
 
+.email-result {
+  display: none;
+  font-size: 12px;
+  color: var(--error-message-color);
+}
+
 .join-label {
   align-self: flex-start;
   font-size: 12px;
@@ -33,6 +41,10 @@
   transition: all 0.2s;
 }
 
+.error-border {
+  border-bottom: 1px solid var(--error-message-color);
+}
+
 .check-list {
   display: flex;
   gap: 10px;
@@ -44,6 +56,14 @@
   font-size: 12px;
   color: var(--light-gray-color);
   user-select: none;
+}
+
+.check-item.error {
+  color: var(--error-message-color);
+}
+
+.check-item.correct {
+  color: seagreen;
 }
 
 .check-item::after {
@@ -66,6 +86,99 @@
   width: 322px;
   font-size: 14px;
   color: var(--background-color);
+  border-radius: 44px;
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+.join-btn.active {
+  background-color: var(--enabled-color);
+  cursor: pointer;
+}
+
+/* setProfile-section */
+
+.setProfile-sec {
+  display: none;
+}
+
+.setProfile-title {
+  padding-top: 55px;
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.setProfile-desc {
+  font-size: 14px;
+  color: var(--gray-text-color);
+  text-align: center;
+}
+
+.setProfile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 322px;
+}
+
+.setProfile-img {
+  position: relative;
+  margin: 30px auto;
+  width: 110px;
+  height: 110px;
+  background-image: url(../assets/images/img-profile_large.png);
+  background-repeat: no-repeat;
+  background-size: 110px 110px;
+  border-radius: 50%;
+}
+
+.setProfile-img-upload-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 7px;
+  line-height: 0;
+  border-radius: 50%;
+  background-color: var(--enabled-color);
+}
+
+.setProfile-input-box:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.setProfile-label {
+  align-self: flex-start;
+  font-size: 12px;
+  color: var(--gray-text-color);
+}
+
+.setProfile-input {
+  padding: 8px 0;
+  width: 320px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--light-gray-color);
+  transition: all 0.2s;
+}
+
+.setProfile-input::placeholder {
+  font-weight: 400;
+  color: var(--light-gray-color);
+}
+
+.setProfile-input:focus {
+  outline: 0;
+  border-color: var(--enabled-color);
+}
+
+.submit-btn {
+  margin: 30px 0 0;
+  padding: 13px 14px;
+  width: 322px;
+  font-size: 14px;
+  color: #fff;
   border-radius: 44px;
   background-color: var(--disabled-color);
 }
