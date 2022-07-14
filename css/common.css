@@ -29,9 +29,9 @@ a {
   text-decoration: none;
 }
 
-a,
 button {
   cursor: pointer;
+  background: transparent;
 }
 
 button,
