@@ -4,35 +4,37 @@ body {
 }
 
 .nav {
+    position: fixed;
+    top: 0;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
-    padding: 9px 16px 6px;
+    align-items: center;
+    padding: 8px 16px;
+    width: 100%;
+    background-color: var(--background-color);
     border-bottom: 0.5px solid var(--light-gray-color);
 }
 
-.nav .back-btn {
-    padding: 0;
-    background: transparent;
-    height: 32px;
-}
-
-.nav .back-btn img {
+.back-btn {
     width: 22px;
+    height: 22px;
 }
 
-.nav .menu-btn {
-    padding: 0;
-    background: transparent;
+.more-menu-btn {
+    line-height: 0;
 }
 
-.nav .menu-btn img {
-    width: 22px;
+.main {
+    padding-top:41px;
 }
 
 .usercomment-container {
     display:flex;
     gap:16px;
     margin:16px;
+    left: 16px;
+    top: 567px;
 }
 
 .usercomment-container .userprofile-img {
