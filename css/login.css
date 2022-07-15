@@ -37,6 +37,19 @@
   border-color: var(--enabled-color);
 }
 
+.error-message {
+  display: none;
+  margin-top: 6px;
+  align-self: flex-start;
+  font-size: 12px;
+  color: var(--error-message-color);
+  user-select: none;
+}
+
+.error-message.error {
+  display: block;
+}
+
 .login-btn {
   margin: 30px 0 21px;
   padding: 13px 14px;
@@ -45,6 +58,12 @@
   color: #fff;
   border-radius: 44px;
   background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+.login-btn.active {
+  background-color: var(--enabled-color);
+  cursor: pointer;
 }
 
 .email-join-link {
