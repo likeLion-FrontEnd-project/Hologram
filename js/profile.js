@@ -5,6 +5,7 @@ function goBack(){
 }
 backBtn.addEventListener('click', goBack);
 
+
 /* 게시글 - 리스트, 앨범 */
 function postViewtoggle(){
   const listWrap = document.querySelector(".post-list-wrap")
@@ -22,7 +23,6 @@ function addClass(addClass, removeClass){
   addClass.classList.add('on');
   removeClass.classList.remove('on');
 }
-
 const listBtn = document.querySelector("#post-list-btn");
 const albumBtn = document.querySelector("#post-album-btn");
 listBtn.addEventListener('click', postViewtoggle);

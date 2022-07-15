@@ -1,30 +1,6 @@
-button {
-  background: transparent;
-}
-
-/* header */
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 13px 16px 12px;
-  z-index: 10;
-  background-color: var(--background-color);
-  border-bottom: 0.5px solid var(--light-gray-color);
-}
-.nav .back-btn, .nav .menu-btn {
-  padding: 0;
-  height: 22px;
-}
-.back-btn img, .menu-btn img {
-  width: 22px;
-}
-
 /* 프로필 */
 .main {
-  margin-top: 48px;
+  margin-top: 40.5px;
   min-height: 100vh;
   background: var(--background-gray-color);
 }

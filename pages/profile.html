@@ -7,14 +7,20 @@
   <title>프로필 | Hologram</title>
   <link rel="stylesheet" href="../css/default.css">
   <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../css/nav.css">
   <link rel="stylesheet" href="../css/feed.css">
   <link rel="stylesheet" href="../css/tab-menu.css">
 </head>
 <body>
   <header class="nav">
-    <button type="button" class="back-btn"><img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기"></button>
-    <button type="button" class="menu-btn"><img src="../assets/images/icon/icon-nav-menu.svg" alt="메뉴"></button>
+    <button class="back-btn">
+      <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
+    </button>
+    <button class="more-menu-btn">
+      <img src="../assets/images/icon/icon-nav-menu.svg" alt="메뉴 더보기" />
+    </button>
   </header>
+
   <main class="main">
     <section class="profile-section">
       <div class="profile-wrap">
@@ -187,20 +193,31 @@
   <footer class="home-footer">
     <ul class="tab-menu">
       <li>
-        <a href="../pages/feed.html" id="home-link">홈</a>
+        <a href="./home.html" class="home-link">
+          <div class="home-icon"></div>
+          홈
+        </a>
       </li>
       <li>
-        <a href="../pages/chatroom.html" id="chat-link">채팅</a>
+        <a href="../pages/chatroom.html" class="chat-link">
+          <div class="chat-icon"></div>
+          채팅
+        </a>
       </li>
       <li>
-        <a href="../pages/post.html" id="post-link">게시물 작성</a>
+        <a href="../pages/post.html" class="post-link">
+          <div class="post-icon"></div>
+          게시물 작성
+        </a>
       </li>
       <li>
-        <a class="tab-profile-icon" href="../pages/profile.html" id="profile-link">프로필</a>
+        <a href="../pages/profile.html" class="profile-link  clicked">
+          <div class="profile-icon clicked"></div>
+          프로필
+        </a>
       </li>
     </ul>
   </footer>
-
   <script src="../js/profile.js"></script>
 </body>
 </html>
