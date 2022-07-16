@@ -41,6 +41,7 @@ async function loginData() {
       loginBtn.classList.remove('active');
     }
     localStorage.setItem('token', resJson.user.token);
+    localStorage.setItem('accountname', resJson.user.accountname);
   } catch (err) {
     console.error(err);
   }
