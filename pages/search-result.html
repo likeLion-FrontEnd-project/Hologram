@@ -6,60 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>검색 결과 화면 | Hologram</title>
     <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/search-init.css" />
     <link rel="stylesheet" href="../css/search-result.css" />
     <link rel="stylesheet" href="../css/tab-menu.css" />
   </head>
   <body>
-    <header class="search-header">
-      <button type="button" class="back-btn">
-        <img
-          src="../assets/images/icon/icon-arrow-left.svg"
-          alt="뒤로가기 버튼"
-        />
+    <header class="search-nav">
+      <button class="back-btn">
+        <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
       </button>
       <label for="search-input" class="sr-only">검색창</label>
       <input
         type="text"
-        class="search-input"
+        class="search"
         id="search-input"
         placeholder="계정 검색"
       />
     </header>
     <main class="search-main">
-      <ul class="search-list">
-        <li class="search-list-item">
-          <img
-            src="../assets/images/img-profile_small.png"
-            alt="검색 결과 프로필 이미지"
-            class="search profile-image"
-          />
-          <div>
-            <h3 class="search profile-name">애월읍 위니브 감귤농장</h3>
-            <p class="search profile-id">@wijeong_0305</p>
-          </div>
+      <ul class="user-list-wrap">
+        <li class="user-profile-li">
+          <a href="#none" class="search-a">
+            <img
+              src="../assets/images/img-profile_small.png"
+              alt="프로필 사진"
+              class="user-img"
+            />
+            <div class="user-info">
+              <strong class="user-name">애월읍 위니브 감귤농장</strong>
+              <span class="user-id">@wijeong_0305</span>
+            </div>
+          </a>
         </li>
-        <li class="search-list-item">
-          <img
-            src="../assets/images/img-profile_small.png"
-            alt="검색 결과 프로필 이미지"
-            class="search profile-image"
-          />
-          <div>
-            <h3 class="search profile-name">애월읍 위니브 감귤농장</h3>
-            <p class="search profile-id">@wijeong_0305</p>
-          </div>
+        <li class="user-profile-li">
+          <a href="#none" class="search-a">
+            <img
+              src="../assets/images/img-profile_small.png"
+              alt="프로필 사진"
+              class="user-img"
+            />
+            <div class="user-info">
+              <strong class="user-name">애월읍 위니브 감귤농장</strong>
+              <span class="user-id">@wijeong_0305</span>
+            </div>
+          </a>
         </li>
-        <li class="search-list-item">
-          <img
-            src="../assets/images/img-profile_small.png"
-            alt="검색 결과 프로필 이미지"
-            class="search profile-image"
-          />
-          <div>
-            <h3 class="search profile-name">애월읍 위니브 감귤농장</h3>
-            <p class="search profile-id">@wijeong_0305</p>
-          </div>
+        <li class="user-profile-li">
+          <a href="#none" class="search-a">
+            <img
+              src="../assets/images/img-profile_small.png"
+              alt="프로필 사진"
+              class="user-img"
+            />
+            <div class="user-info">
+              <strong class="user-name">애월읍 위니브 감귤농장</strong>
+              <span class="user-id">@wijeong_0305</span>
+            </div>
+          </a>
         </li>
       </ul>
     </main>

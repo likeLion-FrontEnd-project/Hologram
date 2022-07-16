@@ -3,28 +3,36 @@
   padding: 68px 16px 60px 16px;
 }
 
-.search-list-item {
-  margin-bottom: 16px;
+.user-profile-li {
   display: flex;
   align-items: center;
+  margin-bottom: 16px;
 }
 
-.search.profile-image {
+.search-a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.user-img {
   width: 50px;
   height: 50px;
   border: 0.5px solid var(--light-gray-color);
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
-.search.profile-name {
+.user-name {
+  display: block;
   font-size: 14px;
   font-weight: 500;
   color: var(--content-color-text);
   margin-bottom: 6px;
 }
 
-.search.profile-id {
+.user-id {
   font-size: 12px;
   font-weight: 400;
   color: var(--gray-text-color);
