@@ -8,10 +8,17 @@ const postImage = document.querySelector(".upload-img");
 const uploadBtn = document.querySelector('.nav-btn');
 const postImgList = document.querySelector('.postimg-list');
 const dropboxCloseBtn = document.querySelector('.close');
+const backBtn = document.querySelector('.back-btn');
 const url="https://mandarin.api.weniv.co.kr";
 let uploadURL=""
 const imgFile=[];
 
+// 뒤로 가기
+function goBack(){
+    window.history.back();
+}
+
+backBtn.addEventListener('click', goBack);
 
 // 카테고리 모달창 보여주기
 async function handleShowList() {

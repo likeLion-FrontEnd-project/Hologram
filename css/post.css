@@ -2,32 +2,45 @@ body {
     font-family: 'Pretendard';
 }
 
-.upload-sec {
+.nav {
+    position: fixed;
+    top: 0;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
-    border-bottom: 0.5px solid var(--light-gray-color);
-    padding:8px 16px;
-}
-.upload-sec .back-btn {
+    align-items: center;
+    padding: 8px 16px;
+    width: 100%;
     background-color: var(--background-color);
-    border:none;
-    padding:0;
+    border-bottom: 0.5px solid var(--light-gray-color);
 }
 
-.upload-sec .upload-btn {
-    width: 90px;
-    height: 32px;
-    color: var(--background-color);
-    background: var(--disabled-color);
-    border: none;
+/* 저장 및 업로드 버튼 비활성 */
+.nav-btn {
     border-radius: 32px;
-    font-size: 14px;
-    font-weight: 500;
+    background-color: var(--disabled-color);
+    color: #fff;
 }
 
-.upload-btn.on {
-    background: var(--enabled-color);
+/* 뒤로가기 버튼 */
+.back-btn {
+    width: 22px;
+    height: 22px;
 }
+
+.upload {
+    padding: 8px 27px 7px 26px;
+}
+
+/* 저장 및 업로드 버튼 활성 */
+.nav-btn.enabled {
+    background-color: var(--enabled-color);
+}
+
+.main {
+    padding-top:48px;
+}
+
 .container-sec {
     padding:0px 16px;
 }
@@ -66,7 +79,7 @@ body {
     left: 50%;
     flex-direction: column;
     width: 252px;
-    border-radius: 15px;
+    border-radius: 10px;
     border:1px solid var(--light-gray-color);
     padding:29px 14px 14px;
     transform: translateX(-50%) translateY(-50%);
