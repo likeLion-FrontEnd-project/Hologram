@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>모달창(프로필) | Hologram</title>
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+  </head>
+  <body>
+    <!-- 페이지 중앙 모달창 -->
+    <article class="modal-window-center">
+      <h1 class="sr-only">로그아웃 확인 모달창</h1>
+      <p class="modal-center-text">로그아웃 하시겠어요?</p>
+      <div class="modal-center-btn">
+        <button type="button" id="cancel-btn" class="center-btn-left">
+          취소
+        </button>
+        <button type="button" id="logout-btn" class="center-btn-right">
+          로그아웃
+        </button>
+      </div>
+    </article>
+    <!-- 페이지 하단 모달창 -->
+    <article class="modal-window-bottom">
+      <h1 class="sr-only">프로필 설정, 로그아웃 모달창</h1>
+      <button type="button" class="modal-close-bar">
+        <img
+          src="../assets/images/icon/icon-modal-closebtn.svg"
+          alt="모달창
+        닫기 아이콘"
+          class="modal-close-icon"
+        />
+      </button>
+      <ul class="modal-list">
+        <li>
+          <button id="profile-setting" class="modal-list-btn">
+            설정 및 개인정보
+          </button>
+        </li>
+        <li>
+          <button id="logout" class="modal-list-btn">로그아웃</button>
+        </li>
+      </ul>
+    </article>
+  </body>
+</html>
