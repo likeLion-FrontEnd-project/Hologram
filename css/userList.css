@@ -1,0 +1,77 @@
+/* 프로필 */
+.main {
+  margin-top: 40.5px;
+  min-height: 100vh;
+}  
+.user-list-wrap {
+  max-width: 390px;
+  width: 100%;
+  padding: 24px 16px;
+  margin: 0 auto;
+}
+.user-profile-li {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.user-img {
+  margin-right: 12px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 0.5px solid var(--light-gray-color);
+}
+
+/* 유저 정보 */
+.user-info {
+  flex-grow: 2;
+  margin-right: 12px;
+}
+.user-info .user-name {
+  display: block;
+  margin: 5px 0 6px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  align-self: flex-start;
+}
+.user-info .user-info {
+  margin-bottom: 7px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--gray-text-color);
+}
+
+/* 유저 검색 목록*/
+.user-profile-li .search-a {
+  display: flex;
+  width: 100%;
+}
+
+/* 팔로우 */
+.user-profile-li a {
+  width: 50px;
+  height: 50px;
+  margin-right: 12px;
+}
+
+.user-follow-btn {
+  padding: 7px 11px;
+  min-width: 56px;
+  font-weight: 400;
+  line-height: 14px;
+  border-radius: 26px;
+  color: var(--background-color);
+  background-color: var(--enabled-color);
+}
+
+/* 팔로우 취소 버튼 */
+.cancel {
+  color: var(--gray-text-color);
+  background-color: var(--background-color);
+  border: 1px solid var(--light-gray-color);
+}
