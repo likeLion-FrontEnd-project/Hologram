@@ -1,0 +1,36 @@
+/* 공통 css */
+.img-upload-btn {
+    border-radius: 50%;
+    line-height: 0;
+}
+
+/* 프로필 설정 */
+.img-upload-btn.set-profile {
+    padding:7px;
+    background-color: var(--enabled-color);
+}
+
+/* 프로필 수정 */
+.img-upload-btn.edit-profile {
+    padding:7px;
+    background-color: var(--enabled-color);
+}
+
+/* 상품 등록 */
+.img-upload-btn.register-product {
+    padding:7px;
+    background-color: #C4C4C4;
+}
+
+/* 게시글 등록 */
+.img-upload-btn.register-post {
+    padding:11px;
+    background-color: var(--enabled-color);
+}
+
+.img-upload-btn.register-post img {
+    width: 28px;
+    height: 28px;
+}
+
+
