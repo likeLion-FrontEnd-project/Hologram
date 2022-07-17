@@ -26,36 +26,46 @@
       <div class="profile-wrap">
         <h1 class="sr-only">프로필 페이지</h1>
         <div class="follow-wrap">
-          <a class="follower-wrap" href="">
-            <strong class="follower-num">2950</strong>
+          <a class="follower-wrap" href="../pages/followers.html">
+            <strong class="follower-num">{follower-num}</strong>
             <span>followers</span>
           </a>
           <div class="profile-img-wrap">
             <img src="../assets/images/feed_room_03.jpg" alt="프로필">
           </div>
-          <a class="following-wrap" href="">
-            <strong class="following-num">128</strong>
+          <a class="following-wrap" href="../pages/followings.html">
+            <strong class="following-num">{following-num}</strong>
             <span>followings</span>
           </a>
         </div>
-        <strong class="profile-name">애월읍 (주) 봉국</strong>
-        <strong class="profile-id">@weniv_Mandarin</strong>
-        <p class="profile-intro">애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</p>
+        <strong class="profile-name">{profile-name}</strong>
+        <span class="profile-account">{profile-account}</span>
+        <p class="profile-intro">{profile-desc}</p>
         
-        <div class="follow-btns">
-          <!-- your profile follow-->
-          <!-- <button class="chat-btn" type="button"><img src="../assets/images/icon/icon-chat.svg" alt= "채팅"></button>
-          <button class="follow-btn" type="button">팔로우</button>
-          <button class="share-btn" type="button"><img src="../assets/images/icon/icon-share.svg" alt="공유하기"></button> -->
-          
-          <!-- my profile -->
-          <a class="profile-edit-btn" href="../pages/editprofile.html">프로필 수정</a>
+        <!-- 마이 프로필 -->
+        <div class="myProfile-btns on">
+          <a class="myProfile-edit-btn" href="../pages/editprofile.html">프로필 수정</a>
           <a class="product-register-btn" href="../pages/product.html">상품 등록</a>
-          
-          <!-- your profile unfollow-->
-          <!-- <button class="chat-btn" type="button"><img src="../assets/images/icon/icon-chat.svg" alt= "채팅"></button>
+        </div>
+        <!-- 팔로우 하지 않은 사용자 프로필-->
+        <div class="follow-btns">
+          <button class="chat-btn" type="button">
+            <img src="../assets/images/icon/icon-chat.svg" alt= "채팅">
+          </button>
+          <button class="follow-btn" type="button">팔로우</button>
+          <button class="share-btn" type="button">
+            <img src="../assets/images/icon/icon-share.svg" alt="공유하기">
+          </button> 
+        </div>
+        <!-- 팔로우한 사용자의 프로필-->
+        <div class="unfollow-btns">
+          <button class="chat-btn" type="button">
+            <img src="../assets/images/icon/icon-chat.svg" alt= "채팅">
+          </button>
           <button class="profile-unfollow-btn" type="button">언팔로우</button>
-          <button class="share-btn" type="button"><img src="../assets/images/icon/icon-share.svg" alt="공유하기"></button> -->
+          <button class="share-btn" type="button">
+            <img src="../assets/images/icon/icon-share.svg" alt="공유하기">
+          </button> 
         </div>
       </div>
     </section>
@@ -112,7 +122,7 @@
           <li class="post-list-item">
             <div class="post-img-wrap">
               <img
-                src="../assets/images/feed_room_1.jpg"
+                src="../assets/images/img-post-sample.png"
                 alt="피드 게시물 이미지"
                 class="post-image"
               />
@@ -120,8 +130,8 @@
             <div class="post-nav">
               <div class="post-user">
                 <img
-                  src="../assets/images/feed_room_03.jpg"
-                  alt="프로필 사진"
+                  src="../assets/images/img-profile_small.png"
+                  alt="프로필 기본 이미지"
                   class="profile-image"
                 />
                 <div>
@@ -132,7 +142,7 @@
               <button class="post-menu-button">
                 <img
                   src="../assets/images/icon/icon-post-menu.svg"
-                  alt="메뉴"
+                  alt="메뉴 버튼"
                   class="post-menu-button-image"
                 />
               </button>
@@ -153,19 +163,11 @@
               <p class="post-time">20분 전</p>
               <div class="post-footer-button">
                 <button type="button" class="like-button">
-                  <img
-                    src="../assets/images/icon/icon-like-gray.svg"
-                    alt="좋아요"
-                    class="like-button-image"
-                  />
+                  <span class="sr-only">좋아요</span>
                 </button>
-                <span class="like-num">8</span>
+                <span class="like-num">0</span>
                 <button type="button" class="comment-button">
-                  <img
-                    src="../assets/images/icon/icon-comments.svg"
-                    alt="댓글"
-                    class="comment-button-image"
-                  />
+                  <span class="sr-only">댓글</span>
                 </button>
                 <span class="comment-num">12</span>
               </div>
@@ -188,7 +190,8 @@
           </ul>
         </div>
       </div>
-    </section>
+
+      
   </main>
   <footer class="home-footer">
     <ul class="tab-menu">
