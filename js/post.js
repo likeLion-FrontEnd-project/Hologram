@@ -1,4 +1,3 @@
-
 const selectBtn    = document.querySelector('.select-btn');
 const categoryList = document.querySelector('.modal');
 const postContent  = document.querySelector('.upload-txt');
@@ -8,7 +7,6 @@ const postImage = document.querySelector(".upload-img");
 const uploadBtn = document.querySelector('.nav-btn');
 const postImgList = document.querySelector('.postimg-list');
 const dropboxCloseBtn = document.querySelector('.close');
-const backBtn = document.querySelector('.back-btn');
 let uploadURL=""
 const imgFile=[];
 
