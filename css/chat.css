@@ -1,34 +1,8 @@
-body {
-    font-family: 'Pretendard';
-}
-
-.nav {
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 16px;
-    width: 100%;
-    background-color: var(--background-color);
-    border-bottom: 0.5px solid var(--light-gray-color);
-}
-
-.back-btn {
-    width: 22px;
-    height: 22px;
-}
-
-.more-menu-btn {
-    line-height: 0;
-}
-
 .main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top:41px;
+    padding-top: 48px;
 }
 
 .chatlist-container {

@@ -1,6 +1,6 @@
 /* 프로필 */
 .main {
-  margin-top: 40.5px;
+  padding-top: 48px;
   min-height: 100vh;
   background: var(--background-gray-color);
 }
