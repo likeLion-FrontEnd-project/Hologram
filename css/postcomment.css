@@ -43,7 +43,7 @@ body {
     border-radius: 50%;
 }
 
-.usercomment-container .info-sec .userinfo-sec {
+.usercomment-container .info-div .userinfo-div {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -52,13 +52,13 @@ body {
 }
 
 
-.info-sec .userinfo-sec .nickname-txt {
+.info-div .userinfo-div .nickname-txt {
     font-size: 14px;
     font-weight: 500;
     line-height: 17px;
 }
 
-.info-sec .userinfo-sec .time-txt {
+.info-div .userinfo-div .time-txt {
     display: flex;
     align-items: center;
     font-size: 10px;
