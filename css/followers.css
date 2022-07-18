@@ -1,43 +1,13 @@
-button {
-  background: transparent;
-}
-/* header */
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  padding: 13px 16px 12px;
-  z-index: 10;
-  background-color: var(--background-color);
-  border-bottom: 0.5px solid var(--light-gray-color);
-}
-.nav .back-btn {
-  padding: 0;
-  height: 22px;
-}
-.back-btn img {
-  width: 22px;
-}
-
-.nav h1 {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 22px;
-  margin-left: 8px;
-}
-
 /* 프로필 */
 .main {
-  margin-top: 48px;
-  min-height: 100vh;
+  margin-bottom: 60px;
 }  
 .user-list-wrap {
   max-width: 390px;
   width: 100%;
-  padding: 24px 16px;
+  padding: 24px 16px 0 16px;
   margin: 0 auto;
+  overflow: hidden;
 }
 .user-profile {
   margin-bottom: 16px;

@@ -6,14 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>상품 등록 | 홀로그램</title>
   <link rel="stylesheet" href="../css/default.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/imageRegister.css">
   <link rel="stylesheet" href="../css/product.css">
 </head>
 <body>
   <header class="nav">
-    <button type="button" class="back-btn">
-      <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기">
+    <button class="back-btn">
+      <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
     </button>
-    <button type="button" class="save-btn" disabled>저장</button>
+    <button class="nav-btn save">저장</button>
   </header>
   <main class="main">
     <section class="product-wrap">
@@ -21,8 +23,8 @@
       <form action="product-form" autocomplete="off">
         <h3 class="product-title">이미지 등록</h3>
         <div class="productImg-wrap">
-          <button type="button">
-            <img src="../assets/images/img-button_gray.svg" alt="상품 이미지">
+          <button class="img-upload-btn register-product">
+            <img src="../assets/images/icon/icon-image.svg" alt="이미지 업로드" />
           </button>
         </div>
         <div class="content-wrap">
@@ -41,5 +43,6 @@
       </form>
     </section>
   </main>
+  <script src="../js/product.js"></script>
 </body>
 </html>
