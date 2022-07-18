@@ -1,6 +1,6 @@
 /* 프로필 */
 .main {
-  margin-top: 40.5px;
+  padding-top: 48px;
   min-height: 100vh;
 }  
 .user-list-wrap {
@@ -38,7 +38,7 @@
   line-height: 17px;
   align-self: flex-start;
 }
-.user-info .user-info {
+.user-info .user-intro {
   margin-bottom: 7px;
   font-weight: 400;
   font-size: 12px;

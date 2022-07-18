@@ -1,6 +1,5 @@
 .post-list-wrap {
   max-width: 390px;
-  padding: 68px 16px 60px 16px;
 }
 
 .post-list-wrap .post-list-item {
@@ -49,7 +48,7 @@
   margin-bottom: 2px;
 }
 
-.post-user .profile-id {
+.post-user .account {
   font-size: 10px;
   font-weight: 400;
   color: var(--gray-text-color);
