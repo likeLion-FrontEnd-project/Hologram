@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/input.css" />
+    <title>input</title>
+  </head>
+  <body>
+    <form class="input-form">
+      <div class="input-wrapper">
+        <label for="email-input" class="input-label">이메일</label>
+        <input type="text" class="input" id="email-input" />
+      </div>
+
+      <div class="input-wrapper">
+        <label for="password-input" class="input-label">비밀번호</label>
+        <input type="password" class="input" id="password-input" />
+      </div>
+
+      <div class="input-wrapper">
+        <label for="password-confirm-input" class="input-label"
+          >비밀번호 확인</label
+        >
+        <input type="password" class="input" id="password-confirm-input" />
+      </div>
+
+      <div class="input-wrapper">
+        <label for="product-name-input" class="input-label">상품명</label>
+        <input
+          type="text"
+          class="input"
+          id="product-name-input"
+          placeholder="2~15자 이내여야 합니다."
+        />
+      </div>
+
+      <div class="input-wrapper">
+        <label for="price-input" class="input-label">가격</label>
+        <input
+          type="number"
+          class="input"
+          id="price-input"
+          placeholder="숫자만 입력 가능합니다."
+        />
+      </div>
+
+      <div class="input-wrapper">
+        <label for="link-input" class="input-label">판매 링크</label>
+        <input
+          type="url"
+          class="input"
+          id="link-input"
+          placeholder="URL을 입력해 주세요."
+        />
+      </div>
+    </form>
+  </body>
+</html>
