@@ -1,9 +1,14 @@
 .home-main {
-  padding-top: 48px;
+  padding-top: 68px;
+  margin: 0 15px;
 }
 
 .post-list-wrap {
   max-width: 390px;
+}
+
+.post-list-wrap.feed {
+  padding-bottom: 60px;
 }
 
 .post-list-wrap .post-list-item {
@@ -52,7 +57,7 @@
   margin-bottom: 2px;
 }
 
-.post-user .account {
+.post-user .profile-account {
   font-size: 10px;
   font-weight: 400;
   color: var(--gray-text-color);
