@@ -11,12 +11,6 @@
   border-bottom: 1px solid var(--light-gray-color);
 }
 
-.back-btn {
-  margin: 4px 20px 0 0;
-  background-color: transparent;
-  padding: 0;
-}
-
 .search-input {
   width: 100%;
   font-size: 14px;

@@ -2,7 +2,6 @@ const commentInput = document.querySelector(".comment-inp");
 const postBtn = document.querySelector(".post-btn");
 const chatTxt = document.querySelector(".chat-txt");
 const commentList = document.querySelector('.comment-list');
-const url="https://mandarin.api.weniv.co.kr"
 
 // 댓글 생성
 async function postComment() {

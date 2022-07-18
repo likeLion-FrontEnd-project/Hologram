@@ -1,12 +1,4 @@
-const url="https://mandarin.api.weniv.co.kr";
 getUserProfile();
-
-/* 뒤로 가기 */
-const backBtn = document.querySelector('.back-btn');
-function goBack(){
-  window.history.back();
-}
-backBtn.addEventListener('click', goBack);
 
 /* 게시글 - 리스트, 앨범 */
 function postViewtoggle(){
