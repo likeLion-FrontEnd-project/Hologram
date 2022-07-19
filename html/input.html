@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,12 +12,20 @@
     <form class="input-form">
       <div class="input-wrapper">
         <label for="email-input" class="input-label">이메일</label>
-        <input type="text" class="input" id="email-input" />
+        <input type="email" class="input" id="email-input" />
+        <strong class="error-msg">*{에러메세지}</strong>
       </div>
 
       <div class="input-wrapper">
         <label for="password-input" class="input-label">비밀번호</label>
-        <input type="password" class="input" id="password-input" />
+        <input
+          type="password"
+          class="input"
+          id="password-input"
+          minlength="8"
+          maxlength="20"
+        />
+        <strong class="error-msg">*{에러메세지}</strong>
       </div>
 
       <div class="input-wrapper">
@@ -25,6 +33,7 @@
           >비밀번호 확인</label
         >
         <input type="password" class="input" id="password-confirm-input" />
+        <strong class="error-msg">*{에러메세지}</strong>
       </div>
 
       <div class="input-wrapper">
@@ -35,6 +44,7 @@
           id="product-name-input"
           placeholder="2~15자 이내여야 합니다."
         />
+        <strong class="error-msg">*{에러메세지}</strong>
       </div>
 
       <div class="input-wrapper">
@@ -45,16 +55,18 @@
           id="price-input"
           placeholder="숫자만 입력 가능합니다."
         />
+        <strong class="error-msg">*{에러메세지}</strong>
       </div>
 
       <div class="input-wrapper">
-        <label for="link-input" class="input-label">판매 링크</label>
+        <label for="url-input" class="input-label">판매 링크</label>
         <input
           type="url"
           class="input"
-          id="link-input"
+          id="url-input"
           placeholder="URL을 입력해 주세요."
         />
+        <strong class="error-msg">*{에러메세지}</strong>
       </div>
     </form>
   </body>
