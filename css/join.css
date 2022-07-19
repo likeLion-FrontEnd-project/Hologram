@@ -1,5 +1,15 @@
 /* join-section */
 
+/* 프로필 설정 임시 작업으로 나중에 삭제 예정 */
+/* .join-sec {
+  display: none;
+}
+
+.setProfile-sec {
+  display: block;
+} */
+/* 프로필 설정 임시 작업으로 나중에 삭제 예정 */
+
 .join-title {
   padding-top: 55px;
   margin-bottom: 40px;
@@ -8,44 +18,8 @@
   text-align: center;
 }
 
-.join-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  width: 322px;
-}
-
-.join-input-box:not(:last-of-type) {
-  margin-bottom: 16px;
-}
-
-.email-result {
-  display: none;
-  font-size: 12px;
-  color: var(--error-message-color);
-}
-
-.join-label {
-  align-self: flex-start;
-  font-size: 12px;
-  color: var(--gray-text-color);
-}
-
-.join-input {
-  margin-bottom: 4px;
-  padding: 8px 0;
-  width: 320px;
-  font-size: 14px;
-  border-bottom: 1px solid var(--light-gray-color);
-  transition: all 0.2s;
-}
-
-.error-border {
-  border-bottom: 1px solid var(--error-message-color);
-}
-
 .check-list {
+  margin-top: 4px;
   display: flex;
   gap: 10px;
 }
@@ -58,7 +32,7 @@
   user-select: none;
 }
 
-.check-item.error {
+.check-item.error-txt {
   color: var(--error-message-color);
 }
 
@@ -75,9 +49,8 @@
   margin-left: 3px;
 }
 
-.join-input:focus {
-  outline: 0;
-  border-color: var(--enabled-color);
+.check-item.error-txt::after {
+  background-image: url(../assets/images/icon/icon-check_red.svg);
 }
 
 .join-btn {
@@ -116,20 +89,12 @@
   text-align: center;
 }
 
-.setProfile-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  width: 322px;
-}
-
-.setProfile-img {
+.setprofile-edit-wrap {
   position: relative;
   margin: 30px auto;
   width: 110px;
-  height: 110px;
   background-image: url(../assets/images/img-profile_large.png);
+  height: 110px;
   background-repeat: no-repeat;
   background-size: 110px 110px;
   border-radius: 50%;
@@ -145,32 +110,31 @@
   background-color: var(--enabled-color);
 }
 
-.setProfile-input-box:not(:last-of-type) {
-  margin-bottom: 16px;
-}
-
-.setProfile-label {
-  align-self: flex-start;
-  font-size: 12px;
-  color: var(--gray-text-color);
-}
-
-.setProfile-input {
+.setprofile-input {
   padding: 8px 0;
-  width: 320px;
+  width: 100%;
   font-size: 14px;
   border-bottom: 1px solid var(--light-gray-color);
   transition: all 0.2s;
 }
 
-.setProfile-input::placeholder {
-  font-weight: 400;
+.setprofile-input:focus {
+  border-bottom: 1px solid var(--enabled-color);
+}
+
+.setprofile-input::placeholder {
   color: var(--light-gray-color);
 }
 
-.setProfile-input:focus {
-  outline: 0;
-  border-color: var(--enabled-color);
+.setprofile-input.error {
+  border-bottom: 1px solid var(--error-message-color);
+}
+
+.setprofile-error-msg {
+  display: none;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--error-message-color);
 }
 
 .submit-btn {
@@ -181,4 +145,10 @@
   color: #fff;
   border-radius: 44px;
   background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+.submit-btn.active {
+  background-color: var(--enabled-color);
+  cursor: pointer;
 }
