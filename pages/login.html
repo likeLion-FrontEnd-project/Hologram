@@ -7,30 +7,37 @@
     <title>로그인 | Hologram</title>
     <link rel="stylesheet" href="../css/default.css" />
     <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/input.css" />
   </head>
   <body>
     <section class="login-sec">
       <h1 class="login-title">로그인</h1>
-      <form class="login-form">
-        <label for="email-input" class="login-label">이메일</label>
-        <input
-          type="email"
-          class="login-input email-input"
-          id="email-input"
-          required
-        />
-        <label for="password-input" class="login-label">비밀번호</label>
-        <input
-          type="password"
-          class="login-input password-input"
-          id="password-input"
-          required
-        />
-        <span class="error-message"
-          >*이메일 또는 비밀번호가 일치하지 않습니다.</span
-        >
-        <button type="submit" class="login-btn" disabled>로그인</button>
-        <a href="join.html" class="email-join-link">이메일 회원가입</a>
+      <form class="input-form">
+        <div class="input-wrapper">
+          <label for="email-input" class="input-label">이메일</label>
+          <input
+            type="email"
+            class="input email-input"
+            id="email-input"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label for="password-input" class="input-label">비밀번호</label>
+          <input
+            type="password"
+            class="input password-input"
+            id="password-input"
+            required
+          />
+          <strong class="error-msg"
+            >*이메일 또는 비밀번호가 일치하지 않습니다.</strong
+          >
+        </div>
+        <div class="btn-wrapper">
+          <button type="submit" class="login-btn" disabled>로그인</button>
+          <a href="join.html" class="email-join-link">이메일 회원가입</a>
+        </div>
       </form>
     </section>
     <script src="../js/login.js"></script>

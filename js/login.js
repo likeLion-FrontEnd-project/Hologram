@@ -1,7 +1,7 @@
 const emailInput = document.querySelector('.email-input');
 const pwInput = document.querySelector('.password-input');
 const loginBtn = document.querySelector('.login-btn');
-const errMsg = document.querySelector('.error-message');
+const errMsg = document.querySelector('.error-msg');
 
 function loginBtnActive() {
   if (emailInput.value !== '' && pwInput.value !== '') {
@@ -13,7 +13,7 @@ function loginBtnActive() {
   }
 }
 
-loginBtn.addEventListener('input', loginBtnActive);
+emailInput.addEventListener('input', loginBtnActive);
 pwInput.addEventListener('input', loginBtnActive);
 
 async function loginData() {
@@ -35,13 +35,13 @@ async function loginData() {
     console.log(resJson);
 
     if (resJson.status !== 422) {
-      location.href = './feed.html';
+      location.href = './home.html';
+      localStorage.setItem('token', resJson.user.token);
+      localStorage.setItem('accountname', resJson.user.accountname);
     } else {
-      errMsg.classList.add('error');
+      errMsg.style.display = 'block';
       loginBtn.classList.remove('active');
     }
-    localStorage.setItem('token', resJson.user.token);
-    localStorage.setItem('accountname', resJson.user.accountname);
   } catch (err) {
     console.error(err);
   }
