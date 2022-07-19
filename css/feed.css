@@ -1,15 +1,15 @@
-.post-section {
+.post-section.feed {
   height: 100vh;
 }
 
 .post-list-wrap {
   max-width: 360px;
-  padding-top: 68px;
+  padding: 20px 0 60px;
   margin: 0 15px;
 }
 
 .post-list-wrap.feed {
-  padding-bottom: 60px;
+  padding: 68px 0 60px;
 }
 
 .post-list-wrap .post-list-item {

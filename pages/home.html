@@ -4,30 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>홈피드 초기화면 | Hologram</title>
+    <title>홈피드 게시글 화면 | Hologram</title>
     <link rel="stylesheet" href="../css/default.css" />
     <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/feed.css" />
     <link rel="stylesheet" href="../css/tab-menu.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
   </head>
   <body>
     <header class="nav">
       <h1 class="feed-title">홀로그램 피드</h1>
-      <a href="./search-init.html" class="search-btn">
+      <a href="../pages/search-result.html" class="search-btn">
         <img src="../assets/images/icon/icon-search.svg" alt="검색하기" />
       </a>
     </header>
-    <main class="home-main">
-      <div class="home-main-initial">
-        <img
-          class="main-logo-image"
-          src="../assets/images/image-symbol-logo.png"
-          alt="symbol-logo-image"
-        />
-        <p class="main-text">유저를 검색해 팔로우 해보세요!</p>
-        <a href="./search-init.html" class="main-search-link">검색하기</a>
-      </div>
-    </main>
+    <main class="home-main"></main>
     <footer class="home-footer">
       <ul class="tab-menu">
         <li>
@@ -49,13 +41,45 @@
           </a>
         </li>
         <li>
-          <a href="./profile.html" class="profile-link">
+          <a href="../pages/profile.html" class="profile-link">
             <div class="profile-icon"></div>
             프로필
           </a>
         </li>
       </ul>
     </footer>
+
+    <div class="modal-bg hidden"></div>
+    <article class="modal-window-bottom hidden">
+      <h1 class="sr-only">게시글 신고 모달창</h1>
+      <button type="button" class="modal-close-bar">
+        <img
+          src="../assets/images/icon/icon-modal-closebtn.svg"
+          alt="모달창 닫기 아이콘"
+          class="modal-close-icon"
+        />
+      </button>
+      <ul class="modal-list">
+        <li>
+          <button id="report" class="modal-list-btn">신고하기</button>
+        </li>
+      </ul>
+    </article>
+
+    <article class="modal-window-center hidden">
+      <h1 class="sr-only">게시글 신고 확인 모달창</h1>
+      <p class="modal-center-text">게시글을 신고하시겠어요?</p>
+      <div class="modal-center-btn">
+        <button type="button" id="cancel-btn" class="center-btn-left">
+          취소
+        </button>
+        <button type="button" id="report-btn" class="center-btn-right">
+          신고
+        </button>
+      </div>
+    </article>
     <script src="../js/common.js"></script>
+    <script src="../js/home.js"></script>
+    <script src="../js/feedmodal.js"></script>
   </body>
 </html>
