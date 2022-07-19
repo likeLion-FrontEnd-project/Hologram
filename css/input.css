@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin: 0 auto;
+  width: 322px;
 }
 
 .input-wrapper {
@@ -17,7 +19,7 @@
 
 .input {
   padding: 8px 0;
-  width: 322px;
+  width: 100%;
   font-size: 14px;
   border-bottom: 1px solid var(--light-gray-color);
   transition: all 0.2s;
@@ -35,14 +37,14 @@
 
 /* input error style - JS .input에 클래스 추가 제거(classlist.add("error") */
 /* 에러 시 input 하단의 border 컬러 변경 */
-.error {
+.input.error {
   border-bottom: 1px solid var(--error-message-color);
 }
 
 /* input error text - JS 스타일 수정(style.display = "block")*/
 /* 에러 시 input 아래 에러 메세지 */
 .error-msg {
-  /* display: none; */
+  display: none;
   margin-top: 6px;
   font-size: 12px;
   color: var(--error-message-color);
