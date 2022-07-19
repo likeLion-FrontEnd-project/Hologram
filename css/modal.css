@@ -1,11 +1,6 @@
-/* 모달창 확인용 테스트 배경색  */
-body {
-  background-color: rgba(0, 0, 0, 0.486);
-}
-
 /* 페이지 중앙 모달창 기본 틀 */
 .modal-window-center {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -48,11 +43,24 @@ body {
 }
 
 /* 페이지 하단 모달창 기본 틀 */
+.hidden {
+  display: none;
+}
+
+.modal-bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
 .modal-window-bottom {
   position: fixed;
   left: 0;
   bottom: 0;
-  z-index: 10;
   width: 100%;
   border-radius: 10px 10px 0 0;
   background-color: var(--background-color);
@@ -77,7 +85,7 @@ body {
 }
 
 #delete-comment.modal-list-btn,
-#report-comment.modal-list-btn,
+#report.modal-list-btn,
 #chatroom.modal-list-btn {
   margin-bottom: 10px;
 }
