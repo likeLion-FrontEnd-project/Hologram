@@ -18,19 +18,7 @@
         </button>
     </header>
     <main class="main">
-        <ul class="comment-list">
-            <!-- <li class="usercomment-container">
-                <img src="../assets/images/img-sample.png" alt="프로필 이미지" class="userprofile-img">
-                <div class="info-div">
-                    <div class="userinfo-div">
-                        <p class="nickname-txt">서귀포시 무슨 농장</p>
-                        <span class="time-txt">· 5분 전</span>
-                    </div>
-                    <p class="chat-txt">게시글 답글 ~~!! 최고최고</p>
-                </div>
-                <button type="button" class="menu-btn"><img src="../assets/images/icon/icon-nav-menu.svg" alt="메뉴 버튼"></button>
-            </li> -->
-        </ul>
+        <ul class="comment-list"></ul>
     </main>
     <footer class="footer">
         <section class="comment-container">
@@ -40,6 +28,47 @@
             <button type="button" class="post-btn"><span>게시</span></button>
         </section>
     </footer>
+    <div class="modal-background">
+        <article class="modal-window-bottom report">
+            <h1 class="sr-only">댓글신고 모달창</h1>
+            <button type="button" class="modal-close-bar">
+                <img
+                src="../assets/images/icon/icon-modal-closebtn.svg"
+                alt="모달창 닫기 아이콘"
+                class="modal-close-icon"
+                />
+            </button>
+            <ul class="modal-list">
+                <li>
+                <button id="report-comment" class="modal-list-btn report">신고하기</button>
+                </li>
+            </ul>
+        </article>
+        <article class="modal-window-bottom remove">
+            <h1 class="sr-only">댓글삭제 모달창</h1>
+            <button type="button" class="modal-close-bar">
+                <img
+                src="../assets/images/icon/icon-modal-closebtn.svg"
+                alt="모달창 닫기 아이콘"
+                class="modal-close-icon"
+                />
+            </button>
+            <ul class="modal-list">
+                <li>
+                <button id="delete-comment" class="modal-list-btn remove">삭제</button>
+                </li>
+            </ul>
+        </article>
+    </div>
+    <div class="report-modal-background">
+    <div class="report-modal">
+        <p class="report-txt">신고하시겠습니까</p>
+        <div class="modal-btn">
+            <button type="button" class="btn cancle-btn">취소</button>
+            <button type="button" class="btn report-btn">신고</button>
+        </div>
+    </div>
+    </div>
     <script src="../js/common.js"></script>
     <script src="../js/postcomment.js"></script>
 </body>
