@@ -108,10 +108,12 @@
   background: var(--enabled-color);
 }
 .chat-btn, .share-btn{
-  padding: 0;
+  padding: 6px;
   width: 34px;
+  height: 34px;
   line-height: 0.2;
   border: 1px solid var( --light-gray-color);
+  box-sizing: border-box;
 }
 
 /* my profile 프로필 수정, 상품 등록 */
