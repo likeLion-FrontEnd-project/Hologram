@@ -41,7 +41,7 @@ cancelBtn.addEventListener('click', ()=>{
 })
 logoutBtn.addEventListener('click', ()=>{
   // 로그아웃
-  location.href='../pages/splash.html####';
+  location.href='./splash.html####';
 })
 
 
@@ -105,14 +105,21 @@ function checkUser(userProfile) {
   const nowUser = userProfile.accountname;
   
   if (nowUser === localUser) { // 내 프로필일 때
-    myProfileBtnWrap.classList.add('on');
+    myProfileBtnWrap.style.display = 'flex';
   } else if (userProfile.isfollow == false) { // 팔로우 중이 아니라면
-    followBtnWrap.classList.add('on');
+    followBtnWrap.style.display = 'flex';
   } else if (userProfile.isfollow == true ) { // 팔로우 중이라면
-    //unfollowBtnWrap.classList.add('on');
     unfollowBtnWrap.style.display = 'flex';
   }
 } 
+/* 프로필 상태별 페이지 이동 */
+const chatBtn = document.querySelector('#follow-chat-btn')
+const followingChatBtn = document.querySelector('#following-chat-btn')
+function moveChat() {
+  location.href='./chat.html';
+}
+chatBtn.addEventListener('click', moveChat)
+followingChatBtn.addEventListener('click', moveChat)
 
 
 /* 게시글 - 리스트, 앨범 */
