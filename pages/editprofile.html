@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>프로필 수정 | Hologram</title>
     <link rel="stylesheet" href="../css/default.css" />
-    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/input.css" />
     <link rel="stylesheet" href="../css/editprofile.css" />
   </head>
   <body>
@@ -14,58 +14,63 @@
       <button class="back-btn">
         <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
       </button>
-      <button class="nav-btn save">저장</button>
+      <button class="nav-btn save submit-btn" disabled>저장</button>
     </header>
-    <section class="setProfile-sec">
-      <h1 class="sr-only">프로필 설정</h1>
-      <section class="setProfile-img">
+
+    <section class="editProfile-sec">
+      <h1 class="editProfile-title">프로필 설정</h1>
+      <p class="editProfile-desc">나중에 언제든지 변경할 수 있습니다.</p>
+      <section class="editProfile-img">
         <h2 class="sr-only">프로필 이미지를 설정</h2>
-        <button class="setProfile-img-upload-btn">
-          <img
-            src="../assets/images/icon/icon-image.svg"
-            alt="이미지 업로드 버튼"
-          />
-        </button>
+        <div class="editprofile-edit-wrap">
+          <button type="button" class="editProfile-img-upload-btn">
+            <img
+              src="../assets/images/icon/icon-image.svg"
+              alt="프로필 이미지 업로드 버튼"
+            />
+          </button>
+        </div>
       </section>
-      <form class="setProfile-form">
-        <div class="setProfile-input-box">
-          <label for="setUsername-input" class="setProfile-label"
+      <form class="input-form">
+        <input type="hidden" id="editImgHidden" value="" />
+        <input class="sr-only" id="editImg" type="file" accept="image/*" />
+        <div class="input-wrapper">
+          <label for="editUsername-input" class="input-label"
             >사용자 이름</label
           >
           <input
             type="text"
-            class="setProfile-input setUsername-input"
-            id="setUsername-input"
+            class="editprofile-input editUsername-input"
+            id="editUsername-input"
             required
             placeholder="2~10자 이내여야 합니다."
+            minlength="2"
+            maxlength="10"
           />
         </div>
-
-        <div class="setProfile-input-box">
-          <label for="setAccId-input" class="setProfile-label">계정 ID</label>
+        <div class="input-wrapper">
+          <label for="editAccId-input" class="input-label">계정 ID</label>
           <input
             type="text"
-            class="setProfile-input setAccId-input"
-            id="setAccId-input"
+            class="editprofile-input editAccId-input"
+            id="editAccId-input"
             required
             placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다."
           />
+          <strong class="editprofile-error-msg"></strong>
         </div>
-
-        <div class="setProfile-input-box">
-          <label for="setIntroduce-input" class="setProfile-label">소개</label>
+        <div class="input-wrapper">
+          <label for="editIntroduce-input" class="input-label">소개</label>
           <input
             type="text"
-            class="setProfile-input setIntroduce-input"
-            id="setIntroduce-input"
-            required
-            placeholder="자신과 판매할 상품에 대해 소개해 주세요!"
+            class="editprofile-input editIntroduce-input"
+            id="editIntroduce-input"
+            placeholder="소개글을 작성해주세요!"
           />
         </div>
-
-        <button type="submit" class="submit-btn" disabled>시작하기</button>
       </form>
     </section>
     <script src="../js/common.js"></script>
+    <script src="../js/editprofile.js"></script>
   </body>
 </html>
