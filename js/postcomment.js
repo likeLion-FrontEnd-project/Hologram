@@ -142,7 +142,7 @@ async function handlePostComment() {
                         .catch((error) => {location.href="../pages/404.html";})
     const json = await res.json();
     console.log('댓글 생성 결과',json.comment);
-
+    commentId =  json.comment.id;
     
     const comment = document.createElement('li');
     comment.setAttribute('class','usercomment-container');
