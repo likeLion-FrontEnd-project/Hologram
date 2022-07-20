@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 상세 페이지 | Hologram</title>
+  <link rel="stylesheet" href="../css/default.css">
+  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/feed.css">
+  <link rel="stylesheet" href="../css/tab-menu.css">
+</head>
+<body>
+  <header class="nav">
+    <button class="back-btn">
+      <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
+    </button>
+    <button class="more-menu-btn">
+      <img src="../assets/images/icon/icon-nav-menu.svg" alt="메뉴 더보기" />
+    </button>
+  </header>
+
+  <main class="main">
+    <section class="profile-section">
+      <div class="profile-wrap">
+        <h1 class="sr-only">프로필 페이지</h1>
+        <div class="follow-wrap">
+          <a class="follower-wrap" href="../pages/followers.html">
+            <strong class="follower-num">{follower-num}</strong>
+            <span>followers</span>
+          </a>
+          <div class="profile-img-wrap">
+            <img src="../assets/images/feed_room_03.jpg" alt="프로필">
+          </div>
+          <a class="following-wrap" href="../pages/followings.html">
+            <strong class="following-num">{following-num}</strong>
+            <span>followings</span>
+          </a>
+        </div>
+        <strong class="profile-name">{profile-name}</strong>
+        <span class="profile-account">{profile-account}</span>
+        <p class="profile-intro">{profile-desc}</p>
+        
+        <!-- 마이 프로필 -->
+        <div class="myProfile-btns">
+          <a class="myProfile-edit-btn" href="../pages/editprofile.html">프로필 수정</a>
+          <a class="product-register-btn" href="../pages/product.html">상품 등록</a>
+        </div>
+        <!-- 팔로우 하지 않은 사용자 프로필-->
+        <div class="follow-btns">
+          <button class="chat-btn" type="button">
+            <img src="../assets/images/icon/icon-chat.svg" alt= "채팅">
+          </button>
+          <button class="follow-btn" type="button">팔로우</button>
+          <button class="share-btn" type="button">
+            <img src="../assets/images/icon/icon-share.svg" alt="공유하기">
+          </button> 
+        </div>
+        <!-- 팔로우한 사용자의 프로필-->
+        <div class="unfollow-btns">
+          <button class="chat-btn" type="button">
+            <img src="../assets/images/icon/icon-chat.svg" alt= "채팅">
+          </button>
+          <button class="profile-unfollow-btn" type="button">언팔로우</button>
+          <button class="share-btn" type="button">
+            <img src="../assets/images/icon/icon-share.svg" alt="공유하기">
+          </button> 
+      </div>
+    </section>
+
+    <article class="product-section">
+      <div class="product-wrap">
+        <h2>판매중인 상품</h2>
+        <ul class="product-list">
+          <li class="product-item">
+            <div class="product-img-box">
+              <img src="../assets/images/feed_room_03.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <strong class="product-title">화이트 침구</strong>
+              <strong class="product-price">35,000원</strong>
+            </div>
+          </li>
+          <li class="product-item">
+            <div class="product-img-box">
+              <img src="../assets/images/feed_room_03.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <strong class="product-title">화이트 침구</strong>
+              <strong class="product-price">35,000원</strong>
+            </div>
+          </li>
+          <li class="product-item">
+            <div class="product-img-box">
+              <img src="../assets/images/feed_room_03.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <strong class="product-title">화이트 침구</strong>
+              <strong class="product-price">35,000원</strong>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- post -->
+    <section class="post-section">
+      <h2 class="sr-only">게시글</h2>
+      <div class="post-btns">
+        <div class="post-btn-wrap">
+          <button class="post-list-btn on" id="post-list-btn" type="button"><span class="sr-only">리스트로 보기</span>
+          </button>
+          <button class="post-album-btn" id="post-album-btn" type="button"><span class="sr-only">앨범으로 보기</span></button>
+        </div>
+      </div>
+      <!-- post list, post album -->
+      <div class="posts-wrap">
+        <!-- post list -->
+        <main class="home-main on"></main>
+        <!-- <ul class="post-list-wrap on">
+          <li class="post-list-item">
+            <div class="post-img-wrap">
+              <img
+                src="../assets/images/img-post-sample.png"
+                alt="피드 게시물 이미지"
+                class="post-image"
+              />
+            </div>
+            <div class="post-nav">
+              <div class="post-user">
+                <img
+                  src="../assets/images/img-profile_small.png"
+                  alt="프로필 기본 이미지"
+                  class="profile-image"
+                />
+                <div>
+                  <h3 class="profile-name">wijeong0305</h3>
+                  <p class="profile-account">@wijeong0305</p>
+                </div>
+              </div>
+              <button class="post-menu-button">
+                <img
+                  src="../assets/images/icon/icon-post-menu.svg"
+                  alt="메뉴 버튼"
+                  class="post-menu-button-image"
+                />
+              </button>
+            </div>
+            <div class="post-main">
+              <span class="post-category">오늘의 잡담</span>
+              <h3 class="post-title">나만의 데스크 셋업 완성🔥</h3>
+              <p class="post-content">
+                이름을 이네들은 하나에 위에 위에도 헤는 벌레는 노루, 가슴속에
+                봅니다. 무엇인지 한 별에도 나는 했던 패, 까닭입니다. 이름을
+                하나에 이웃 새겨지는 하나에 위에 하늘에는 동경과 이름과
+                있습니다. 그러나 다 피어나듯이 별을 별 버리었습니다. 하나에
+                그리고 걱정도 그리워 별을 소...
+                <button class="detail-button">더보기</button>
+              </p>
+            </div>
+            <div class="post-footer">
+              <p class="post-time">20분 전</p>
+              <div class="post-footer-button">
+                <button type="button" class="like-button">
+                  <span class="sr-only">좋아요</span>
+                </button>
+                <span class="like-num">0</span>
+                <button type="button" class="comment-button">
+                  <span class="sr-only">댓글</span>
+                </button>
+                <span class="comment-num">12</span>
+              </div>
+            </div>
+          </li>
+        </ul> -->
+
+        <!-- post album -->
+        <!-- <div class="post-album-div">
+          <ul class="post-album-wrap">
+            <li class="post-album multi-img">
+              <a href=""><img src="../assets/images/feed_room_1.jpg" alt=""></a>
+            </li>
+            <li class="post-album">
+              <a href=""><img src="../assets/images/feed_room_1.jpg" alt=""></a>
+            </li>
+            <li class="post-album">
+              <a href=""><img src="../assets/images/feed_room_1.jpg" alt=""></a>
+            </li>
+          </ul>
+        </div> -->
+      </div>
+  </main>
+
+  <footer class="home-footer">
+    <ul class="tab-menu">
+      <li>
+        <a href="./home.html" class="home-link clicked">
+          <div class="home-icon clicked"></div>
+          홈
+        </a>
+      </li>
+      <li>
+        <a href="./chat.html" class="chat-link">
+          <div class="chat-icon"></div>
+          채팅
+        </a>
+      </li>
+      <li>
+        <a href="./post.html" class="post-link">
+          <div class="post-icon"></div>
+          게시물 작성
+        </a>
+      </li>
+      <li>
+        <a href="./profile.html" class="profile-link">
+          <div class="profile-icon"></div>
+          프로필
+        </a>
+      </li>
+    </ul>
+  </footer>
+  <script src="../js/common.js"></script>
+  <script src="../js/profile.js"></script>
+  <script src="../js/feedDetail.js"></script>
+</body>
+</html>
