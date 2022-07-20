@@ -88,25 +88,25 @@ function setFollowingList(followingList, userId, userFollowing) {
         userFollowBtn.innerText = '팔로우';
       }
 
-      // 팔로우 취소 버튼을 눌렀을 때 
-      userFollowBtn.addEventListener('click', () => {
-        // 언팔로우할때
-        if (userFollowBtn.id === 'user-follow-btn-cancel') {
-          userFollowBtn.classList.remove('cancel');
-          userFollowBtn.setAttribute('id', 'user-follow-btn');
-          userFollowBtn.innerText = '팔로우';
+      // // 팔로우 취소 버튼을 눌렀을 때 
+      // userFollowBtn.addEventListener('click', () => {
+      //   // 언팔로우할때
+      //   if (userFollowBtn.id === 'user-follow-btn-cancel') {
+      //     userFollowBtn.classList.remove('cancel');
+      //     userFollowBtn.setAttribute('id', 'user-follow-btn');
+      //     userFollowBtn.innerText = '팔로우';
 
-          // 다른 사용자 팔로워 목록에서 제거
-          (i.follower).splice(userId, 1);
-          userFollowing.splice(i._id, 1);
-          console.log(userFollowing);
-        } else { // 팔로우할때
-          userFollowBtn.classList.add('cancel');
-          userFollowBtn.setAttribute('id', 'user-follow-btn-cancel');
-          userFollowBtn.innerText = '취소';
-          (i.follower).push(userId);
-        }
-      })
+      //     // 다른 사용자 팔로워 목록에서 제거
+      //     (i.follower).splice(userId, 1);
+      //     userFollowing.splice(i._id, 1);
+      //     console.log(userFollowing);
+      //   } else { // 팔로우할때
+      //     userFollowBtn.classList.add('cancel');
+      //     userFollowBtn.setAttribute('id', 'user-follow-btn-cancel');
+      //     userFollowBtn.innerText = '취소';
+      //     (i.follower).push(userId);
+      //   }
+      // })
 
       // a > img
       userProfileLink.appendChild(userProfileImg);
