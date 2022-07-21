@@ -122,6 +122,8 @@ async function editUserInfo() {
     });
     const resJson = await res.json();
     console.log(resJson);
+    localStorage.setItem('accountname', editAccountInput.value);
+    location.href = './profile.html';
   } catch (err) {
     console.error(err);
   }
@@ -129,8 +131,6 @@ async function editUserInfo() {
 
 saveBtn.addEventListener('click', () => {
   editUserInfo();
-  localStorage.setItem('accountname', editAccountInput.value);
-  location.href = './profile.html';
 });
 
 //----------------------기존 정보 프로필 수정 input에 유지---------------------------
