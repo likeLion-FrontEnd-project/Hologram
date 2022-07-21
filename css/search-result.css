@@ -3,6 +3,13 @@
   padding: 68px 16px 60px 16px;
 }
 
+.user-list-wrap.input {
+  max-width: 390px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
 .user-profile-li {
   display: flex;
   align-items: center;

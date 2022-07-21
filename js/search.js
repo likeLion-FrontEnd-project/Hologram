@@ -7,13 +7,12 @@ const userListWrap = document.querySelector('.user-list-wrap');
 // 검색창 계정 정보 불러오기  
 async function searchUser () {
   const inpValue = searchInp.value;
-  // console.log(inpValue);
   try {
     if (inpValue === '') {
       userListWrap.textContent = '';
       searchInp.focus();
     } else {
-      const postFeedPath = `/user/searchuser/?keyword=${inpValue}`;
+      const searchPath = `/user/searchuser/?keyword=${inpValue}`;
       const reqInfo = {
       method : 'GET',
       headers : {
@@ -21,12 +20,11 @@ async function searchUser () {
         'Content-type' : 'application/json',
       },
     }
-      const res = await fetch(url + postFeedPath, reqInfo)
+      const res = await fetch(url + searchPath, reqInfo)
                         .then((response) => {
                           return response;
                         })
       const json = await res.json();
-      // console.log('json', json);
       userListWrap.textContent = '';
   
       // 검색 결과 
@@ -41,27 +39,48 @@ async function searchUser () {
         const userInfo = document.createElement('div');
         const userProfileName = document.createElement('strong');
         const userProfileId = document.createElement('span');
-  
+        const followBtn = document.createElement('button');
+        // const followCancleBtn = document.createElement('button');
+
         userprofileLI.setAttribute('class', 'user-profile-li');
         searchA.setAttribute('class', 'search-a');
         userProfileImg.setAttribute('class', 'user-img');
+        userProfileImg.setAttribute('src', userImg);
         userInfo.setAttribute('class', 'user-info');
         userProfileName.setAttribute('class', 'user-name');
         userProfileId.setAttribute('class', 'user-id');
-  
+        // followBtn.setAttribute('class', 'user-follow-btn');
+        // followBtn.setAttribute('type', 'button');
+        // followCancleBtn.setAttribute('class', 'user-follow-btn');
+        // followCancleBtn.setAttribute('type', 'button');
+
         userListWrap.append(userprofileLI);
         userprofileLI.append(searchA);
+        userprofileLI.append(followBtn);
+        // userprofileLI.append(followCancleBtn);
         searchA.append(userProfileImg);
         searchA.append(userInfo);
         userInfo.append(userProfileName);
         userInfo.append(userProfileId);
-  
+
         userProfileName.textContent = userName;
         userProfileId.textContent = accountName;
-        userProfileImg.src = userImg;
+        // followBtn.textContent = '팔로우';
+        // followCancleBtn.textContent = '취소';
+
+        if ((el.follower).includes(userProfileId)) {
+          followBtn.setAttribute('class', 'user-follow-btn cancel');
+          followBtn.setAttribute('id', 'user-follow-btn-cancel');
+          followBtn.textContent = '취소';
+        } else {
+          followBtn.setAttribute('class', 'user-follow-btn');
+          followBtn.setAttribute('id', 'user-follow-btn');
+          followBtn.textContent = '팔로우';
+        }
+
 
         // 유저 프로필 클릭 시 해당 페이지로 이동
-        userprofileLI.addEventListener('click', () => {
+        searchA.addEventListener('click', () => {
           location.href = `/pages/profile.html?accountname=${accountName}`;
         })
       })
