@@ -143,7 +143,7 @@ async function postUpload() {
         console.log('게시글 id',json.post.id);
         window.localStorage.setItem('post_id',json.post.id);
         const accountName = json.post.author.accountname;
-        location.href=`/Hologram/pages/profile.html?accountname=${accountName}`
+        location.href=`/pages/profile.html?accountname=${accountName}`
     }
     else {
         alert("제목을 입력해주세요.");
