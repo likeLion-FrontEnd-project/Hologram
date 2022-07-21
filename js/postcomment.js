@@ -32,7 +32,7 @@ async function handleGetPost() {
     }
     const res = await fetch(url+`/post/${postId}`, requestPostInformation)
                         .then((response)=> {return response;})
-                        .catch((error) => {location.href="../pages/404.html";})
+                        .catch((error) => {location.href="/Hologram/pages/404.html";})
     const json = await res.json();
     console.log('게시글 가져오기',json.post);
 
@@ -109,7 +109,7 @@ async function handleGetPost() {
     
     // 프로필사진 클릭 시 해당 프로필 페이지로 이동
     userImage.addEventListener('click', () => {
-    location.href = `/pages/profile.html?accountname=${accountName}`;
+        location.href = `/Hologram/pages/profile.html?accountname=${accountName}`;
     })
 
     // 피드 컨텐츠 내용
@@ -252,7 +252,7 @@ async function handleGetComment() {
     }
     const res = await fetch(url+`/post/${postId}/comments`, requestCommentsInformation)
                         .then((response)=> {return response;})
-                        .catch((error) => {location.href="../pages/404.html";})
+                        .catch((error) => {location.href="/Hologram/pages/404.html";})
     const json = await res.json()
     console.log('댓글 가져오기',json.comments);
     commentList.textContent='';
@@ -333,7 +333,7 @@ async function handlePostComment() {
     }
     const res = await fetch(url+`/post/${postId}/comments`, requestCommentInformation)
                         .then((response) => {return response;})
-                        .catch((error) => {location.href="../pages/404.html";})
+                        .catch((error) => {location.href="/Hologram/pages/404.html";})
     const json = await res.json();
     console.log('댓글 생성 결과',json.comment);
     handleGetComment();
@@ -368,7 +368,7 @@ async function handleDoCommentReportBtn() {
     }
     const res = await fetch(url+`/post/${postId}/comments/${commentId}/report`, requestReportInformation)
                         .then((response) => {return response;})
-                        .catch((error) => {location.href="../pages/404.html";})
+                        .catch((error) => {location.href="/Hologram/pages/404.html";})
     const json = await res.json();
     console.log('댓글  신고 결과',json);
     cancleBtnModal.style.display="none";
@@ -387,12 +387,12 @@ async function handleDoPostReportBtn() {
     }
     const res = await fetch(url+`/post/${postId}/report`, requestReportInformation)
                         .then((response) => {return response;})
-                        .catch((error) => {location.href="../pages/404.html";})
+                        .catch((error) => {location.href="/Hologram/pages/404.html";})
     const json = await res.json();
     console.log('게시물 신고 결과',json);
     cancleBtnModal.style.display="none";
     reportModalBackground.style.display="none";
-    location.href="../../Hologram/pages/404.html";
+    location.href="/Hologram/pages/404.html";
 }
 
 
@@ -409,7 +409,7 @@ async function handleCancleBtn() {
     }
     const res = await fetch(url+`/post/${postId}/comments/${commentId}`,requestDeleteInformation)
                         .then((response)=> {return response;})
-                        .catch((error) => {location.href="../pages/404.html";})
+                        .catch((error) => {location.href="/Hologram/pages/404.html";})
     const json = await res.json();
     console.log('댓글  삭제 결과',json);
     console.log(curComment);
