@@ -36,7 +36,7 @@ async function getFeedInfo () {
     mainLogoImg.setAttribute('src', '../assets/images/image-symbol-logo.png');
     mainText.setAttribute('class', 'main-text');
     mainSearchLink.setAttribute('class', 'main-search-link');
-    mainSearchLink.setAttribute('href', '../pages/search-init.html');
+    mainSearchLink.setAttribute('href', '../pages/search-result.html');
 
     mainText.textContent = '유저를 검색해 팔로우 해보세요!';
     mainSearchLink.textContent = '검색하기'
@@ -49,12 +49,11 @@ async function getFeedInfo () {
     // 팔로우 목록의 피드 화면
     const postSection = document.createElement('section');
     const srOnly = document.createElement('h2');
-    // 피드 불러오는 내용 변경 필요
     const postWrap = document.createElement('ul');
 
-    postSection.setAttribute('class', 'post-section');
+    postSection.setAttribute('class', 'post-section feed');
     srOnly.setAttribute('class', 'sr-only');
-    postWrap.setAttribute('class', 'post-list-wrap');
+    postWrap.setAttribute('class', 'post-list-wrap feed');
 
     srOnly.textContent = '피드 게시물 부분';
 
@@ -154,15 +153,15 @@ async function getFeedInfo () {
       postMain.append(postContent);
       postContent.append(postMoreBtn);
 
-      if(contentText.length < 3) {
-        postCategory.style.display = 'none';
-        postTitle.style.display = 'none';
-        postContent.textContent = contentText[0];
-      } else {
-        // 카테코리, 타이틀 추가
+      if(contentText.length >= 3 && contentText[0] === '오늘의 잡담' || contentText[0] === '찬반 대결' || contentText[0] === '오늘의 팁') {
+        // 카테고리, 타이틀 추가 (카테고리명이 일치할 경우에만)
         postCategory.textContent = contentText[0];
         postTitle.textContent = contentText[1];
         postContent.textContent = contentText[2];
+      } else {
+        postCategory.style.display = 'none';
+        postTitle.style.display = 'none';
+        postContent.textContent = contentText;
       }
 
       // 피드 하단 
@@ -202,11 +201,13 @@ async function getFeedInfo () {
       thumUpBtn.addEventListener('click', () => {
         thumDownBtn.classList.remove(CLICKED);
         thumUpBtn.classList.toggle(CLICKED);
+        thumUpBtn.style.transition = '0.3s';
       })
       // 반대
       thumDownBtn.addEventListener('click', () => {
         thumUpBtn.classList.remove(CLICKED);
         thumDownBtn.classList.toggle(CLICKED);
+        thumDownBtn.style.transition = '0.3s';
       })
 
     } else {

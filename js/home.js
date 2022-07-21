@@ -5,6 +5,11 @@ const postCategory = document.querySelector('.post-category');
 const postTit = document.querySelector('.post-title');
 const modalBg = document.querySelector('.modal-bg');
 const modalBottom = document.querySelector('.modal-window-bottom');
+const modalCloseBar = document.querySelector('.modal-close-bar');
+const modalReport = document.querySelector('#report');
+const modalCenter = document.querySelector('.modal-window-center');
+const modalCancelBtn = document.querySelector('#cancel-btn');
+const modalReportBtn = document.querySelector('#report-btn');
 
 // 피드 정보 불러오기
 async function getFeedInfo () {
@@ -63,6 +68,8 @@ async function getFeedInfo () {
 
     for(let i = 0; i < json.posts.length; i++) {
       const POSTS = json.posts[i];
+      const postId = POSTS.id;
+
       // 피드 리스트 목록
       const postList = document.createElement('li');
       const postNav = document.createElement('div');
@@ -153,17 +160,18 @@ async function getFeedInfo () {
       postMain.append(postContent);
       postContent.append(postMoreBtn);
 
-      if(contentText.length < 3) {
-        postCategory.style.display = 'none';
-        postTitle.style.display = 'none';
-        postContent.textContent = contentText[0];
-      } else {
-        // 카테코리, 타이틀 추가
+      if(contentText.length >= 3 && contentText[0] === '오늘의 잡담' || contentText[0] === '찬반 대결' || contentText[0] === '오늘의 팁') {
+        // 카테고리, 타이틀 추가 (카테고리명이 일치할 경우에만)
         postCategory.textContent = contentText[0];
         postTitle.textContent = contentText[1];
         postContent.textContent = contentText[2];
       }
-
+      else {
+        postCategory.style.display = 'none';
+        postTitle.style.display = 'none';
+        postContent.textContent = contentText;
+      }
+    
       // 피드 하단 
       const postFooter = document.createElement('div');
       const postTime = document.createElement('p');
@@ -177,9 +185,9 @@ async function getFeedInfo () {
       postList.append(postFooter);
 
     // 피드 하단 - 찬성 or 반대
-    console.log(contentText);
     if(contentText[0] === '찬반 대결') {
-      const CLICKED = 'clicked';
+      const clicked = 'clicked';
+
       // 카테고리가 '찬반 대결'인 경우 피드 하단 부분
       const thumUpBtn = document.createElement('button');
       const thumUpImg = document.createElement('img');
@@ -199,15 +207,16 @@ async function getFeedInfo () {
 
       // 찬성 
       thumUpBtn.addEventListener('click', () => {
-        thumDownBtn.classList.remove(CLICKED);
-        thumUpBtn.classList.toggle(CLICKED);
+        thumDownBtn.classList.remove(clicked);
+        thumUpBtn.classList.toggle(clicked);
+        thumUpBtn.style.transition = '0.3s';
       })
       // 반대
       thumDownBtn.addEventListener('click', () => {
-        thumUpBtn.classList.remove(CLICKED);
-        thumDownBtn.classList.toggle(CLICKED);
+        thumUpBtn.classList.remove(clicked);
+        thumDownBtn.classList.toggle(clicked);
+        thumDownBtn.style.transition = '0.3s';
       })
-
     } else {
       // 피드 하단 기본(시간, 좋아요, 댓글)
       postTime.setAttribute('class', 'post-time');
@@ -240,11 +249,46 @@ async function getFeedInfo () {
       likeBtn.addEventListener('click', () => {
         likeBtn.classList.toggle('clicked')
       })
+
+      // 댓글창 연결
+      commentBtn.addEventListener('click', () => {
+        location.href = `/pages/postcomment.html?postId=${postId}`;
+      })
     }
-      // 더보기 버튼 클릭시 하단 모달창 열기
+
+      // 게시글신고 하단 모달창
       postMenuBtn.addEventListener('click', () => {
         modalBg.classList.remove('hidden');
         modalBottom.classList.remove('hidden');
+
+        modalCloseBar.addEventListener('click', () => {
+          modalBottom.classList.add('hidden');
+          modalBg.classList.add('hidden');
+        })
+
+        modalBg.addEventListener('click', () => {
+          modalBottom.classList.add('hidden');
+          modalBg.classList.add('hidden');
+        })
+      })
+
+      // 게시글 신고 중앙 모달창
+      modalReport.addEventListener('click', () => {
+        modalCenter.classList.remove('hidden');
+        modalBottom.classList.add('hidden');
+        modalBg.addEventListener('click', () => {
+          modalCenter.classList.add('hidden');
+        })
+
+        modalReportBtn.addEventListener('click', () => {
+          modalCenter.classList.add('hidden');
+          modalBg.classList.add('hidden');
+        })
+
+        modalCancelBtn.addEventListener('click', () => {
+          modalCenter.classList.add('hidden');
+          modalBg.classList.add('hidden');
+        })
       })
     }
   }
@@ -265,9 +309,10 @@ function timeForToday(value) {
   if (betweenTimeHour < 24) {
     return `${betweenTimeHour}시간 전`;
   }
+  
   const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
   if (betweenTimeDay < 365) {
     return `${betweenTimeDay}일 전`;
-  }
+  } 
   return `${Math.floor(betweenTimeDay / 365)}년 전` + console.log(today);
 }

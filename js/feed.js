@@ -8,7 +8,6 @@ const modalBottom = document.querySelector('.modal-window-bottom');
 
 // 피드 정보 불러오기
 async function getFeedInfo () {
-  const url = 'https://mandarin.api.weniv.co.kr';
   const postFeedPath = '/post/feed/?limit=50&skip=0';
   const reqInfo = {
     method : 'GET',
@@ -37,7 +36,7 @@ async function getFeedInfo () {
     mainLogoImg.setAttribute('src', '../assets/images/image-symbol-logo.png');
     mainText.setAttribute('class', 'main-text');
     mainSearchLink.setAttribute('class', 'main-search-link');
-    mainSearchLink.setAttribute('href', '../pages/search-init.html');
+    mainSearchLink.setAttribute('href', '../pages/search-result.html');
 
     mainText.textContent = '유저를 검색해 팔로우 해보세요!';
     mainSearchLink.textContent = '검색하기'
@@ -52,7 +51,7 @@ async function getFeedInfo () {
     const srOnly = document.createElement('h2');
     const postWrap = document.createElement('ul');
 
-    postSection.setAttribute('class', 'post-section');
+    postSection.setAttribute('class', 'post-section feed');
     srOnly.setAttribute('class', 'sr-only');
     postWrap.setAttribute('class', 'post-list-wrap feed');
 
@@ -131,7 +130,7 @@ async function getFeedInfo () {
       
       // 프로필사진 클릭 시 해당 프로필 페이지로 이동
       userImage.addEventListener('click', () => {
-        location.href = `/pages/profile.html?accountname=${accountName}`;
+        location.href = `/pages/feedDetail.html?accountname=${accountName}`;
       })
 
       // 피드 컨텐츠 내용
@@ -154,18 +153,18 @@ async function getFeedInfo () {
       postMain.append(postContent);
       postContent.append(postMoreBtn);
 
-      if(contentText.length < 3) {
-        postCategory.style.display = 'none';
-        postTitle.style.display = 'none';
-        postContent.textContent = contentText[0];
-      } else {
-        // 카테코리, 타이틀 추가
+      if(contentText.length >= 3 && contentText[0] === '오늘의 잡담' || contentText[0] === '찬반 대결' || contentText[0] === '오늘의 팁' || contentText[0] === '팔아요') {
+        // 카테고리, 타이틀 추가 (카테고리명이 일치할 경우에만)
         postCategory.textContent = contentText[0];
         postTitle.textContent = contentText[1];
         postContent.textContent = contentText[2];
+      } else {
+        postCategory.style.display = 'none';
+        postTitle.style.display = 'none';
+        postContent.textContent = contentText;
       }
 
-      // 피드 하단 - 시간, 좋아요, 댓글
+      // 피드 하단 
       const postFooter = document.createElement('div');
       const postTime = document.createElement('p');
       const postFooterBtns = document.createElement('div');
@@ -175,6 +174,44 @@ async function getFeedInfo () {
       const commentNum = document.createElement('span');
 
       postFooter.setAttribute('class', 'post-footer');
+      postList.append(postFooter);
+
+    // 피드 하단 - 찬성 or 반대
+    console.log(contentText);
+    if(contentText[0] === '찬반 대결') {
+      const CLICKED = 'clicked';
+      // 카테고리가 '찬반 대결'인 경우 피드 하단 부분
+      const thumUpBtn = document.createElement('button');
+      const thumUpImg = document.createElement('img');
+      const thumDownBtn = document.createElement('button');
+      const thumDownImg = document.createElement('img');
+
+      postFooter.setAttribute('class', 'post-footer thumbs-buttons');
+      thumUpBtn.setAttribute('class', 'thumbs-up-button');
+      thumUpImg.setAttribute('class', 'thumbs-up-image');
+      thumDownBtn.setAttribute('class', 'thumbs-down-button');
+      thumDownImg.setAttribute('class', 'thumbs-down-image');
+
+      postFooter.append(thumUpBtn);
+      postFooter.append(thumDownBtn);
+      thumUpBtn.append(thumUpImg);
+      thumDownBtn.append(thumDownImg);
+
+      // 찬성 
+      thumUpBtn.addEventListener('click', () => {
+        thumDownBtn.classList.remove(CLICKED);
+        thumUpBtn.classList.toggle(CLICKED);
+        thumUpBtn.style.transition = '0.3s';
+      })
+      // 반대
+      thumDownBtn.addEventListener('click', () => {
+        thumUpBtn.classList.remove(CLICKED);
+        thumDownBtn.classList.toggle(CLICKED);
+        thumDownBtn.style.transition = '0.3s';
+      })
+
+    } else {
+      // 피드 하단 기본(시간, 좋아요, 댓글)
       postTime.setAttribute('class', 'post-time');
       postFooterBtns.setAttribute('class', 'post-footer-button');
       likeBtn.setAttribute('class', 'like-button');
@@ -183,8 +220,7 @@ async function getFeedInfo () {
       commentBtn.setAttribute('class', 'comment-button');
       commentBtn.setAttribute('type', 'button');
       commentNum.setAttribute('class', 'comment-num');
-      
-      postList.append(postFooter);
+
       postFooter.append(postTime);
       postFooter.append(postFooterBtns);
       postFooterBtns.append(likeBtn);
@@ -206,7 +242,7 @@ async function getFeedInfo () {
       likeBtn.addEventListener('click', () => {
         likeBtn.classList.toggle('clicked')
       })
-
+    }
       // 더보기 버튼 클릭시 하단 모달창 열기
       postMenuBtn.addEventListener('click', () => {
         modalBg.classList.remove('hidden');
@@ -222,8 +258,7 @@ function timeForToday(value) {
   const today = new Date();
   const timeValue = new Date(value);
   const betweenTime = Math.floor(
-    (today.getTime() - timeValue.getTime()) / 1000 / 60
-  );
+    (today.getTime() - timeValue.getTime()) / 1000 / 60);
   if (betweenTime < 1) return "방금 전";
   if (betweenTime < 60) {
     return `${betweenTime}분 전`;

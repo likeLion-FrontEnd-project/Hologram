@@ -77,6 +77,8 @@
 
 .modal-list-btn {
   display: block;
+  width: 100%;
+  text-align: left;
   font-size: 14px;
   font-weight: 400;
   padding: 14px 26px;

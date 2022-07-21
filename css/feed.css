@@ -13,6 +13,7 @@
 }
 
 .post-list-wrap .post-list-item {
+  width: 360px;
   margin-bottom: 20px;
   border-radius: 5px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -70,6 +71,8 @@
 .post-user .profile-image {
   width: 32px;
   height: 32px;
+  border: 0.5px solid var(--light-gray-color);
+  object-fit: cover;
   margin-right: 5px;
   border-radius: 16px;
 }
