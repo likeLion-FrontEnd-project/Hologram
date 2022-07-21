@@ -1,11 +1,10 @@
-/* 팔로우한 상태 구분 */
 const userListWrap = document.querySelector('.user-list-wrap');
 
-getFollowingList();
+getFollowerList();
 
 
 /* 팔로잉 리스트 받아오기  */
-async function getFollowingList() {
+async function getFollowerList() {
   const token = localStorage.getItem('token');
 
   const getAccount = location.search.replace("?", "").split("=");
@@ -19,8 +18,8 @@ async function getFollowingList() {
       'Content-type': 'application/json'
     },
   }
-  const followingData = await fetch(`${url}/profile/${accountName}/following`, getFollowingData);
-  const followingList = await followingData.json();
+  const followingData = await fetch(`${url}/profile/${accountName}/follower`, getFollowingData);
+  const followerList = await followingData.json();
 
   // 현재 로그인한 사용자
   const userProfileData = await fetch(`${url}/profile/${accountName}`, getFollowingData);
@@ -30,20 +29,20 @@ async function getFollowingList() {
 
   const userId = userProfile._id;
   const userAccountname =userProfile.accountname;
-  const userFollowing = userProfile.following; // 로컬유저가 팔로잉중인사람
+  const userFollowing = userProfile.follower; // 로컬유저가 팔로잉중인사람
 
-  setFollowingList(followingList, userId, userFollowing);
+  setFollowerList(followerList, userId, userFollowing);
 
 }
 
-function setFollowingList(followingList, userId, userFollowing) {
-  if (followingList.length === 0) {
+function setFollowerList(followerList, userId, userFollowing) {
+  if (followerList.length === 0) {
     const noFollowMsg = document.createElement('li');
     noFollowMsg.setAttribute('class', 'noFollow-msg-wrap');
     
     const msgStrong = document.createElement('strong');
     msgStrong.setAttribute('class', 'msg-strong');
-    msgStrong.innerText = '팔로우한 계정이 없습니다.';
+    msgStrong.innerText = '팔로워 계정이 없습니다.';
     
     const msgP = document.createElement('p');
     msgP.setAttribute('class', 'msg-p');
@@ -56,7 +55,7 @@ function setFollowingList(followingList, userId, userFollowing) {
     userListWrap.appendChild(noFollowMsg);
 
   } else {
-    followingList.forEach((i) => {
+    followerList.forEach((i) => {
 
       const userProfileWrap = document.createElement('li');
       userProfileWrap.setAttribute('class', 'user-profile-li');
@@ -87,6 +86,7 @@ function setFollowingList(followingList, userId, userFollowing) {
 
       //userFollowBtn.addEventListener('click', changeFollowList(i._id));
 
+ //     if ((i.follower).includes(userId)) {
       if (i.isfollow) {
         userFollowBtn.setAttribute('class', 'user-follow-btn cancel');
         userFollowBtn.setAttribute('id', 'user-follow-btn-cancel');
@@ -110,7 +110,10 @@ function setFollowingList(followingList, userId, userFollowing) {
       // ul > li
       userListWrap.appendChild(userProfileWrap);
     });
+    
+    
   }
-  followData(followingList);
+  followData(followerList)
 }
+
 
