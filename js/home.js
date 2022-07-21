@@ -160,7 +160,7 @@ async function getFeedInfo () {
       postMain.append(postContent);
       postContent.append(postMoreBtn);
 
-      if(contentText.length >= 3 && contentText[0] === '오늘의 잡담' || contentText[0] === '찬반 대결' || contentText[0] === '오늘의 팁' || contentText[0] === '팔아요') {
+      if(contentText.length >= 3 && contentText[0] === '오늘의 잡담' || contentText[0] === '찬반 대결' || contentText[0] === '오늘의 팁') {
         // 카테고리, 타이틀 추가 (카테고리명이 일치할 경우에만)
         postCategory.textContent = contentText[0];
         postTitle.textContent = contentText[1];
@@ -186,7 +186,7 @@ async function getFeedInfo () {
 
     // 피드 하단 - 찬성 or 반대
     if(contentText[0] === '찬반 대결') {
-      const CLICKED = 'clicked';
+      const clicked = 'clicked';
 
       // 카테고리가 '찬반 대결'인 경우 피드 하단 부분
       const thumUpBtn = document.createElement('button');
@@ -207,14 +207,14 @@ async function getFeedInfo () {
 
       // 찬성 
       thumUpBtn.addEventListener('click', () => {
-        thumDownBtn.classList.remove(CLICKED);
-        thumUpBtn.classList.toggle(CLICKED);
+        thumDownBtn.classList.remove(clicked);
+        thumUpBtn.classList.toggle(clicked);
         thumUpBtn.style.transition = '0.3s';
       })
       // 반대
       thumDownBtn.addEventListener('click', () => {
-        thumUpBtn.classList.remove(CLICKED);
-        thumDownBtn.classList.toggle(CLICKED);
+        thumUpBtn.classList.remove(clicked);
+        thumDownBtn.classList.toggle(clicked);
         thumDownBtn.style.transition = '0.3s';
       })
     } else {
