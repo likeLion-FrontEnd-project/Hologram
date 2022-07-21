@@ -27,14 +27,14 @@
       <div class="profile-wrap">
         <h1 class="sr-only">프로필 페이지</h1>
         <div class="follow-wrap">
-          <a class="follower-wrap" href="../pages/followers.html">
+          <a class="follower-wrap" >
             <strong class="follower-num">{follower-num}</strong>
             <span>followers</span>
           </a>
           <div class="profile-img-wrap">
-            <img src="../assets/images/feed_room_03.jpg" alt="프로필">
+            <img src="../assets/images/img-profile_small.png" alt="프로필">
           </div>
-          <a class="following-wrap" href="../pages/followings.html">
+          <a class="following-wrap">
             <strong class="following-num">{following-num}</strong>
             <span>followings</span>
           </a>
@@ -48,27 +48,16 @@
           <a class="myProfile-edit-btn" href="../pages/editprofile.html">프로필 수정</a>
           <a class="product-register-btn" href="../pages/product.html">상품 등록</a>
         </div>
-        <!-- 팔로우 하지 않은 사용자 프로필-->
+        <!-- 팔로우, 언팔로우 사용자 프로필-->
         <div class="follow-btns">
-          <button class="chat-btn" type="button" id="follow-chat-btn">
+          <button class="chat-btn" type="button">
             <img src="../assets/images/icon/icon-chat.svg" alt= "채팅">
           </button>
-          <button class="follow-btn" type="button">팔로우</button>
-          <button class="share-btn" type="button" id="follow-share-btn">
+          <button class="follow-btn user-follow-btn" type="button">팔로우</button>
+          <button class="share-btn" type="button">
             <img src="../assets/images/icon/icon-share.svg" alt="공유하기">
           </button> 
         </div>
-        <!-- 팔로우한 사용자의 프로필-->
-        <div class="unfollow-btns">
-          <button class="chat-btn" type="button" id="following-chat-btn">
-            <a href=""></a>
-            <img src="../assets/images/icon/icon-chat.svg" alt= "채팅">
-          </button>
-          <button class="profile-unfollow-btn" type="button">언팔로우</button>
-          <button class="share-btn" type="button" id="following-shares-btn">
-            <img src="../assets/images/icon/icon-share.svg" alt="공유하기">
-          </button> 
-      </div>
     </section>
 
     <article class="product-section">
