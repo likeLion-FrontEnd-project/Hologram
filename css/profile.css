@@ -1,0 +1,354 @@
+/* 프로필 */
+.main {
+  padding-top: 48px;
+  min-height: 100vh;
+  background: var(--background-gray-color);
+}
+.profile-section {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background: var(--background-color);
+  border-bottom: 0.5px solid var(--light-gray-color);
+}
+.profile-wrap {
+  padding: 30px 54px 26px;
+  max-width: 390px;
+  width: 100%;
+}
+
+/* 프로필 - 팔로워, 프로필 이미지, 팔로잉 */
+.follow-wrap {
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 17px;
+}
+.follower-num , .following-num {
+  display: block;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+}
+.follow-wrap .following-num,
+.follower-wrap span, 
+.following-wrap span {
+  color: var(--gray-text-color);
+}
+.follower-wrap span, .following-wrap span{
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+/* 이미지 가운데 정렬 */
+.profile-img-wrap {
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 0.5px solid var(--light-gray-color);
+}
+
+.profile-img-wrap img,
+.post-album-wrap img,
+.product-img-box img,
+.post-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* 프로필 소개 */
+.profile-wrap .profile-name {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}
+.profile-wrap .profile-account {
+  display: block;
+  color: var(--gray-text-color);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 17px;
+}
+.profile-wrap .profile-intro {
+  color: var(--gray-text-color);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 24px;
+}
+
+/* 팔로우, 언팔로우, 프로필 수정, 상품 등록 버튼 */
+.myProfile-btns,
+.follow-btns,
+.unfollow-btns {
+  display: flex;
+  justify-content: center;
+}
+.myProfile-btns button,
+.follow-btns button,
+.unfollow-btns button {
+  background: var(--background-color);
+  border-radius: 30px;
+}
+
+/* 팔로우 버튼 */
+.follow-btns .user-follow-btn,
+.follow-btns .user-unfollow-btn {
+  margin: 0 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.follow-btns .user-follow-btn {
+  padding: 9px 41px 8px 42px;
+  color: var(--background-color);
+  background: var(--enabled-color);
+}
+
+/* 언팔로우 버튼 */
+.follow-btns .user-unfollow-btn {
+  padding: 8px 34px 7px 35px;
+  color: var(--gray-text-color);
+  background-color: var(--background-color);
+  border: 1px solid var(--light-gray-color);
+}
+
+.chat-btn, .share-btn{
+  padding: 6px;
+  width: 34px;
+  height: 34px;
+  line-height: 0.2;
+  border: 1px solid var( --light-gray-color);
+  box-sizing: border-box;
+}
+
+/* my profile 프로필 수정, 상품 등록 */
+.myProfile-edit-btn, .product-register-btn, 
+.profile-unfollow-btn{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  border: 1px solid var( --light-gray-color);
+  border-radius: 30px;
+  color: var(--gray-text-color);
+}
+.myProfile-edit-btn {
+  padding: 8px 27px 7px;
+}
+.product-register-btn {
+  margin-left: 12px;
+  padding : 8px 23px 7px;
+}
+.profile-unfollow-btn {
+  margin: 0 10px;
+  padding: 8px 34px 7px 35px;
+}
+
+/* 판매 상품 */
+.product-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+
+  /* 공통 border */
+  border-top: 0.5px solid var( --light-gray-color);
+  border-bottom: 0.5px solid var( --light-gray-color);
+  background: var(--background-color);
+}
+.product-wrap {
+  padding: 20px 0 19px 16px;
+  max-width: 390px;
+  width: 100%;
+}
+.product-wrap h2 {
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}
+.product-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+}
+.product-item {
+  width: 140px;
+  flex: 0 0 auto;
+}
+
+/* 이미지 가운데 정렬 */
+.product-item .product-img-box {
+  height: 90px;
+  margin-bottom: 7px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 0.5px solid var(--light-gray-color);
+}
+
+/* 판매 상품 */
+.product-item .product-info {
+  padding: 0 2px;
+} 
+.product-info .product-title {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+.product-info .product-price {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--enabled-color);
+}
+
+/* 게시글 */
+.post-section {
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-top: 0.5px solid var( --light-gray-color);
+  border-bottom: 0.5px solid var( --light-gray-color);
+  background: var(--background-color);
+}
+.post-btns {
+  display: flex;
+  justify-content: center;
+  border-bottom: 0.5px solid var( --light-gray-color);
+}
+.post-btn-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 390px;
+  width: 100%;
+  height: 44px;
+  padding: 8px 16px;
+}
+.post-btn-wrap button{
+  width: 26px;
+  height: 26px;
+}
+.post-btn-wrap .post-list-btn{
+  margin-right: 16px;
+  background: url('../assets/images/icon/icon-post-list-off.svg') no-repeat center;
+}
+.post-btn-wrap .post-list-btn.on{
+  margin-right: 16px;
+  background: url('../assets/images/icon/icon-post-list-on.svg') no-repeat center;
+}
+.post-btn-wrap .post-album-btn{
+  background: url('../assets/images/icon/icon-post-album-off.svg') no-repeat center;
+}
+.post-btn-wrap .post-album-btn.on{
+  background: url('../assets/images/icon/icon-post-album-on.svg') no-repeat center;
+}
+
+/* 게시글 영역 */
+.posts-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+/* 게시글 - 리스트 */
+.post-list-wrap {
+  margin: 16px 15px 70px;
+}
+
+/* 게시글 - 앨범 */
+.post-album-wrap {
+  max-width: 390px;
+}
+.post-album-wrap {
+  margin: 16px 0 70px;
+  display: grid;
+  gap: 8px;              
+  grid-template-columns: repeat(3, 114px);
+  justify-content: center;
+}
+.post-album-wrap .post-album{
+  height: 114px;
+}
+.post-album a {
+  display: block;
+  height: 100%;
+}
+.post-album:hover {
+  cursor: pointer;
+}
+
+/* 게시글 - 멀티이미지 */
+.multi-img {
+  position: relative;
+}
+.multi-img::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 6px;
+  top: 6px;
+  background: url('../assets/images/icon/icon-img-layers.svg') no-repeat center;
+}
+
+/* 탭 메뉴 */
+/* 탭 메뉴에서 선택자 우선순위 낮춰주어야 가능한 방법 */
+.home-footer .tab-menu #profile-link::before {
+  content: '';
+  display: block;
+  background-image: url(../assets/images/icon/icon-sprites_purple.png);
+  background-repeat: no-repeat;
+  background-position: -39px -39px;
+  background-size: 68px 68px;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 7px;
+}
+.home-footer .tab-menu #profile-link {
+  color: var(--enabled-color);
+}
+
+/* js관련 속성 */
+/* 프로필 영역 - 상태별 영역 */
+.myProfile-btns, 
+.follow-btns {
+  display: none;
+}
+/* 게시글- 리스트, 앨범 보여질 영역 */
+.post-list-wrap,
+.post-album-div {
+  display: none;
+}
+/* postViewtoggle */
+.on { 
+  display: block;
+}
+
+
+
+/* 헤더 메뉴 모달 */
+.modal-bg, .logoutmodal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* modal css에 추가해야함 */
+  z-index: 20;
+}
+/* modal css에 추가해야함 */
+.modal-window-bottom,
+.modal-window-center {
+  z-index: 30;
+}
