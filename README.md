@@ -32,6 +32,13 @@
 
 <br>
 
+### 개발 환경
+
+- Front : HTML, CSS, Vanilla JS
+- Back : 제공된 API 사용
+- 버전 관리 및 이슈 : GitHub, GitHub Issues
+- 협업 관련 툴 : Notion
+
 ### 폴더 구조
 
 - assets/ : 이미지, 아이콘 등 이미지 소스를 저장한 디렉토리 
