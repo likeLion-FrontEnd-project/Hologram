@@ -70,3 +70,101 @@ const disabledBtn = () => {
   saveBtn.disabled = true;
   saveBtn.classList.remove('active');
 };
+
+//----------------------프로필 이미지 업로드---------------------------
+
+const profileImgBtn = document.querySelector('.editProfile-img-upload-btn');
+const hiddenImgSrc = document.querySelector('#editImgHidden');
+const editImg = document.querySelector('#editImg');
+
+// 버튼 클릭시 이미지 input 버튼 클릭
+profileImgBtn.addEventListener('click', () => {
+  editImg.click();
+});
+
+let readURL = function (input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      document.querySelector(
+        '.editprofile-edit-wrap'
+      ).style.background = `url(${e.target.result}) center center / cover`;
+      hiddenImgSrc.value = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+};
+editImg.addEventListener('change', function (e) {
+  readURL(this);
+});
+
+//----------------------프로필 수정 데이터 갱신---------------------------
+
+async function editUserInfo() {
+  const url = 'https://mandarin.api.weniv.co.kr';
+  const token = localStorage.getItem('token');
+  try {
+    const res = await fetch(`${url}/user`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: {
+          username: editUsernameInput.value,
+          accountname: editAccountInput.value,
+          intro: editIntroInput.value,
+          image: hiddenImgSrc.value,
+        },
+      }),
+    });
+    const resJson = await res.json();
+    console.log(resJson);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+saveBtn.addEventListener('click', () => {
+  editUserInfo();
+  localStorage.setItem('accountname', editAccountInput.value);
+  location.href = './profile.html';
+});
+
+//----------------------기존 정보 프로필 수정 input에 유지---------------------------
+
+function setEditUserInfo(editUserInfo) {
+  document.querySelector(
+    '.editprofile-edit-wrap'
+  ).style.background = `url(${editUserInfo.image}) no-repeat center / 110px`;
+
+  hiddenImgSrc.value = editUserInfo.image;
+  editUsernameInput.value = editUserInfo.username;
+  editAccountInput.value = editUserInfo.accountname;
+  editIntroInput.value = editUserInfo.intro;
+}
+
+//----------------------프로필 수정 데이터 전송---------------------------
+
+async function getEditUserInfo() {
+  const url = 'https://mandarin.api.weniv.co.kr';
+  const accountName = localStorage.getItem('accountname');
+  const token = localStorage.getItem('token');
+  try {
+    const res = await fetch(`${url}/profile/${accountName}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+    });
+    const resJson = await res.json();
+    setEditUserInfo(resJson.profile);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+getEditUserInfo();
