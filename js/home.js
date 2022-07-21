@@ -137,7 +137,7 @@ async function getFeedInfo () {
       
       // 프로필사진 클릭 시 해당 프로필 페이지로 이동
       userImage.addEventListener('click', () => {
-        location.href = `/Hologram/pages/feedDetail.html?accountname=${accountName}`;
+        location.href = `/pages/feedDetail.html?accountname=${accountName}`;
       })
 
       // 피드 컨텐츠 내용
@@ -252,7 +252,7 @@ async function getFeedInfo () {
 
       // 댓글창 연결
       commentBtn.addEventListener('click', () => {
-        location.href = `/Hologram/pages/postcomment.html?postId=${postId}`;
+        location.href = `/pages/postcomment.html?postId=${postId}`;
       })
     }
 
