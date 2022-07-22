@@ -1,48 +1,49 @@
 getUserProfile();
 
 /* 모달창 */
-const open = () => {
-  document.querySelector(".modal").classList.remove("hidden");
-}
-const close = () => {
-  document.querySelector(".modal").classList.add("hidden");  
-}  
+// const open = () => {
+//   document.querySelector(".modal").classList.remove("hidden");
+// }
+// const close = () => {
+//   document.querySelector(".modal").classList.add("hidden");  
+// }  
 
-/* 헤더 메뉴 버튼 */
-document.querySelector(".more-menu-btn").addEventListener("click", open);
-document.querySelector(".modal-bg ").addEventListener("click", close); 
-document.querySelector(".modal-close-bar").addEventListener("click", close); 
-const profileSetBtn = document.querySelector('#profile-setting');
-const logoutChoose = document.querySelector('#logout');
+// /* 헤더 메뉴 버튼 */
+// document.querySelector(".more-menu-btn").addEventListener("click", open);
+// document.querySelector(".modal-bg ").addEventListener("click", close); 
+// document.querySelector(".modal-close-bar").addEventListener("click", close); 
+// const profileSetBtn = document.querySelector('#profile-setting');
+// const logoutChoose = document.querySelector('#logout');
 
-profileSetBtn.addEventListener('click', () => {
-  location.href='../pages/profile.html';
-  close()
-})
-logoutChoose.addEventListener('click', ()=>{
-  close()
-  // 로그아웃 모달이 보여진다. 
-  document.querySelector(".logout-modal").classList.remove("hidden");  
-});
+// profileSetBtn.addEventListener('click', () => {
+//   location.href='../pages/profile.html';
+//   close()
+// })
+// logoutChoose.addEventListener('click', ()=>{
+//   close()
+//   // 로그아웃 모달이 보여진다. 
+//   document.querySelector(".logout-modal").classList.remove("hidden");  
+// });
 
-/* 로그아웃 모달 */
-const logoutmodalBg = document.querySelector(".logoutmodal-bg");
-// 로그아웃모달 - 취소
-const cancelBtn = document.querySelector('#cancel-btn');
-// 로그아웃모달 - 로그아웃
-const logoutBtn = document.querySelector('#logout-btn');
+// /* 로그아웃 모달 */
+// const logoutmodalBg = document.querySelector(".logoutmodal-bg");
+// // 로그아웃모달 - 취소
+// const cancelBtn = document.querySelector('#cancel-btn');
+// // 로그아웃모달 - 로그아웃
+// const logoutBtn = document.querySelector('#logout-btn');
 
-// 로그아웃모달 배경 선택 시 모달 종료
-logoutmodalBg.addEventListener('click', ()=>{
-  document.querySelector(".logout-modal").classList.add("hidden");  
-})
-cancelBtn.addEventListener('click', ()=>{
-  document.querySelector(".logout-modal").classList.add("hidden");  
-})
-logoutBtn.addEventListener('click', ()=>{
-  // 로그아웃
-  location.href='../pages/splash.html####';
-})
+// // 로그아웃모달 배경 선택 시 모달 종료
+// logoutmodalBg.addEventListener('click', ()=>{
+//   document.querySelector(".logout-modal").classList.add("hidden");  
+// })
+// cancelBtn.addEventListener('click', ()=>{
+//   document.querySelector(".logout-modal").classList.add("hidden");  
+// })
+// logoutBtn.addEventListener('click', ()=>{
+//   // 로그아웃
+//   location.href='../pages/login.html';
+//   localStorage.clear();
+// })
 
 
 
@@ -83,7 +84,7 @@ async function getUserProfile(accountname) {
     // setUserPost(userPost);
 
   } catch(errorMsg) {
-    console.log(errorMsg);
+    location.href="../pages/404.html";
   }
 }
 
