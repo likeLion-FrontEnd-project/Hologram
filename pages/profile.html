@@ -109,7 +109,7 @@
       <div class="posts-wrap">
         <!-- post list -->
         <ul class="post-list-wrap on">
-          <li class="post-list-item">
+          <!-- <li class="post-list-item">
             <div class="post-img-wrap">
               <img
                 src="../assets/images/img-post-sample.png"
@@ -162,7 +162,7 @@
                 <span class="comment-num">12</span>
               </div>
             </div>
-          </li>
+          </li> -->
         </ul>
 
         <!-- post album -->
@@ -237,7 +237,7 @@
     </div>
   </article>
   <!-- 로그아웃 모달 -->
-  <article class="logout-modal hidden">
+  <article class="logout-modal hidden"> 
     <h1 class="sr-only">로그아웃 확인 모달창</h1>
     <div class="logoutmodal-bg"></div>
     <div class="modal-window-center">
@@ -253,9 +253,43 @@
     </div>
   </article>
 
+  <!-- 게시글 삭제 모달 -->
+  <div class="modal-bg hidden"></div>
+    <article class="modal-window-bottom hidden">
+      <h1 class="sr-only">게시글 삭제 모달창</h1>
+      <button type="button" class="modal-close-bar">
+        <img
+          src="../assets/images/icon/icon-modal-closebtn.svg"
+          alt="모달창 닫기 아이콘"
+          class="modal-close-icon"
+        />
+      </button>
+      <ul class="modal-list">
+        <li>
+          <button id="delete-post" class="modal-list-btn">삭제</button>
+        </li>
+        <li>
+          <button id="modify-post" class="modal-list-btn">수정</button>
+        </li>
+      </ul>
+    </article>
+
+    <article class="modal-window-center hidden">
+      <h1 class="sr-only">게시글 삭제 확인 모달창</h1>
+      <p class="modal-center-text">게시글을 삭제할까요?</p>
+      <div class="modal-center-btn">
+        <button type="button" id="cancel-btn" class="center-btn-left">
+          취소
+        </button>
+        <button type="button" id="delete-btn" class="center-btn-right">
+          삭제
+        </button>
+      </div>
+    </article>
+
   <script src="../js/common.js"></script>
   <script src="../js/profile.js"></script>
-  <script src="../js/profile-product.js"></script>
+  <!-- <script src="../js/profile-product.js"></script> -->
   <script src="../js/profile-post.js"></script>
 </body>
 </html>
