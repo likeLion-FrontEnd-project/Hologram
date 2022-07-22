@@ -1,4 +1,6 @@
-const accountName = localStorage.getItem('accountname');
+const getAccount = location.search.replace("?","").split("=");
+const accountName = (getAccount == '') ? 
+localStorage.getItem('accountname') : getAccount[1];
 const token = localStorage.getItem('token');
 const feedMain = document.querySelector('.home-main');
 const postCategory = document.querySelector('.post-category');
@@ -138,7 +140,8 @@ async function getFeedInfo () {
       
       // 프로필사진 클릭 시 해당 프로필 페이지로 이동
       userImage.addEventListener('click', () => {
-        location.href = `/pages/feedDetail.html?accountname=${accountName}`;
+        location.href = `/pages/profile.html?accountname=${accountName}`;
+        
       })
 
       // 피드 컨텐츠 내용
