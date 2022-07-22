@@ -50,12 +50,12 @@ getUserProfile();
 /* 유저 정보 받아오기  */
 async function getUserProfile(accountname) {
   const token = localStorage.getItem('token');
-  
+
   // getAccount: 쿼리스트링에서 정보를 받아온다. 
-  const getAccount = location.search.replace("?","").split("=");
-  const accountName = (getAccount == '') ? 
+  const getAccount = location.search.replace("?", "").split("=");
+  const accountName = (getAccount == '') ?
     localStorage.getItem('accountname') : getAccount[1];
-  
+
   const getUserData = {
     method: 'GET',
     headers: {
@@ -65,26 +65,32 @@ async function getUserProfile(accountname) {
   }
 
 
-  try{
+  try {
     // userProfile
     const userProfileData = await fetch(`${url}/profile/${accountName}`, getUserData);
     const userProfileJson = await userProfileData.json();
     const userProfile = userProfileJson.profile;
 
+    // userFollow
     const followingData = await fetch(`${url}/profile/${accountName}/follower`, getUserData);
     const followList = await followingData.json();
     const userFollowing = userProfile.following;
-    
     setUserProfile(userProfile, followList);
-    
+
+    // userProduct
+    const userProductData = await fetch(`${url}/product/${accountName}`, getUserData);
+    const userProductJson = await userProductData.json();
+    const userProduct = userProductJson.product;
+    setUserProduct(userProduct);
+
     // userPost
     const userPostData = await fetch(`${url}/post/${accountName}/userpost`, getUserData);
     const userPostJson = await userPostData.json();
     const userPost = userPostJson.post;
     // setUserPost(userPost);
 
-  } catch(errorMsg) {
-    location.href="../pages/404.html";
+  } catch (errorMsg) {
+    location.href = "../pages/404.html";
   }
 }
 
@@ -114,14 +120,14 @@ const unfollowBtnWrap = document.querySelector('.unfollow-btns');
 
 /* 유저 프로필 정보 뿌려주기 */
 function setUserProfile(userProfile, followList) {
-  console.log('현재의 유저'); 
+  console.log('현재의 유저');
   console.log(userProfile);
   console.log(followList); // 로그인한 나의 팔로잉 리스트
   // 팔로우 리스트에 내 아이디가 있다면?
 
 
   const user_image = (userProfile.image) ? userProfile.image : '../assets/images/img-profile_large.png';
-  
+
   document.querySelector('.follower-num').textContent = userProfile.followerCount;
   document.querySelector('.follower-wrap').setAttribute('href', `/pages/followers.html?accountname=${userProfile.accountname}`);
   document.querySelector('.following-num').textContent = userProfile.followingCount;
@@ -130,18 +136,18 @@ function setUserProfile(userProfile, followList) {
   document.querySelector('.profile-section .profile-name').textContent = userProfile.username;
   document.querySelector('.profile-section .profile-account').textContent = `@ ${userProfile.accountname}`;
   document.querySelector('.profile-section .profile-intro').textContent = userProfile.intro;
-  
+
   const localUser = localStorage.getItem('accountname');
   const nowUser = userProfile.accountname;
   console.log(userProfile.isfollow);
-  
+
   if (nowUser === localUser) { // 내 프로필일 때
     myProfileBtnWrap.classList.add('on');
-  } 
+  }
   else if (userProfile.isfollow === false) { // 팔로우 중이 아니라면
     followBtnWrap.style.display = 'flex';
     followBtn.textContent = '팔로우';
-  } else if (userProfile.isfollow === true ) { // 팔로우 중이라면
+  } else if (userProfile.isfollow === true) { // 팔로우 중이라면
     followBtnWrap.style.display = 'flex';
     followBtn.classList.replace('user-follow-btn', 'user-unfollow-btn');
     followBtn.textContent = '언팔로우';
@@ -151,35 +157,35 @@ function setUserProfile(userProfile, followList) {
 // follow-btn -> profile-unfollow-btn
 
 // follow, unfollow 상태 변경
-async function changeFollow(userProfile){
+async function changeFollow(userProfile) {
   const localUser = localStorage.getItem('accountname');
   const nowUser = userProfile.accountname;
-  
+
   const token = localStorage.getItem('token');
-  const getAccount = location.search.replace("?","").split("=");
-  const accountName = (getAccount == '') ? 
+  const getAccount = location.search.replace("?", "").split("=");
+  const accountName = (getAccount == '') ?
     localStorage.getItem('accountname') : getAccount[1];
-  
+
   // 팔로우 됨
-  if(followBtn.classList.contains('user-follow-btn')){ // 현재 팔로우 중임 
+  if (followBtn.classList.contains('user-follow-btn')) { // 현재 팔로우 중임 
     try {
-      const resFollow = await fetch(`${url}/profile/${accountName}/follow`, 
-      {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-type': 'application/json',
-        },
-      });
+      const resFollow = await fetch(`${url}/profile/${accountName}/follow`,
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-type': 'application/json',
+          },
+        });
       const resFollowJson = await resFollow.json();
-    }catch(err){
+    } catch (err) {
       console.error('err', err);
     }
     console.log('팔로우 성공');
     followBtn.classList.replace('user-follow-btn', 'user-unfollow-btn');
     followBtn.textContent = '언팔로우';
-    
-  }else if(followBtn.classList.contains('user-unfollow-btn')){ 
+
+  } else if (followBtn.classList.contains('user-unfollow-btn')) {
     try {
       const resUnfollow = await fetch(`${url}/profile/${accountName}/unfollow`,
         {
@@ -189,10 +195,10 @@ async function changeFollow(userProfile){
             'Content-type': 'application/json',
           },
         });
-        const resUnfollowJson = await resUnfollow.json();
-        console.log('이제 님 언팔함');
-        console.log(resUnfollowJson);
-    }catch(err){
+      const resUnfollowJson = await resUnfollow.json();
+      console.log('이제 님 언팔함');
+      console.log(resUnfollowJson);
+    } catch (err) {
       console.error('err', err);
     }
     followBtn.classList.replace('user-unfollow-btn', 'user-follow-btn');
@@ -205,11 +211,11 @@ followBtn.addEventListener('click', changeFollow);
 
 
 /* 게시글 - 리스트, 앨범 */
-function postViewtoggle(){
+function postViewtoggle() {
   const listWrap = document.querySelector(".post-list-wrap")
   const albumWrap = document.querySelector(".post-album-div")
 
-  if(this.id === 'post-album-btn'){
+  if (this.id === 'post-album-btn') {
     toggleClass(albumBtn, listBtn);
     toggleClass(albumWrap, listWrap);
   } else {
@@ -217,7 +223,7 @@ function postViewtoggle(){
     toggleClass(listWrap, albumWrap);
   }
 }
-function toggleClass(addClass, removeClass){ 
+function toggleClass(addClass, removeClass) {
   addClass.classList.add('on');
   removeClass.classList.remove('on');
 }

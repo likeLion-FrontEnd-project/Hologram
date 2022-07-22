@@ -64,33 +64,6 @@
       <div class="product-wrap">
         <h2>판매중인 상품</h2>
         <ul class="product-list">
-          <li class="product-item">
-            <div class="product-img-box">
-              <img src="../assets/images/feed_room_03.jpg" alt="">
-            </div>
-            <div class="product-info">
-              <strong class="product-title">화이트 침구</strong>
-              <strong class="product-price">35,000원</strong>
-            </div>
-          </li>
-          <li class="product-item">
-            <div class="product-img-box">
-              <img src="../assets/images/feed_room_03.jpg" alt="">
-            </div>
-            <div class="product-info">
-              <strong class="product-title">화이트 침구</strong>
-              <strong class="product-price">35,000원</strong>
-            </div>
-          </li>
-          <li class="product-item">
-            <div class="product-img-box">
-              <img src="../assets/images/feed_room_03.jpg" alt="">
-            </div>
-            <div class="product-info">
-              <strong class="product-title">화이트 침구</strong>
-              <strong class="product-price">35,000원</strong>
-            </div>
-          </li>
         </ul>
       </div>
     </article>
@@ -109,60 +82,6 @@
       <div class="posts-wrap">
         <!-- post list -->
         <ul class="post-list-wrap on">
-          <!-- <li class="post-list-item">
-            <div class="post-img-wrap">
-              <img
-                src="../assets/images/img-post-sample.png"
-                alt="피드 게시물 이미지"
-                class="post-image"
-              />
-            </div>
-            <div class="post-nav">
-              <div class="post-user">
-                <img
-                  src="../assets/images/img-profile_small.png"
-                  alt="프로필 기본 이미지"
-                  class="profile-image"
-                />
-                <div>
-                  <h3 class="profile-name">wijeong0305</h3>
-                  <p class="profile-account">@wijeong0305</p>
-                </div>
-              </div>
-              <button class="post-menu-button">
-                <img
-                  src="../assets/images/icon/icon-post-menu.svg"
-                  alt="메뉴 버튼"
-                  class="post-menu-button-image"
-                />
-              </button>
-            </div>
-            <div class="post-main">
-              <span class="post-category">오늘의 잡담</span>
-              <h3 class="post-title">나만의 데스크 셋업 완성🔥</h3>
-              <p class="post-content">
-                이름을 이네들은 하나에 위에 위에도 헤는 벌레는 노루, 가슴속에
-                봅니다. 무엇인지 한 별에도 나는 했던 패, 까닭입니다. 이름을
-                하나에 이웃 새겨지는 하나에 위에 하늘에는 동경과 이름과
-                있습니다. 그러나 다 피어나듯이 별을 별 버리었습니다. 하나에
-                그리고 걱정도 그리워 별을 소...
-                <button class="detail-button">더보기</button>
-              </p>
-            </div>
-            <div class="post-footer">
-              <p class="post-time">20분 전</p>
-              <div class="post-footer-button">
-                <button type="button" class="like-button">
-                  <span class="sr-only">좋아요</span>
-                </button>
-                <span class="like-num">0</span>
-                <button type="button" class="comment-button">
-                  <span class="sr-only">댓글</span>
-                </button>
-                <span class="comment-num">12</span>
-              </div>
-            </div>
-          </li> -->
         </ul>
 
         <!-- post album -->
@@ -287,9 +206,55 @@
       </div>
     </article>
 
+    <!-- 판매상품 모달 -->
+    <!-- 페이지 하단 모달창 -->
+    <article class="modal hidden" id="myProduct-bottom-modal">
+      <h1 class="sr-only">상품판매 모달창</h1>
+      <div class="modal-bg"></div>
+      <div class="modal-window-bottom">
+      <button type="button" class="modal-close-bar">
+          <img
+            src="../assets/images/icon/icon-modal-closebtn.svg"
+            alt="모달창 닫기 아이콘"
+            class="modal-close-icon"
+          />
+        </button>
+        <ul class="modal-list">
+          <li>
+            <button id="product-delete-btn" class="modal-list-btn">삭제</button>
+          </li>
+          <li>
+            <button id="product-modify-btn" class="modal-list-btn">수정</button>
+          </li>
+          <!-- <li>
+            <button id="web-product" class="modal-list-btn">
+              상품 보기
+            </button>
+          </li> -->
+        </ul>
+      </div>
+    </article>
+
+    <!-- 페이지 중앙 모달창 -->
+    <article class="small-modal hidden" id="myProduct-small">
+      <h1 class="sr-only">상품삭제 확인 모달창</h1>
+      <div class="modal-bg"></div>
+      <div class="modal-window-center">
+        <p class="modal-center-text">상품을 삭제할까요?</p>
+        <div class="modal-center-btn">
+          <button type="button" id="myProduct-small-cancel-btn" class="center-btn-left">
+            취소
+          </button>
+          <button type="button" id="myProduct-small-delete-btn" class="center-btn-right">
+            삭제
+          </button>
+        </div>
+      </div>
+    </article>
+    
   <script src="../js/common.js"></script>
   <script src="../js/profile.js"></script>
-  <!-- <script src="../js/profile-product.js"></script> -->
+  <script src="../js/profile-product.js"></script>
   <script src="../js/profile-post.js"></script>
 </body>
 </html>
