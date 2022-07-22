@@ -133,7 +133,8 @@ async function getFeedInfo () {
       const username = POSTS.author.username;
 
       userName.textContent = username;
-      account.textContent =  `@${accountName.slice(0, 6)}`;
+      account.textContent =  `@${accountName.slice(0, 9)}`;
+      // console.log(accountName.slice(0, 6));
       
       // 프로필사진 클릭 시 해당 프로필 페이지로 이동
       userImage.addEventListener('click', () => {
@@ -160,7 +161,7 @@ async function getFeedInfo () {
       postMain.append(postContent);
       postContent.append(postMoreBtn);
 
-      if(contentText.length >= 3 && contentText[0] === '오늘의 잡담' || contentText[0] === '찬반 대결' || contentText[0] === '오늘의 팁') {
+      if(contentText.length >= 3 && contentText[0] === '오늘의 잡담' || contentText[0] === '찬반대결' || contentText[0] === '오늘의 팁') {
         // 카테고리, 타이틀 추가 (카테고리명이 일치할 경우에만)
         postCategory.textContent = contentText[0];
         postTitle.textContent = contentText[1];
@@ -185,7 +186,7 @@ async function getFeedInfo () {
       postList.append(postFooter);
 
     // 피드 하단 - 찬성 or 반대
-    if(contentText[0] === '찬반 대결') {
+    if(contentText[0] === '찬반대결') {
       const clicked = 'clicked';
 
       // 카테고리가 '찬반 대결'인 경우 피드 하단 부분
@@ -245,9 +246,55 @@ async function getFeedInfo () {
       const uploadDate = timeForToday(POSTS.createdAt);
       postTime.textContent = uploadDate;
 
-      // 좋아요 클릭
+      // 좋아요 
+      async function likePost () {
+        const likePath = `/post/${postId}/heart`;
+        const reqInfo = {
+          method : 'POST',
+          headers : {
+            Authorization : `Bearer ${token}`,
+            'Content-type' : 'application/json',
+          },
+        }
+        const res = await fetch(url + likePath, reqInfo)
+                          .then((response) => {
+                            return response;
+                          })
+        const json = await res.json();
+        console.log(json);
+      }
+
+      async function cancelLikePost () {
+        const likeCancelPath = `/post/${postId}/unheart`;
+        const reqInfo = {
+          method : 'DELETE',
+          headers : {
+            Authorization : `Bearer ${token}`,
+            'Content-type' : 'application/json',
+          },
+        }
+        const res = await fetch(url + likeCancelPath, reqInfo)
+                          .then((response) => {
+                            return response;
+                          })
+        const json = await res.json();
+        console.log(json);
+      }
+
       likeBtn.addEventListener('click', () => {
-        likeBtn.classList.toggle('clicked')
+        async function handleLikeBtn () {
+          let data = {};
+          if(likeBtn.classList.contains('clicked')) {
+            likeBtn.classList.remove('clicked');
+            data = await cancelLikePost();
+            likeNum.textContent = POSTS.heartCount;
+          } else {
+            likeBtn.classList.add('clicked');
+            data = await likePost();
+            likeNum.textContent = POSTS.heartCount;
+          }
+        }
+        handleLikeBtn();
       })
 
       // 댓글창 연결

@@ -39,8 +39,6 @@ async function searchUser () {
         const userInfo = document.createElement('div');
         const userProfileName = document.createElement('strong');
         const userProfileId = document.createElement('span');
-        const followBtn = document.createElement('button');
-        // const followCancleBtn = document.createElement('button');
 
         userprofileLI.setAttribute('class', 'user-profile-li');
         searchA.setAttribute('class', 'search-a');
@@ -49,15 +47,9 @@ async function searchUser () {
         userInfo.setAttribute('class', 'user-info');
         userProfileName.setAttribute('class', 'user-name');
         userProfileId.setAttribute('class', 'user-id');
-        // followBtn.setAttribute('class', 'user-follow-btn');
-        // followBtn.setAttribute('type', 'button');
-        // followCancleBtn.setAttribute('class', 'user-follow-btn');
-        // followCancleBtn.setAttribute('type', 'button');
 
         userListWrap.append(userprofileLI);
         userprofileLI.append(searchA);
-        userprofileLI.append(followBtn);
-        // userprofileLI.append(followCancleBtn);
         searchA.append(userProfileImg);
         searchA.append(userInfo);
         userInfo.append(userProfileName);
@@ -65,19 +57,6 @@ async function searchUser () {
 
         userProfileName.textContent = userName;
         userProfileId.textContent = accountName;
-        // followBtn.textContent = '팔로우';
-        // followCancleBtn.textContent = '취소';
-
-        if ((el.follower).includes(userProfileId)) {
-          followBtn.setAttribute('class', 'user-follow-btn cancel');
-          followBtn.setAttribute('id', 'user-follow-btn-cancel');
-          followBtn.textContent = '취소';
-        } else {
-          followBtn.setAttribute('class', 'user-follow-btn');
-          followBtn.setAttribute('id', 'user-follow-btn');
-          followBtn.textContent = '팔로우';
-        }
-
 
         // 유저 프로필 클릭 시 해당 페이지로 이동
         searchA.addEventListener('click', () => {
