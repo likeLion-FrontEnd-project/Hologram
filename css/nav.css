@@ -18,11 +18,13 @@
   border-radius: 32px;
   background-color: var(--disabled-color);
   color: #fff;
+  cursor: not-allowed;
 }
 
 /* 저장 및 업로드 버튼 활성 */
 .nav-btn.enabled {
   background-color: var(--enabled-color);
+  cursor: pointer;
 }
 
 /* 뒤로가기 버튼 */
