@@ -43,16 +43,17 @@
 
 /* 이미지 가운데 정렬 */
 .profile-img-wrap {
+  display: block;
   width: 110px;
   height: 110px;
   overflow: hidden;
   border-radius: 50%;
   border: 0.5px solid var(--light-gray-color);
+  object-fit: cover;
 }
 
 .profile-img-wrap img,
 .post-album-wrap img,
-.product-img-box img,
 .post-image-wrap img {
   width: 100%;
   height: 100%;
@@ -184,27 +185,32 @@
   flex: 0 0 auto;
 }
 
-/* 이미지 가운데 정렬 */
-.product-item .product-img-box {
-  height: 90px;
-  margin-bottom: 7px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 0.5px solid var(--light-gray-color);
-}
 
 /* 판매 상품 */
-.product-item .product-info {
+/* 이미지 가운데 정렬 */
+.product-item .product-img {
+  height: 90px;
+  width: 100%;
+  margin-bottom: 7px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 0.5px solid var(--light-gray-color);
+}
+.product-item .product-title, 
+.product-item .product-price {
   padding: 0 2px;
 } 
-.product-info .product-title {
+.product-item .product-title {
   display: block;
   margin-bottom: 4px;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.product-info .product-price {
+.product-item .product-price {
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
@@ -333,11 +339,8 @@
 .on { 
   display: block;
 }
-
-
-
 /* 헤더 메뉴 모달 */
-.modal-bg, .logoutmodal-bg {
+.modal-bg, .logoutmodal-bg, .small-modal-bg {
   position: fixed;
   top: 0;
   left: 0;
