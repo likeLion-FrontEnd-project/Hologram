@@ -52,6 +52,41 @@
             <button type="button" class="send-btn"><span>전송</span></button>
         </section>
     </footer>
-    <script src="../js/common.js"></script>
+    <article class="modal hidden">
+        <h1 class="sr-only">채팅방모달창</h1>
+        <div class="modal-bg"></div>
+        <div class="modal-window-bottom">
+        <button type="button" class="modal-close-bar">
+        <img
+        src="../assets/images/icon/icon-modal-closebtn.svg"
+        alt="모달창
+        닫기 아이콘"
+        class="modal-close-icon"
+        />
+        </button>
+        <ul class="modal-list">
+        <li>
+            <button id="back" class="modal-list-btn">채팅방 나가기</button>
+        </li>
+        </ul>
+    </div>
+    </article>
+    <!-- 채팅방 모달 -->
+    <article class="chatroom-modal hidden">
+    <h1 class="sr-only">채팅방 모달창</h1>
+    <div class="chatroommodal-bg"></div>
+    <div class="modal-window-center">
+        <p class="modal-center-text">채팅방을 나가시겠어요?</p>
+        <div class="modal-center-btn">
+        <button type="button" id="cancel-btn" class="center-btn-left">
+            취소
+        </button>
+        <button type="button" id="back-chatroom-btn" class="center-btn-right">
+            나가기
+        </button>
+        </div>
+    </div>
+    </article>
+    <script src="../js/backchat.js"></script>
 </body>
 </html>
