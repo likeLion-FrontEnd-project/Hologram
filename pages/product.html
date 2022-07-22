@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>상품 등록 | 홀로그램</title>
   <link rel="stylesheet" href="../css/default.css">
-  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/input.css">
   <link rel="stylesheet" href="../css/imageRegister.css">
   <link rel="stylesheet" href="../css/product.css">
 </head>
@@ -21,25 +21,42 @@
     <section class="product-wrap">
       <h2 class="sr-only">상품 정보 입력</h2>
       <form action="product-form" autocomplete="off">
-        <h3 class="product-title">이미지 등록</h3>
-        <div class="productImg-wrap">
-          <button class="img-upload-btn register-product">
-            <img src="../assets/images/icon/icon-image.svg" alt="이미지 업로드" />
-          </button>
-        </div>
-        <div class="content-wrap">
-          <label class="product-title" for="product-title" >상품명</label>
-          <input class="product-input" type="text" name="product-title" id="product-title" placeholder="2~15자 이내여야 합니다." required>
-          <strong class="text-error">*2~15자 이내여야 합니다.</strong>
+        <div class="product-img-wrap">
+          <label class="product-img-screen" for="product-img-upload">
+            <img src="" alt="상품이미지 미리보기" class="product-img" id="product-img" />
+            <input
+              type="file"
+              accept="image/*"
+              onchange="productImgShow(event)"
+              id="product-img-upload"
+              class="sr-only product-img-input"
+            />
+          </label>
         </div>
 
-        <div class="content-wrap">
-          <label class="product-title product-price" for="product-price">가격</label>
-          <input class="product-input" type="text" name="product-price" id="product-price" placeholder="숫자만 입력 가능합니다." required>
-          <strong class="text-error">*숫자만 입력 가능합니다.</strong>
+        <div class="input-wrapper">
+          <label for="product-name-input" class="input-label">상품명</label>
+          <input
+            type="text"
+            class="input"
+            id="product-name"
+            placeholder="2~15자 이내여야 합니다."
+            maxlength="15"
+            />
+          <strong class="error-msg">*2~15자 이내여야 합니다.</strong>
+        </div>
+        
+        <div class="input-wrapper">
+          <label for="price-input" class="input-label">가격</label>
+          <input
+            type="text"
+            class="input"
+            id="product-price"
+            placeholder="숫자만 입력 가능합니다."
+            maxlength="12"
+            />
         </div>
           
-        <input type="hidden" id="hidden-product-img">
       </form>
     </section>
   </main>
