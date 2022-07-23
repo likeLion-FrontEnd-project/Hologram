@@ -82,22 +82,20 @@ function setFollowingList(followingList, userId, userFollowing) {
 
       /* 팔로우한 상태 구분 */
       const userFollowBtn = document.createElement('button');
-      userFollowBtn.setAttribute('class', 'user-follow-btn');
-      userFollowBtn.setAttribute('id', 'user-follow-btn');
-
-      //userFollowBtn.addEventListener('click', changeFollowList(i._id));
 
       if (i.isfollow) {
         userFollowBtn.setAttribute('class', 'user-follow-btn cancel');
         userFollowBtn.setAttribute('id', 'user-follow-btn-cancel');
         userFollowBtn.innerText = '취소';
-
       } else {
-        userFollowBtn.setAttribute('class', 'user-follow-btn');
-        userFollowBtn.setAttribute('id', 'user-follow-btn');
-        userFollowBtn.innerText = '팔로우';
+        if (i.accountname === localStorage.getItem('accountname')) {
+          userFollowBtn.style.display = 'none';
+        } else {
+          userFollowBtn.setAttribute('class', 'user-follow-btn');
+          userFollowBtn.setAttribute('id', 'user-follow-btn');
+          userFollowBtn.innerText = '팔로우';
+        }
       }
-
       // a > img
       userProfileLink.appendChild(userProfileImg);
       // a > div < name+intro
