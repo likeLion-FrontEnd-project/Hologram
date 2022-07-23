@@ -188,6 +188,7 @@ async function handleGetPost() {
       postTime.setAttribute('class', 'post-time');
       postFooterBtns.setAttribute('class', 'post-footer-button');
       likeBtn.setAttribute('class', 'like-button');
+      POST.hearted ? likeBtn.classList.add('clicked') : likeBtn.classList.remove('clicked');
       likeBtn.setAttribute('type', 'button');
       likeNum.setAttribute('class', 'like-num');
       commentBtn.setAttribute('class', 'comment-button');
@@ -212,10 +213,57 @@ async function handleGetPost() {
       const uploadDate = getTimeDifference(POST.createdAt);
       postTime.textContent = uploadDate;
 
-      // 좋아요 클릭
-      likeBtn.addEventListener('click', () => {
-          likeBtn.classList.toggle('clicked')
-      })
+      // 좋아요 
+      async function likePost (post_id) {
+        const likePath = `/post/${post_id}/heart`;
+        const reqInfo = {
+          method : 'POST',
+          headers : {
+            Authorization : `Bearer ${token}`,
+            'Content-type' : 'application/json',
+          },
+        }
+        const res = await fetch(url + likePath, reqInfo)
+                          .then((response) => {
+                            return response;
+                          })
+        const json = await res.json();
+        return json;
+      }
+
+      async function cancelLikePost (post_id) {
+        const likeCancelPath = `/post/${post_id}/unheart`;
+        const reqInfo = {
+          method : 'DELETE',
+          headers : {
+            Authorization : `Bearer ${token}`,
+            'Content-type' : 'application/json',
+          },
+        }
+        const res = await fetch(url + likeCancelPath, reqInfo)
+                          .then((response) => {
+                            return response;
+                          })
+        const json = await res.json();
+        return json;
+      }
+      
+      async function handleLikeBtn () {
+        let data = {};
+        let postId = POST.id;
+
+        if(likeBtn.classList.contains('clicked')) {
+          likeBtn.classList.remove('clicked');
+          data = await cancelLikePost(postId);
+          likeNum.textContent = data.post.heartCount;
+        } else {
+          likeBtn.classList.add('clicked');
+          data = await likePost(postId);
+          likeNum.textContent = data.post.heartCount;
+        }
+      }
+      
+      likeBtn.addEventListener('click', handleLikeBtn);
   }
 
   // 게시글 신고

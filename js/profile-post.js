@@ -1,7 +1,6 @@
 const token = localStorage.getItem('token');
 const getAccount = location.search.replace("?","").split("=");
-const accountName = (getAccount == '') ? 
-localStorage.getItem('accountname') : getAccount[1];
+const accountName = (getAccount == '') ? localStorage.getItem('accountname') : getAccount[1];
 
 const postListWrap = document.querySelector('.post-list-wrap')
 const modalBg = document.querySelectorAll('.modal-bg');
@@ -27,7 +26,6 @@ async function getMyFeed () {
                         return response;
                       })
     const json = await res.json();
-    console.log('post 전송',json);
 
     const srOnly = document.createElement('h2');
     srOnly.setAttribute('class', 'sr-only');
@@ -100,8 +98,7 @@ async function getMyFeed () {
       const username = POST.author.username;
 
       userName.textContent = username;
-      account.textContent =  `@${accountName.slice(0, 9)}`;
-      // console.log(accountName.slice(0, 6));
+      account.textContent =  `@${accountName}`;
       
       // 프로필사진 클릭 시 해당 프로필 페이지로 이동
       userImage.addEventListener('click', () => {
@@ -191,6 +188,7 @@ async function getMyFeed () {
         postTime.setAttribute('class', 'post-time');
         postFooterBtns.setAttribute('class', 'post-footer-button');
         likeBtn.setAttribute('class', 'like-button');
+        POST.hearted ? likeBtn.classList.add('clicked') : likeBtn.classList.remove('clicked');
         likeBtn.setAttribute('type', 'button');
         likeNum.setAttribute('class', 'like-num');
         commentBtn.setAttribute('class', 'comment-button');
@@ -214,54 +212,56 @@ async function getMyFeed () {
         const uploadDate = timeForToday(POST.createdAt);
         postTime.textContent = uploadDate;
 
-        // 좋아요 
-        async function likePost () {
-          const likePath = `/post/${postId}/heart`;
-          const reqInfo = {
-            method : 'POST',
-            headers : {
-              Authorization : `Bearer ${token}`,
-              'Content-type' : 'application/json',
-            },
-          }
-          const res = await fetch(url + likePath, reqInfo)
-                            .then((response) => {
-                              return response;
-                            })
-          const json = await res.json();
-          console.log(json);
+      // 좋아요 
+      async function likePost (post_id) {
+        const likePath = `/post/${post_id}/heart`;
+        const reqInfo = {
+          method : 'POST',
+          headers : {
+            Authorization : `Bearer ${token}`,
+            'Content-type' : 'application/json',
+          },
         }
+        const res = await fetch(url + likePath, reqInfo)
+                          .then((response) => {
+                            return response;
+                          })
+        const json = await res.json();
+        return json;
+      }
 
-        async function cancelLikePost () {
-          const likeCancelPath = `/post/${postId}/unheart`;
-          const reqInfo = {
-            method : 'DELETE',
-            headers : {
-              Authorization : `Bearer ${token}`,
-              'Content-type' : 'application/json',
-            },
-          }
-          const res = await fetch(url + likeCancelPath, reqInfo)
-                            .then((response) => {
-                              return response;
-                            })
-          const json = await res.json();
-          console.log(json);
+      async function cancelLikePost (post_id) {
+        const likeCancelPath = `/post/${post_id}/unheart`;
+        const reqInfo = {
+          method : 'DELETE',
+          headers : {
+            Authorization : `Bearer ${token}`,
+            'Content-type' : 'application/json',
+          },
         }
+        const res = await fetch(url + likeCancelPath, reqInfo)
+                          .then((response) => {
+                            return response;
+                          })
+        const json = await res.json();
+        return json;
+      }
+      
+      async function handleLikeBtn () {
+        let data = {};
+        let postId = POST.id;
 
-          async function handleLikeBtn () {
-            let data = {};
-            if(likeBtn.classList.contains('clicked')) {
-              likeBtn.classList.remove('clicked');
-              data = await cancelLikePost();
-              likeNum.textContent = POST.heartCount;
-            } else {
-              likeBtn.classList.add('clicked');
-              data = await likePost();
-              likeNum.textContent = POST.heartCount;
-            }
-          }
-          // handleLikeBtn();
+        if(likeBtn.classList.contains('clicked')) {
+          likeBtn.classList.remove('clicked');
+          data = await cancelLikePost(postId);
+          likeNum.textContent = data.post.heartCount;
+        } else {
+          likeBtn.classList.add('clicked');
+          data = await likePost(postId);
+          likeNum.textContent = data.post.heartCount;
+        }
+      }
+      likeBtn.addEventListener('click', handleLikeBtn);
 
         // 댓글창 연결
         commentBtn.addEventListener('click', () => {
@@ -313,7 +313,6 @@ async function getMyFeed () {
         modalCenter[1].classList.add('hidden');
         modalBg[1].classList.add('hidden');
       })
-      
     }
   }
 getMyFeed();
