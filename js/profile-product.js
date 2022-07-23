@@ -36,12 +36,15 @@ function setUserProduct(userProduct) {
 
         // 수정을 눌렀을 떄
         document.querySelector('#product-modify-btn').addEventListener('click',() => {
-          location.href=`../pages/product.html?productId=${productId}`;
+          getProduct(i);
+          console.log('겟 어쩌고');
+          console.log(i);
+          location.href = `../pages/editProduct.html?productId=${productId}`;
         })
 
         document.querySelector('#myProduct-small-delete-btn').addEventListener('click', () => {
-          //deleteProduct(productId); // product 페이지에서 삭제처리
-          location.href=`../pages/profile.html`;
+          deleteProduct(productId); // product 페이지에서 삭제처리
+          
         })
       })
     })
@@ -64,3 +67,23 @@ document.querySelector('#myProduct-small .modal-bg').addEventListener('click', (
 document.querySelector('#myProduct-small-cancel-btn').addEventListener('click', () => {
   document.querySelector('#myProduct-small').classList.add("hidden");
 })
+
+
+//상품 삭제
+async function deleteProduct(productId) {
+  try {
+    const resDelProductData = await fetch(`${url}/product/${productId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${window.localStorage.getItem('token')}`,
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(),
+    });
+    const resDelProductJson = await resDelProductData.json();
+    location.href=`../pages/profile.html`;
+  } catch (err) {
+    console.error(err);
+    location.href = '../pages/page404.html';
+  }
+}
