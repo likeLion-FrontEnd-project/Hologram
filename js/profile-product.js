@@ -36,14 +36,15 @@ function setUserProduct(userProduct) {
 
         // 수정을 눌렀을 떄
         document.querySelector('#product-modify-btn').addEventListener('click',() => {
-          getProduct(i);
+          //getProduct(i);
           console.log('겟 어쩌고');
           console.log(i);
+          //getProductData(productId);
           location.href = `../pages/editProduct.html?productId=${productId}`;
         })
 
         document.querySelector('#myProduct-small-delete-btn').addEventListener('click', () => {
-          deleteProduct(productId); // product 페이지에서 삭제처리
+          deleteProduct(productId); 
           
         })
       })
