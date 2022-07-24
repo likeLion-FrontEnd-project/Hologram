@@ -209,7 +209,6 @@ const followBtn = document.querySelector('.user-follow-btn');
 followBtn.addEventListener('click', changeFollow);
 
 
-
 /* 게시글 - 리스트, 앨범 */
 function postViewtoggle() {
   const listWrap = document.querySelector(".post-list-wrap")

@@ -28,20 +28,20 @@
         <h1 class="sr-only">프로필 페이지</h1>
         <div class="follow-wrap">
           <a class="follower-wrap" >
-            <strong class="follower-num">{follower-num}</strong>
+            <strong class="follower-num"></strong>
             <span>followers</span>
           </a>
           <div class="profile-img-wrap">
             <img src="../assets/images/img-profile_small.png" alt="프로필">
           </div>
           <a class="following-wrap">
-            <strong class="following-num">{following-num}</strong>
+            <strong class="following-num"></strong>
             <span>followings</span>
           </a>
         </div>
-        <strong class="profile-name">{profile-name}</strong>
-        <span class="profile-account">{profile-account}</span>
-        <p class="profile-intro">{profile-desc}</p>
+        <strong class="profile-name"></strong>
+        <span class="profile-account"></span>
+        <p class="profile-intro"></p>
         
         <!-- 마이 프로필 -->
         <div class="myProfile-btns">
@@ -251,7 +251,19 @@
         </div>
       </div>
     </article>
-    
+
+    <!-- 상품 내용 확인 모달 -->
+    <article class="modal hidden" id="product-detail">
+      <h1 class="sr-only">상품 정보 확인 모달창</h1>
+      <div class="modal-bg"></div>
+      <div class="product-detail-modal">
+        <img src="" class="product-img" alt="판매 상품 이미지">
+        <strong class="product-title">상품명</strong>
+        <span class="product-price">상품가격</span>
+        <button type="button" class="cancel-btn"></button>
+      </div>
+    </article>
+
   <script src="../js/common.js"></script>
   <script src="../js/profile.js"></script>
   <script src="../js/profile-product.js"></script>
