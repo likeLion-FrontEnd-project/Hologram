@@ -8,6 +8,7 @@ const saveBtn = document.querySelector('.save');
 // 계정 검증 API
 async function accountnameValid() {
   const url = 'https://mandarin.api.weniv.co.kr';
+  const currentId = localStorage.getItem('accountname');
   try {
     const res = await fetch(`${url}/user/accountnamevalid`, {
       method: 'POST',
@@ -21,16 +22,21 @@ async function accountnameValid() {
       }),
     });
     const resJson = await res.json();
-    console.log(resJson);
     if (resJson.message === '이미 가입된 계정ID 입니다.') {
       editAccountInput.classList.add('error');
       errEditProfile.textContent = `*이미 가입된 계정ID 입니다.`;
       errEditProfile.style.display = 'block';
+      if (currentId === editAccountInput.value) {
+        editAccountInput.classList.remove('error');
+        errEditProfile.textContent = null;
+        errEditProfile.style.display = 'none';
+      }
     }
   } catch (err) {
     console.error(err);
   }
 }
+
 // 계정 형식이 맞는지 확인
 const checkAccForm = () => {
   const regExp = /^[0-9a-zA-Z._]*$/i;
@@ -45,9 +51,9 @@ const checkAccForm = () => {
 };
 
 // 계정ID에 입력 시 계정 검증과 계정 형식이 올바른지 확인 실행
-editAccountInput.addEventListener('input', async () => {
+editAccountInput.addEventListener('input', (e) => {
   checkAccForm();
-  await accountnameValid();
+  accountnameValid();
   // 에러 메세지가 있거나 계정ID 값이 없을 때 버튼 활성/비활성
   if (
     errEditProfile.style.display === 'block' ||
@@ -122,6 +128,7 @@ async function editUserInfo() {
     });
     const resJson = await res.json();
     console.log(resJson);
+
     localStorage.setItem('accountname', editAccountInput.value);
     location.href = './profile.html';
   } catch (err) {
@@ -162,6 +169,7 @@ async function getEditUserInfo() {
     });
     const resJson = await res.json();
     setEditUserInfo(resJson.profile);
+    return resJson.profile;
   } catch (err) {
     console.error(err);
   }
