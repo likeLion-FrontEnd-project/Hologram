@@ -107,7 +107,7 @@ async function handleGetPost() {
   const username = POST.author.username;
 
   userName.textContent = username;
-  account.textContent =  `@${accountName.slice(0, 6)}`;
+  account.textContent =  `@${accountName}`;
   
   // 프로필사진 클릭 시 해당 프로필 페이지로 이동
   userImage.addEventListener('click', () => {
