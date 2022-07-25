@@ -1,5 +1,6 @@
 /* 팔로우한 상태 구분 */
 const userListWrap = document.querySelector('.user-list-wrap');
+const pageTitle = document.querySelector('.page-title').textContent;
 
 getFollowList();
 
@@ -30,9 +31,9 @@ async function getFollowList() {
   const followerData = await fetch(`${url}/profile/${accountName}/follower`, getFollowingData);
   const followerList = await followerData.json();
   
-  if ( document.querySelector('.page-title') === 'Followings') {
+  if ( pageTitle === 'Followings') {
     setFollowingList(followingList);
-  } else {
+  } else if( pageTitle === 'Followers') {
     setFollowerList(followerList);
   }
 }
