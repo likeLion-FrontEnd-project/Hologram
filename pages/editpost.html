@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/post.css">
+    <title>게시글 | Hologram</title>
+</head>
+<body>
+    <header class="nav">
+        <button class="back-btn">
+            <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
+        </button>
+        <button class="nav-btn upload">업로드</button>
+    </header>
+    <main class="main">
+        <section class="container-sec">
+            <h2 class="sr-only">게시글 작성</h2>
+            <section class="category-sec">
+                <h3 class="sr-only">카테고리 선택</h3>
+                <button type="button" class="select-btn">게시판 선택</button>
+                <article class="modal">
+                    <h3 class="sr-only">모달창</h3>
+                    <ul class="category-list">
+                        <li><button type="button" class="close"><img src="../assets/images/icon/icon-close.svg" alt="닫기 버튼"></button></li>
+                        <li><button type="button" class="button tit">게시판 선택</button></li>
+                        <li><button type="button" class="button category">오늘의 잡담</button></li>
+                        <li><button type="button" class="button category">찬반대결</button></li>
+                        <li><button type="button" class="button category">오늘의 팁</button></li>
+                    </ul>                    
+                </article>
+            </section>
+            <form action="" method="post" class="data-form">
+                <label for="title"></label>
+                <input type="text" id="title" name="post-tit"  class="upload-tit" placeholder="제목" maxlength="40"/>
+                <label for="post"></label>
+                <textarea id="post" cols="40" rows="6" maxlength="450" placeholder="게시글 입력하기..." class="upload-txt"></textarea>
+                <label for="img"><img src="../assets/images/img-upload-btn.svg" class="img-btn" alt="이미지업로드 버튼"></label>
+                <input type="file" id="img" name="post-img" accept="image/*" class="upload-img" />
+            </form>
+        </section>
+        <section class="container-img">
+            <h3 class="sr-only">이미지 업로드</h3>
+            <ul class="postimg-list"></ul>
+        </section>
+    </main>
+    <script src="../js/common.js"></script>
+    <script src="../js/editpost.js"></script>
+</body>
+</html>
