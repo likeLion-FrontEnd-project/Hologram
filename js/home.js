@@ -1,6 +1,5 @@
 const getAccount = location.search.replace("?","").split("=");
-const accountName = (getAccount == '') ? 
-localStorage.getItem('accountname') : getAccount[1];
+const accountName = (getAccount == '') ? localStorage.getItem('accountname') : getAccount[1];
 const token = localStorage.getItem('token');
 const feedMain = document.querySelector('.home-main');
 const postCategory = document.querySelector('.post-category');
@@ -28,7 +27,6 @@ async function getFeedInfo () {
                       return response;
                     })
   const json = await res.json();
-  console.log('post 전송',json);
 
   // 포스트가 없으면 초기화면 , 있으면 팔로우 게시글 보여주기
   if(json.posts.length <= 0 ) {
@@ -135,13 +133,11 @@ async function getFeedInfo () {
       const username = POSTS.author.username;
 
       userName.textContent = username;
-      account.textContent =  `@${accountName.slice(0, 9)}`;
-      // console.log(accountName.slice(0, 6));
+      account.textContent =  `@${accountName}`;
       
       // 프로필사진 클릭 시 해당 프로필 페이지로 이동
       userImage.addEventListener('click', () => {
         location.href = `/pages/profile.html?accountname=${accountName}`;
-        
       })
 
       // 피드 컨텐츠 내용
@@ -226,6 +222,7 @@ async function getFeedInfo () {
       postTime.setAttribute('class', 'post-time');
       postFooterBtns.setAttribute('class', 'post-footer-button');
       likeBtn.setAttribute('class', 'like-button');
+      POSTS.hearted ? likeBtn.classList.add('clicked') : likeBtn.classList.remove('clicked');
       likeBtn.setAttribute('type', 'button');
       likeNum.setAttribute('class', 'like-num');
       commentBtn.setAttribute('class', 'comment-button');
@@ -235,13 +232,12 @@ async function getFeedInfo () {
       postFooter.append(postTime);
       postFooter.append(postFooterBtns);
       postFooterBtns.append(likeBtn);
-      postFooterBtns.append(likeNum);
+      likeBtn.append(likeNum);
       postFooterBtns.append(commentBtn);
       postFooterBtns.append(commentNum);
 
       const heartCount = POSTS.heartCount;
       const commentCount = POSTS.commentCount;
-    
       likeNum.textContent = heartCount;
       commentNum.textContent = commentCount;
 
@@ -250,8 +246,8 @@ async function getFeedInfo () {
       postTime.textContent = uploadDate;
 
       // 좋아요 
-      async function likePost () {
-        const likePath = `/post/${postId}/heart`;
+      async function likePost (post_id) {
+        const likePath = `/post/${post_id}/heart`;
         const reqInfo = {
           method : 'POST',
           headers : {
@@ -264,11 +260,11 @@ async function getFeedInfo () {
                             return response;
                           })
         const json = await res.json();
-        console.log(json);
+        return json;
       }
 
-      async function cancelLikePost () {
-        const likeCancelPath = `/post/${postId}/unheart`;
+      async function cancelLikePost (post_id) {
+        const likeCancelPath = `/post/${post_id}/unheart`;
         const reqInfo = {
           method : 'DELETE',
           headers : {
@@ -281,24 +277,25 @@ async function getFeedInfo () {
                             return response;
                           })
         const json = await res.json();
-        console.log(json);
+        return json;
       }
+      
+      async function handleLikeBtn () {
+        let data = {};
+        let postId = POSTS.id;
 
-      likeBtn.addEventListener('click', () => {
-        async function handleLikeBtn () {
-          let data = {};
-          if(likeBtn.classList.contains('clicked')) {
-            likeBtn.classList.remove('clicked');
-            data = await cancelLikePost();
-            likeNum.textContent = POSTS.heartCount;
-          } else {
-            likeBtn.classList.add('clicked');
-            data = await likePost();
-            likeNum.textContent = POSTS.heartCount;
-          }
+        if(likeBtn.classList.contains('clicked')) {
+          likeBtn.classList.remove('clicked');
+          data = await cancelLikePost(postId);
+          likeNum.textContent = data.post.heartCount;
+        } else {
+          likeBtn.classList.add('clicked');
+          data = await likePost(postId);
+          likeNum.textContent = data.post.heartCount;
         }
-        handleLikeBtn();
-      })
+      }
+      
+      likeBtn.addEventListener('click', handleLikeBtn);
 
       // 댓글창 연결
       commentBtn.addEventListener('click', () => {
