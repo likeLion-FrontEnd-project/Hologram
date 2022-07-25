@@ -16,6 +16,8 @@ const cancleReport = document.querySelector('.cancle-btn');
 const doReport = document.querySelector('.report-btn');
 const postUrl = new URLSearchParams(document.location.search);
 const postId =  postUrl.get("postId");
+const commentNum = document.createElement('span');
+let commentCount; 
 let curAccountname;
 let commentId;
 let curComment;
@@ -35,7 +37,7 @@ async function handleGetPost() {
                       .catch((error) => {location.href="/pages/404.html";})
   const json = await res.json();
   console.log('게시글 가져오기',json.post);
-
+  commentCount = json.post.commentCount
   const postWrap = document.createElement('div');
   postWrap.setAttribute('class', 'post-list-wrap');
 
@@ -182,7 +184,6 @@ async function handleGetPost() {
       const likeBtn = document.createElement('button');
       const likeNum = document.createElement('span');
       const commentBtn = document.createElement('button');
-      const commentNum = document.createElement('span');
 
       postFooter.setAttribute('class', 'post-footer');
       postTime.setAttribute('class', 'post-time');
@@ -385,6 +386,8 @@ async function handlePostComment() {
   const json = await res.json();
   console.log('댓글 생성 결과',json.comment);
   handleGetComment();
+  commentCount += 1;
+  commentNum.textContent = commentCount;
 }
 
 postBtn.addEventListener('click',handlePostComment);
