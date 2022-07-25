@@ -1,15 +1,4 @@
 /* join-section */
-
-/* 프로필 설정 임시 작업으로 나중에 삭제 예정 */
-/* .join-sec {
-  display: none;
-}
-
-.setProfile-sec {
-  display: block;
-} */
-/* 프로필 설정 임시 작업으로 나중에 삭제 예정 */
-
 .join-title {
   padding-top: 55px;
   margin-bottom: 40px;
@@ -19,7 +8,6 @@
 }
 
 .check-list {
-  margin-top: 4px;
   display: flex;
   gap: 10px;
 }
@@ -27,6 +15,7 @@
 .check-item {
   display: flex;
   align-items: center;
+  margin-top: 4px;
   font-size: 12px;
   color: var(--light-gray-color);
   user-select: none;
@@ -36,8 +25,8 @@
   color: var(--error-message-color);
 }
 
-.check-item.correct {
-  color: seagreen;
+.check-item.correct-txt {
+  color: var(--enabled-color);
 }
 
 .check-item::after {
@@ -51,6 +40,10 @@
 
 .check-item.error-txt::after {
   background-image: url(../assets/images/icon/icon-check_red.svg);
+}
+
+.check-item.correct-txt::after {
+  background-image: url(../assets/images/icon/icon-check_purple.svg);
 }
 
 .join-btn {
