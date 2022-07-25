@@ -54,7 +54,6 @@ async function productImgShow(event) {
   reader.readAsDataURL(event.target.files[0]);
   // 파일명 filename에 저장
   filename = await productImgUpload(event.target);
-  console.log(event.target.files[0]);
   checkInputState();
 }
 
@@ -100,12 +99,8 @@ function checkPrice(e) {
 // input의 값의 유무와 에러메세지 유무에 따른 버튼 활성/비활성
 function checkInputState() {
   if (
-    (productName.value.length < 16 &&
-    productName.value.length > 1) &&
-
-    (filename ||
-      productName.value.length ||
-      productPrice.value.length )
+    (productName.value.length < 16 && productName.value.length > 1)  &&
+    (filename || productName.value.length || productPrice.value.length)
   ) {
     activateBtn();
   } else {
@@ -147,7 +142,11 @@ async function editProduct() {
     });
     const resRegitProductJson = await resRegistProduct.json();
     console.log(resRegitProductJson);
-    location.href = './profile.html';
+    if (resRegitProductJson.type === 'entity.too.large') {
+      alert('이미지의 용량이 너무 큽니다. 이미지를 변경해주세요.');
+    } else {
+      location.href = './profile.html';
+    }
   } catch (err) {
     console.log(err);
   }

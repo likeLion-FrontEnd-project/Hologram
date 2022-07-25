@@ -108,8 +108,12 @@ async function registProduct() {
       }),
     });
     const resRegitProductJson = await resRegistProduct.json();
-    console.log(resRegitProductJson);
-    location.href = './profile.html';
+
+    if (resRegitProductJson.type === 'entity.too.large') {
+      alert('이미지의 용량이 너무 큽니다. 이미지를 변경해주세요.');
+    } else {
+      location.href = './profile.html';
+    }
   } catch (err) {
     console.log(err);
   }
