@@ -117,6 +117,7 @@ body {
     color: var(--light-gray-color);
 }
 
+
 .send-container .send-btn {
     float: right;
     border: none;
@@ -128,6 +129,10 @@ body {
     font-size: 14px;
     line-height: 17px;
     color: var(--light-gray-color);
+}
+
+.send-container .send-btn span.show {
+    color: var(--enabled-color);
 }
 
 /* 페이지 중앙 모달창 기본 틀 */
