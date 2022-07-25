@@ -7,6 +7,42 @@ const saveBtn = document.querySelector('.nav-btn.save');
 
 productName.addEventListener('input', checkName);
 productPrice.addEventListener('input', checkPrice);
+saveBtn.addEventListener('click', editProduct);
+
+// 상품 데이터 받아오기
+const productId = location.search.replace("?", "").split("=")[1];
+getProductData(productId);
+
+async function getProductData(productId) {
+  console.log(productId);
+  const token = localStorage.getItem('token');
+  try {
+    const resRegistProduct = await fetch(`${url}/product/detail/${productId}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      }
+    });
+    const resRegitProductJson = await resRegistProduct.json();
+    const productData = resRegitProductJson.product;
+    console.log(resRegitProductJson);
+    setProduct(productData);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function setProduct(productData) {
+  productImg.src = productData.itemImage;
+  filename = productData.itemImage;
+  productName.value = productData.itemName;
+  productPrice.value = 
+    productData.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  if (productImg.src) {
+    productImg.style.display = 'block';
+  }
+}
 
 // 이미지 업로드 시 미리보기
 async function productImgShow(event) {
@@ -32,7 +68,7 @@ async function productImgUpload(target) {
       body: formData,
     });
     const resJson = await res.json();
-    return resJson.filename;
+    return `${url}/${resJson.filename}`;
   } catch (err) {
     console.error(err);
   }
@@ -64,10 +100,12 @@ function checkPrice(e) {
 // input의 값의 유무와 에러메세지 유무에 따른 버튼 활성/비활성
 function checkInputState() {
   if (
-    productName.value &&
-    errorMsg.style.display === 'none' &&
-    productPrice.value &&
-    filename
+    (productName.value.length < 16 &&
+    productName.value.length > 1) &&
+
+    (filename ||
+      productName.value.length ||
+      productPrice.value.length )
   ) {
     activateBtn();
   } else {
@@ -87,13 +125,13 @@ const disabledBtn = () => {
   saveBtn.classList.remove('enabled');
 };
 
-// 상품 등록
-async function registProduct() {
+async function editProduct() {
   const token = localStorage.getItem('token');
   const numPrice = parseInt(productPrice.value.replaceAll(',', ''));
+
   try {
-    const resRegistProduct = await fetch(`${url}/product`, {
-      method: 'POST',
+    const resRegistProduct = await fetch(`${url}/product/${productId}`, {
+      method: 'PUT',
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-type': 'application/json',
@@ -114,4 +152,4 @@ async function registProduct() {
     console.log(err);
   }
 }
-saveBtn.addEventListener('click', registProduct);
+

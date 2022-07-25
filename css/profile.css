@@ -355,3 +355,54 @@
 .modal-window-center {
   z-index: 30;
 }
+
+/* productDetailModal 상품 내용 확인 모달 */
+.modal .product-detail-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 292px;
+  border-radius: 10px;
+  background-color: var(--background-color);
+  z-index: 30;
+  padding: 30px;
+}
+
+.product-detail-modal .cancel-btn {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background-image: url(../assets/images/icon/icon-close.svg);
+  right: 8px;
+  top: 7px;
+  background-color: inherit;
+}
+.product-detail-modal .product-img {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 7px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 0.5px solid var(--light-gray-color);
+}
+.product-detail-modal .product-title, 
+.product-detail-modal .product-price {
+  padding: 0 2px;
+} 
+.product-detail-modal .product-title {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.product-detail-modal .product-price {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--enabled-color);
+}
