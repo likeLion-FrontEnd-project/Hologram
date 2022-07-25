@@ -22,6 +22,31 @@ let POST;
 let postId;
 let curPostId;
 let curPost;
+const listWrap = document.querySelector(".post-list-wrap")
+const albumWrap = document.querySelector(".post-album-div")
+
+getMyFeed();
+
+/* 게시글 - 리스트, 앨범 */
+function postViewtoggle() {
+  if (this.id === 'post-album-btn') {
+    toggleClass(albumBtn, listBtn);
+    toggleClass(albumWrap, listWrap);
+  } else {
+    toggleClass(listBtn, albumBtn);
+    toggleClass(listWrap, albumWrap);
+  }
+}
+function toggleClass(addClass, removeClass) {
+  addClass.classList.add('on');
+  removeClass.classList.remove('on');
+}
+const listBtn = document.querySelector("#post-list-btn");
+const albumBtn = document.querySelector("#post-album-btn");
+
+listBtn.addEventListener('click', postViewtoggle);
+albumBtn.addEventListener('click', postViewtoggle);
+
 async function getMyFeed () {
     const myFeedPath = `/post/${accountName}/userpost`;
     const reqInfo = {
@@ -63,7 +88,12 @@ async function getMyFeed () {
         const postImgWrap = document.createElement('ul');
         const postImgList = document.createElement('li');
         const imgUrl = POST.image;
+        const postAlbumWrap = document.querySelector('.post-album-wrap');
+        const postAlbum = document.createElement('li');
+        const postAlbumLink = document.createElement('a');
+        const postAlbumImg = document.createElement('img');
 
+        postAlbum.setAttribute('class', 'post-album');
         postImgWrap.setAttribute('class', 'post-img-wrap');
         postImgList.setAttribute('class', 'post-img-list');
 
@@ -77,6 +107,16 @@ async function getMyFeed () {
           postImg.src = src;
           postImgList.append(postImg);        
         })
+          postAlbumWrap.append(postAlbum);
+          postAlbum.append(postAlbumLink);
+          postAlbumLink.append(postAlbumImg);
+          postAlbumImg.src = `${imgUrl.split(',')[0]}`;
+          postAlbumLink.addEventListener('click', () => {
+          location.href = `/pages/postcomment.html?postId=${postId}`;
+        })
+          if(imgUrl.split(',').length > 1) {
+            postAlbum.classList.add('multi-img');
+          }
         } else {
           postImgWrap.remove(postImgList)
         } 
@@ -107,7 +147,6 @@ async function getMyFeed () {
 
         userName.textContent = username;
         account.textContent = `@${accountName}`;
-        // console.log(accountName.slice(0, 6));
         
         // 프로필사진 클릭 시 해당 프로필 페이지로 이동
         userImage.addEventListener('click', () => {
@@ -290,7 +329,6 @@ async function getMyFeed () {
     });
 
 }
-getMyFeed();
   
 // 피드 업로드 시간 확인하는 함수
 function timeForToday(value) {

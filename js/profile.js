@@ -207,27 +207,3 @@ async function changeFollow(userProfile) {
 }
 const followBtn = document.querySelector('.user-follow-btn');
 followBtn.addEventListener('click', changeFollow);
-
-
-/* 게시글 - 리스트, 앨범 */
-function postViewtoggle() {
-  const listWrap = document.querySelector(".post-list-wrap")
-  const albumWrap = document.querySelector(".post-album-div")
-
-  if (this.id === 'post-album-btn') {
-    toggleClass(albumBtn, listBtn);
-    toggleClass(albumWrap, listWrap);
-  } else {
-    toggleClass(listBtn, albumBtn);
-    toggleClass(listWrap, albumWrap);
-  }
-}
-function toggleClass(addClass, removeClass) {
-  addClass.classList.add('on');
-  removeClass.classList.remove('on');
-}
-const listBtn = document.querySelector("#post-list-btn");
-const albumBtn = document.querySelector("#post-album-btn");
-
-listBtn.addEventListener('click', postViewtoggle);
-albumBtn.addEventListener('click', postViewtoggle);
