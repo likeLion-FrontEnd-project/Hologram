@@ -64,7 +64,6 @@ async function getUserProfile(accountname) {
     },
   }
 
-
   try {
     // userProfile
     const userProfileData = await fetch(`${url}/profile/${accountName}`, getUserData);
@@ -87,6 +86,7 @@ async function getUserProfile(accountname) {
     const userPostData = await fetch(`${url}/post/${accountName}/userpost`, getUserData);
     const userPostJson = await userPostData.json();
     const userPost = userPostJson.post;
+    checkUserPost(userPost);
     // setUserPost(userPost);
 
   } catch (errorMsg) {
@@ -94,38 +94,12 @@ async function getUserProfile(accountname) {
   }
 }
 
-/* 팔로잉 리스트 받아오기  */
-// async function getFollowingList() {
-//   const token = localStorage.getItem('token');
-
-//   const getAccount = location.search.replace("?", "").split("=");
-//   const accountName = (getAccount == '') ?
-//     localStorage.getItem('accountname') : getAccount[1];
-
-//   const getFollowingData = {
-//     method: 'GET',
-//     headers: {
-//       'Authorization': `Bearer ${token}`,
-//       'Content-type': 'application/json'
-//     },
-//   }
-//   const followingData = await fetch(`${url}/profile/${accountName}/following`, getFollowingData);
-//   const followingList = await followingData.json();
-//   const userFollowing = userProfile.following;
-// }
-
 const myProfileBtnWrap = document.querySelector('.myProfile-btns');
 const followBtnWrap = document.querySelector('.follow-btns');
 const unfollowBtnWrap = document.querySelector('.unfollow-btns');
 
 /* 유저 프로필 정보 뿌려주기 */
 function setUserProfile(userProfile, followList) {
-  console.log('현재의 유저');
-  console.log(userProfile);
-  console.log(followList); // 로그인한 나의 팔로잉 리스트
-  // 팔로우 리스트에 내 아이디가 있다면?
-
-
   const user_image = (userProfile.image) ? userProfile.image : '../assets/images/img-profile_large.png';
 
   document.querySelector('.follower-num').textContent = userProfile.followerCount;
@@ -154,8 +128,6 @@ function setUserProfile(userProfile, followList) {
   }
 }
 
-// follow-btn -> profile-unfollow-btn
-
 // follow, unfollow 상태 변경
 async function changeFollow(userProfile) {
   const localUser = localStorage.getItem('accountname');
@@ -166,8 +138,8 @@ async function changeFollow(userProfile) {
   const accountName = (getAccount == '') ?
     localStorage.getItem('accountname') : getAccount[1];
 
-  // 팔로우 됨
-  if (followBtn.classList.contains('user-follow-btn')) { // 현재 팔로우 중임 
+  // 팔로우
+  if (followBtn.classList.contains('user-follow-btn')) { 
     try {
       const resFollow = await fetch(`${url}/profile/${accountName}/follow`,
         {
@@ -181,7 +153,6 @@ async function changeFollow(userProfile) {
     } catch (err) {
       console.error('err', err);
     }
-    console.log('팔로우 성공');
     followBtn.classList.replace('user-follow-btn', 'user-unfollow-btn');
     followBtn.textContent = '언팔로우';
 
@@ -196,7 +167,6 @@ async function changeFollow(userProfile) {
           },
         });
       const resUnfollowJson = await resUnfollow.json();
-      console.log('이제 님 언팔함');
       console.log(resUnfollowJson);
     } catch (err) {
       console.error('err', err);
@@ -207,3 +177,12 @@ async function changeFollow(userProfile) {
 }
 const followBtn = document.querySelector('.user-follow-btn');
 followBtn.addEventListener('click', changeFollow);
+
+/* 게시글 영역 개수 검사*/
+function checkUserPost(userPost){
+  const postSection = document.querySelector('.post-section');
+  return (
+    userPost.length < 1 ? 
+    postSection.style.display = 'none' : postSection.style.display = 'flex'
+  )
+}
