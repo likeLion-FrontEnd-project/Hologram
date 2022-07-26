@@ -90,8 +90,9 @@
             type="text"
             class="setprofile-input setAccId-input"
             id="setAccId-input"
+            placeholder="20자 이내 영문, 숫자, 특수문자(.),(_)만 사용 가능합니다."
+            maxlength="20"
             required
-            placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다."
           />
           <strong class="setprofile-error-msg"></strong>
         </div>
@@ -101,7 +102,8 @@
             type="text"
             class="setprofile-input setIntroduce-input"
             id="setIntroduce-input"
-            placeholder="소개글을 작성해주세요!"
+            placeholder="소개글을 작성해주세요! (최대 50자)"
+            maxlength="50"
           />
         </div>
         <button type="submit" class="submit-btn" disabled>시작하기</button>
