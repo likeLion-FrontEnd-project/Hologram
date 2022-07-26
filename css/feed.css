@@ -89,6 +89,7 @@
   font-size: 10px;
   font-weight: 400;
   color: var(--gray-text-color);
+  word-break: break-word; 
 }
 
 .post-nav .post-menu-button {

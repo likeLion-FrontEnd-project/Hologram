@@ -113,15 +113,13 @@ function setUserProfile(userProfile, followList) {
 
   const localUser = localStorage.getItem('accountname');
   const nowUser = userProfile.accountname;
-  console.log(userProfile.isfollow);
 
   if (nowUser === localUser) { // 내 프로필일 때
-    myProfileBtnWrap.classList.add('on');
-  }
-  else if (userProfile.isfollow === false) { // 팔로우 중이 아니라면
+    myProfileBtnWrap.style.display = 'flex';
+  } else if (userProfile.isfollow === false) {
     followBtnWrap.style.display = 'flex';
     followBtn.textContent = '팔로우';
-  } else if (userProfile.isfollow === true) { // 팔로우 중이라면
+  } else if (userProfile.isfollow === true) { 
     followBtnWrap.style.display = 'flex';
     followBtn.classList.replace('user-follow-btn', 'user-unfollow-btn');
     followBtn.textContent = '언팔로우';
