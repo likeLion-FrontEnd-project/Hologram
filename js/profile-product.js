@@ -45,13 +45,16 @@ function setUserProduct(userProduct) {
             deleteProduct(productId);
           })
         } else {
-          console.log('이건 다른 사람상품인데여');
           productDetail.classList.remove("hidden");
           
           document.querySelector('#product-detail .product-img').src = i.itemImage
           document.querySelector('#product-detail .product-title').innerText = i.itemName;
           document.querySelector('#product-detail .product-price').innerText = i.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
+          document.querySelector('#product-detail .product-chat-btn').addEventListener('click', () => {
+            location.href = '../pages/chatroom.html';
+            //location.href = `../pages/chatroom.html/?accountname=${i.author.accountname}`;
+          });
           document.querySelector('#product-detail .modal-bg').addEventListener('click', () => {
             productDetail.classList.add("hidden");
           });
@@ -60,7 +63,6 @@ function setUserProduct(userProduct) {
           })
           
         }
-
 
       })
     })

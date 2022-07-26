@@ -388,10 +388,6 @@
   object-fit: cover;
   border: 0.5px solid var(--light-gray-color);
 }
-.product-detail-modal .product-title, 
-.product-detail-modal .product-price {
-  padding: 0 2px;
-} 
 .product-detail-modal .product-title {
   display: block;
   margin-bottom: 4px;
@@ -407,4 +403,14 @@
   font-size: 12px;
   line-height: 14px;
   color: var(--enabled-color);
+}
+.product-detail-modal .product-chat-btn {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px 0;
+  background-color: var(--enabled-color);
+  border-radius: 50px;
+  color: var(--background-color);
+  cursor: pointer;
 }
