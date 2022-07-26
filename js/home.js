@@ -232,7 +232,7 @@ async function getFeedInfo () {
       postFooter.append(postTime);
       postFooter.append(postFooterBtns);
       postFooterBtns.append(likeBtn);
-      likeBtn.append(likeNum);
+      postFooterBtns.append(likeNum);
       postFooterBtns.append(commentBtn);
       postFooterBtns.append(commentNum);
 
