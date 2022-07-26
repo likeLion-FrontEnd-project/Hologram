@@ -283,6 +283,9 @@
     font-weight: 400;
     line-height: 17px;
     color:var(--content-color-text);
+    width: 298px;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .usercomment-container .menu-btn {
@@ -306,10 +309,15 @@
     padding:13px 16px 12px 16px;
     box-sizing: border-box;
     border-top: 1px solid var(--light-gray-color);
+    display: flex;
+    justify-content: space-between;
 }
 
 .comment-container .profile-img {
     vertical-align: middle;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
 }
 
 
@@ -317,6 +325,7 @@
     margin-left: 18px;
     border:none;
     padding:5px 0px;
+    flex-grow: 1;
 }
 
 .comment-container .comment-inp::placeholder {
@@ -330,7 +339,7 @@
     float: right;
     border: none;
     background-color: var(--background-color);
-    margin-top: 11px;
+    margin-left:10px;
 } 
 
 .comment-container .post-btn span {

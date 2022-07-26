@@ -46,3 +46,16 @@ cancelBtn.addEventListener('click', ()=>{
 backChatroomBtn.addEventListener('click', ()=>{
   location.href='../pages/chat.html';
 })
+
+// 채팅방 전송 버튼 on
+const meassageInput = document.querySelector(".message-inp");
+const messageBtn = document.querySelector(".send-btn span");
+async function handleChangeBtnColor() {
+  if(!(meassageInput.value =="")) {
+    messageBtn.classList.add('show');
+}
+else {
+  messageBtn.classList.remove('show');
+}
+}
+meassageInput.addEventListener('keyup', handleChangeBtnColor)

@@ -14,6 +14,7 @@ const removeBtn = document.querySelector('.modal-list-btn.remove');
 const cancleBtnModal = document.querySelector('.report-modal');
 const cancleReport = document.querySelector('.cancle-btn');
 const doReport = document.querySelector('.report-btn');
+const profileImg = document.querySelector(".profile-img");
 const postUrl = new URLSearchParams(document.location.search);
 const postId =  postUrl.get("postId");
 const commentNum = document.createElement('span');
@@ -22,6 +23,27 @@ let curAccountname;
 let commentId;
 let curComment;
 
+
+// 내 정보 불러오기
+async function handleMyInfo () {
+  const token = window.localStorage.getItem('token');
+  const accointMe = localStorage.getItem('accountname') 
+  const requestMyInformation = {
+      method:"GET",
+      headers:{
+          "Authorization" : `Bearer ${token}`,
+          "Content-type" : "application/json"
+      }
+  }
+  const res = await fetch(url+`/profile/${accointMe}`, requestMyInformation)
+                      .then((response)=> {return response;})
+                      .catch((error) => {location.href="/pages/404.html";})
+  const json = await res.json();
+  console.log('내 정보', json);
+  profileImg.src = json.profile.image;
+}
+
+handleMyInfo();
 // 게시글 불러오기
 async function handleGetPost() {
   const token = window.localStorage.getItem('token');
@@ -355,6 +377,11 @@ async function handleGetComment() {
             console.log(curComment);
             executeCommentModal();
         })
+
+        userImg.addEventListener('click', () => {
+          location.href = `/pages/profile.html?accountname=${value.author.accountname}`;
+        })
+        
     })
 }
 
@@ -520,7 +547,6 @@ function executePostModal() {
 const logoutModal = document.querySelector(".modal-window-bottom.logout");
 
 document.querySelector(".more-menu-btn").addEventListener("click", () => {
-    console.log("여기 되고 잇냐");
     console.log(logoutModal);
     logoutModal.style.display="block";
 });

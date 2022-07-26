@@ -1,5 +1,6 @@
 const selectBtn    = document.querySelector('.select-btn');
 const categoryList = document.querySelector('.modal');
+const categoryListModal = document.querySelector(".category-list");
 const postContent  = document.querySelector('.upload-txt');
 const postTitle    = document.querySelector('.upload-tit')
 const ImgList     = document.querySelector('.postimg-list');
@@ -28,12 +29,14 @@ dropboxCloseBtn.addEventListener('click', handleRemoveList);
 // 카테고리 선택
 async function handleSelectList(e) {
   if (e.target.nodeName === "BUTTON") {
+    if(e.target.innerText !== "게시판 선택") {
       selectBtn.innerText = e.target.innerText;
-      categoryList.classList.remove('show');   
-  }
+      categoryList.classList.remove('show');  
+    }
+  }  
 }
 
-categoryList.addEventListener("click",handleSelectList);
+categoryListModal.addEventListener("click",handleSelectList);
 
 
 // 이미지 불러오기
@@ -111,7 +114,7 @@ postTitle.addEventListener('keyup', handleChangeBtnColor);
 async function postUpload() {
   let imgUrl=""
   if(uploadBtn.classList.contains("enabled")) {
-      const categoryContent =selectBtn.innerText=== "게시판 선택" ? "오늘의 잡담" :  selectBtn.innerText;
+    const categoryContent =selectBtn.innerText=== "게시판 선택" ? "오늘의 잡담" :  selectBtn.innerText;
       const post_txt = `${categoryContent},${postTitle.value},${postContent.value}`;
       if(uploadURL==""){
           imgUrl = ""
