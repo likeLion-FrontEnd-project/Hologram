@@ -25,16 +25,18 @@ async function getFollowList() {
   const userProfile = userProfileJson.profile;
 
   // following
-  const followingData = await fetch(`${url}/profile/${accountName}/following`, getFollowingData);
+  const followingData = await fetch(`${url}/profile/${accountName}/following/?limit=100`, getFollowingData);
   const followingList = await followingData.json();
 
-  const followerData = await fetch(`${url}/profile/${accountName}/follower`, getFollowingData);
+  const followerData = await fetch(`${url}/profile/${accountName}/follower/?limit=100`, getFollowingData);
   const followerList = await followerData.json();
   
   if ( pageTitle === 'Followings') {
     setFollowingList(followingList);
+    console.log(followingList.length);
   } else if( pageTitle === 'Followers') {
     setFollowerList(followerList);
+    console.log(followerList.length);
   }
 }
 
@@ -57,10 +59,9 @@ function setFollowingList(followingList) {
     noFollowMsg.appendChild(msgP);
     // ul > li
     userListWrap.appendChild(noFollowMsg);
-
   } else {
     followingList.forEach((i) => {
-
+      
       const userProfileWrap = document.createElement('li');
       userProfileWrap.setAttribute('class', 'user-profile-li');
 
