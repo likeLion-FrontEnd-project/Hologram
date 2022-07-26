@@ -3,9 +3,8 @@
 }
 
 .post-list-wrap {
-  max-width: 360px;
+  width: 360px;
   padding: 20px 0 60px;
-  margin: 0 15px;
 }
 
 .post-list-wrap.feed {
@@ -13,7 +12,6 @@
 }
 
 .post-list-wrap .post-list-item {
-  width: 360px;
   margin-bottom: 20px;
   border-radius: 5px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -89,7 +87,7 @@
   font-size: 10px;
   font-weight: 400;
   color: var(--gray-text-color);
-  word-break: break-word; 
+  word-break: break-word;
 }
 
 .post-nav .post-menu-button {
@@ -142,7 +140,7 @@
   border-top: 1px solid var(--light-gray-color);
 }
 
-.post-time {
+.post-footer .post-time {
   font-size: 12px;
   font-weight: 400;
   color: var(--gray-text-color);

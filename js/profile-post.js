@@ -112,7 +112,7 @@ async function getMyFeed () {
           postAlbumLink.append(postAlbumImg);
           postAlbumImg.src = `${imgUrl.split(',')[0]}`;
           postAlbumLink.addEventListener('click', () => {
-          location.href = `/pages/postcomment.html?postId=${postId}`;
+          location.href = `/pages/postcomment.html?postId=${value.id}`;
         })
           if(imgUrl.split(',').length > 1) {
             postAlbum.classList.add('multi-img');
