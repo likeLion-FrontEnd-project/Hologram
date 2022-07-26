@@ -1,28 +1,40 @@
 const main = document.querySelector('.main');
 const postUl = document.querySelector('.post-ul')
-const modalBackground = document.querySelector(".modal-background");
-const reportModalBackground = document.querySelector(".report-modal-background");
 const commentInput = document.querySelector(".comment-inp");
 const postBtn = document.querySelector(".post-btn");
 const chatTxt = document.querySelector(".chat-txt");
 const commentList = document.querySelector('.comment-list');
 const commentInputBtn = document.querySelector(".post-btn span");
-const modalReport = document.querySelector('.modal-window-bottom.report');
-const modalRemove = document.querySelector('.modal-window-bottom.remove');
-const cancleBtn = document.querySelector('.modal-list-btn.report');
-const removeBtn = document.querySelector('.modal-list-btn.remove');
-const cancleBtnModal = document.querySelector('.report-modal');
-const cancleReport = document.querySelector('.cancle-btn');
-const doReport = document.querySelector('.report-btn');
 const profileImg = document.querySelector(".profile-img");
 const postUrl = new URLSearchParams(document.location.search);
 const postId =  postUrl.get("postId");
 const commentNum = document.createElement('span');
+const modalBg = document.querySelectorAll('.modal-bg');
+const modalBottom = document.querySelectorAll('.modal-window-bottom');
+const modalReportBottom = document.querySelector('.modal-window-bottom-report');
+const modalCloseBar = document.querySelectorAll('.modal-close-bar');
+const modalCommentDelete = document.querySelector('#delete-comment');
+const modalCommentReport = document.querySelector('#report-comment');
+const modalDelete = document.querySelector('#delete-post');
+const modalModify = document.querySelector('#modify-post');
+const modalReport = document.querySelector('#report-post');
+const modalCenter = document.querySelectorAll('.modal-window-center');
+const modalPostReportCenter = document.querySelector('.modal-window-center-post-report');
+const modalCommentReportCenter = document.querySelector('.modal-window-center-report');
+const modalCommentCancelBtn = document.querySelector('#cancel-comment-btn');
+const modalCommentReportBtn = document.querySelector('#report-comment-btn');
+const modalPostCancelBtn = document.querySelector('#report-cancel-post-btn');
+const modalPostReportBtn = document.querySelector('#report-post-btn');
+const modalDeleteBtn = document.querySelector('#delete-post-btn');
+const modalCancelBtn = document.querySelector('#cancel-post-btn');
+
+console.log(modalCommentReportBtn)
 let commentCount; 
 let curAccountname;
 let commentId;
 let curComment;
-
+let curPostId;
+let curPost;
 
 // 내 정보 불러오기
 async function handleMyInfo () {
@@ -59,7 +71,7 @@ async function handleGetPost() {
                       .catch((error) => {location.href="/pages/404.html";})
   const json = await res.json();
   console.log('게시글 가져오기',json.post);
-  commentCount = json.post.commentCount
+  commentCount = json.post.commentCount;
   const postWrap = document.createElement('div');
   postWrap.setAttribute('class', 'post-list-wrap');
 
@@ -291,6 +303,9 @@ async function handleGetPost() {
 
   // 게시글 신고
   postMenuBtn.addEventListener('click',() => {
+      curPost = postList; 
+      curPostId = POST.id;
+      curAccountname=  POST.author.accountname;
       executePostModal();
   })
 }
@@ -419,22 +434,7 @@ async function handlePostComment() {
 
 postBtn.addEventListener('click',handlePostComment);
 
-// 신고 모달창
-async function handleReportModal() {
-  cancleBtnModal.style.display="block";
-  reportModalBackground.style.display="block";
-}
-
-
-// 신고 모달 취소 버튼
-async function handleCancleReportBtn() {
-  cancleBtnModal.style.display="none";
-  reportModalBackground.style.display="none";
-}
-
-
-
-// 신고 모달 댓글 신고 
+// 댓글 신고 
 async function handleDoCommentReportBtn() {
   const token = window.localStorage.getItem('token');
   const requestReportInformation = {
@@ -449,32 +449,12 @@ async function handleDoCommentReportBtn() {
                       .catch((error) => {location.href="/pages/404.html";})
   const json = await res.json();
   console.log('댓글  신고 결과',json);
-  cancleBtnModal.style.display="none";
-  reportModalBackground.style.display="none";
-}
-
-// 신고 모달 게시글 신고
-async function handleDoPostReportBtn() {
-  const token = window.localStorage.getItem('token');
-  const requestReportInformation = {
-      method:"POST",
-      headers:{
-          "Authorization" : `Bearer ${token}`,
-          "Content-type" : "application/json"
-      },
-  }
-  const res = await fetch(url+`/post/${postId}/report`, requestReportInformation)
-                      .then((response) => {return response;})
-                      .catch((error) => {location.href="/pages/404.html";})
-  const json = await res.json();
-  console.log('게시물 신고 결과',json);
-  cancleBtnModal.style.display="none";
-  reportModalBackground.style.display="none";
+  modalCenter[0].classList.add('hidden');
+  modalBg[1].classList.add('hidden');
 }
 
 
-
-// 삭제 모달 삭제 버튼
+// 댓글 삭제
 async function handleCancleBtn() {
   const token = window.localStorage.getItem('token');
   const requestDeleteInformation = {
@@ -491,6 +471,8 @@ async function handleCancleBtn() {
   console.log('댓글  삭제 결과',json);
   console.log(curComment);
   commentList.removeChild(curComment);
+  commentCount -= 1;
+  commentNum.textContent = commentCount;
 }
 
 
@@ -511,42 +493,171 @@ commentInput.addEventListener('keyup', handleChangeBtnColor);
 
 function executeCommentModal() {
   if(curAccountname === localStorage.getItem('accountname')) {  
-      modalRemove.style.display="block";
-      modalBackground.style.display="block";
-      modalBackground.addEventListener('click',() => {
-          modalRemove.style.display="none";
-          modalBackground.style.display="none";
-      })
-      removeBtn.addEventListener('click', handleCancleBtn);
+    modalBg[0].classList.remove('hidden');
+    modalBottom[0].classList.remove('hidden');
+  
+    modalCloseBar[0].addEventListener('click', () => {
+      modalBottom[0].classList.add('hidden');
+      modalBg[0].classList.add('hidden');
+    })
+    modalBg[0].addEventListener('click', () => {
+      modalBottom[0].classList.add('hidden');
+      modalBg[0].classList.add('hidden');
+    })
+
+    modalCommentDelete.addEventListener('click',handleCancleBtn);
+
   }  
   else {
-      modalReport.style.display="block";
-      modalBackground.style.display="block";
-      modalBackground.addEventListener('click',() => {
-          modalReport.style.display="none";
-          modalBackground.style.display="none";
+      modalBg[1].classList.remove('hidden');
+      modalBottom[1].classList.remove('hidden');
+    
+      modalCloseBar[1].addEventListener('click', () => {
+        modalBottom[1].classList.add('hidden');
+        modalBg[1].classList.add('hidden');
       })
-      cancleReport.addEventListener('click', handleCancleReportBtn)
-      cancleBtn.addEventListener('click',handleReportModal);
-      doReport.addEventListener('click',handleDoCommentReportBtn);
+    
+      modalBg[1].addEventListener('click', () => {
+        modalBottom[1].classList.add('hidden');
+        modalBg[1].classList.add('hidden');
+      })
+
+      modalCommentReport.addEventListener('click', ()=> {
+        modalCenter[0].classList.remove('hidden');
+        modalBottom[1].classList.add('hidden');
+        modalBg[1].addEventListener('click', () => {
+          modalCenter[0].classList.add('hidden');
+        })
+  
+      })
+
+      modalCommentReportBtn.addEventListener('click',handleDoCommentReportBtn);
+
+      modalCommentCancelBtn.addEventListener('click', () => {
+        modalCenter[0].classList.add('hidden');
+        modalBg[1].classList.add('hidden');
+      })
+
   }
 }
 
-function executePostModal() {
-  modalReport.style.display="block";
-  modalBackground.style.display="block";
-  modalBackground.addEventListener('click',() => {
-      modalReport.style.display="none";
-      modalBackground.style.display="none";
-  })
-  cancleReport.addEventListener('click', handleCancleReportBtn)
-  cancleBtn.addEventListener('click',handleReportModal);
-  doReport.addEventListener('click',handleDoPostReportBtn);
+// 게시물 삭제
+async function handleDeletePost() {
+  modalCenter[1].classList.add('hidden');
+  modalBg[1].classList.add('hidden'); 
+  console.log("curPostId" , curPostId);
+  const token = window.localStorage.getItem('token');
+  const requestDeleteInformation = {
+      method:"DELETE",
+      headers:{
+          "Authorization" : `Bearer ${token}`,
+          "Content-type" : "application/json"
+      },
+  }
+  const res = await fetch(url+`/post/${curPostId}`,requestDeleteInformation)
+                      .then((response)=> {return response;})
+                      .catch((error) => {location.href="/pages/404.html";})
+  const json = await res.json();
+  console.log('게시물  삭제 결과',json);
+  console.log(curPost);
+  console.log(curAccountname,"여기봐줘");
+  location.href = `/pages/profile.html?accountname=${curAccountname}`;
 }
 
-const logoutModal = document.querySelector(".modal-window-bottom.logout");
+// 게시물 신고
+async function handleReportPost() {
+  modalPostReportCenter.classList.add('hidden');
+  modalBg[3].classList.add('hidden'); 
+  const token = window.localStorage.getItem('token');
+  const requestReportInformation = {
+      method:"POST",
+      headers:{
+          "Authorization" : `Bearer ${token}`,
+          "Content-type" : "application/json"
+      },
+  }
+  const res = await fetch(url+`/post/${curPostId}/report`, requestReportInformation)
+                      .then((response) => {return response;})
+                      .catch((error) => {location.href="/pages/404.html";})
+  const json = await res.json();
+  console.log('게시물 신고 결과',json);
+}
 
-document.querySelector(".more-menu-btn").addEventListener("click", () => {
-    console.log(logoutModal);
-    logoutModal.style.display="block";
-});
+function executePostModal() {
+  if(curAccountname === localStorage.getItem('accountname')){
+    modalBg[2].classList.remove('hidden');
+    modalBottom[2].classList.remove('hidden');
+  
+    modalCloseBar[2].addEventListener('click', () => {
+      modalBottom[2].classList.add('hidden');
+      modalBg[2].classList.add('hidden');
+    })
+  
+    modalBg[2].addEventListener('click', () => {
+      modalBottom[2].classList.add('hidden');
+      modalBg[2].classList.add('hidden');
+    })
+
+    // 게시글 삭제 중앙 모달창
+    modalDelete.addEventListener('click', () => {
+      modalCenter[1].classList.remove('hidden');
+      modalBottom[2].classList.add('hidden');
+      modalBg[2].addEventListener('click', () => {
+        modalCenter[1].classList.add('hidden');
+      })
+  
+    })
+
+    modalDeleteBtn.addEventListener('click',handleDeletePost);
+
+    modalCancelBtn.addEventListener('click', () => {
+      modalCenter[1].classList.add('hidden');
+      modalBg[2].classList.add('hidden');
+    })
+
+    // 게시물 수정 
+    modalModify.addEventListener('click',() => {
+      location.href = `/pages/editpost.html?postId=${curPostId}`;
+    }
+
+    )
+
+  } else {
+    modalBg[3].classList.remove('hidden');
+    modalReportBottom.classList.remove('hidden');
+  
+    modalCloseBar[3].addEventListener('click', () => {
+      modalReportBottom.classList.add('hidden');
+      modalBg[3].classList.add('hidden');
+    })
+  
+    modalBg[3].addEventListener('click', () => {
+      modalReportBottom.classList.add('hidden');
+      modalBg[3].classList.add('hidden');
+    })
+
+    // 게시글 신고 중앙 모달창
+    modalReport.addEventListener('click', () => {
+      modalPostReportCenter.classList.remove('hidden');
+      modalReportBottom.classList.add('hidden');
+      modalBg[3].addEventListener('click', () => {
+        modalPostReportCenter.classList.add('hidden');
+      })
+  
+
+    })
+    modalPostReportBtn.addEventListener('click',handleReportPost);
+
+    modalPostCancelBtn.addEventListener('click', () => {
+      modalPostReportCenter.classList.add('hidden');
+      modalBg[3].classList.add('hidden');
+    })
+  }
+
+}
+
+
+
+// 로그아웃
+
+modalBg[4].addEventListener("click", close); 

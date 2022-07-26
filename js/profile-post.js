@@ -448,7 +448,7 @@ function executePostModal() {
       modalBg[1].classList.add('hidden');
     })
 
-    // 게시글 삭제 중앙 모달창
+    // 게시글 신고 중앙 모달창
     modalReport.addEventListener('click', () => {
       modalReportCenter.classList.remove('hidden');
       modalReportBottom.classList.add('hidden');
