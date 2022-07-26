@@ -78,6 +78,7 @@
     height: 32px;
     margin-right: 5px;
     border-radius: 16px;
+    object-fit: cover;
 }
 
 .profile-name {
@@ -251,6 +252,7 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .usercomment-container .info-div .userinfo-div {
@@ -319,6 +321,7 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 
