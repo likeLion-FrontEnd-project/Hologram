@@ -29,9 +29,6 @@
 .user-info {
   flex-grow: 2;
   margin-right: 12px;
-  /* overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; */
 }
 .user-info .user-name {
   display: block;
@@ -83,4 +80,17 @@
   color: var(--gray-text-color);
   background-color: var(--background-color);
   border: 1px solid var(--light-gray-color);
+}
+/* 팔로잉 없을 경우 */
+.noFollow-msg-wrap {
+  text-align: center;
+}
+.noFollow-msg-wrap .msg-strong {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+.noFollow-msg-wrap .msg-p {
+  font-size: 14px;
+  line-height: 22px;
 }
