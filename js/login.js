@@ -32,7 +32,6 @@ async function loginData() {
       }),
     });
     const resJson = await res.json();
-    console.log(resJson);
 
     if (resJson.status !== 422) {
       location.href = './home.html';

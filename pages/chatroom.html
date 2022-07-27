@@ -1,92 +1,116 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/chatroom.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/chatroom.css" />
     <title>채팅방 | Hologram</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="chat-nav">
-        <div class="btn-title-wrap">
-            <button class="back-btn">
-            <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
-            </button>
-            <h1 class="chat-title">애월읍 위니브 감귤농장</h1>
-        </div>
-        <button class="more-menu-btn">
-            <img src="../assets/images/icon/icon-nav-menu.svg" alt="메뉴 더보기" />
+      <div class="btn-title-wrap">
+        <button class="back-btn">
+          <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
         </button>
+        <h1 class="chat-title">애월읍 위니브 감귤농장</h1>
+      </div>
+      <button class="more-menu-btn">
+        <img src="../assets/images/icon/icon-nav-menu.svg" alt="메뉴 더보기" />
+      </button>
     </header>
     <main class="main">
-        <div class="chatreq-container">
-            <h3 class="sr-only">채팅 메시지</h3>
-            <img src="../assets/images/img-profile_small.png" alt="프로필 이미지" class="profile-img">
-            <p class="chat-txt">옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다.이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다.대고,못할 넣는 풍부하게 뛰노는 인생의 힘있다.</p>
-            <p class="time-txt">12:39</p>
-        </div>
-        <div class="chatreq-container">
-            <h3 class="sr-only">채팅 메시지</h3>
-            <img src="../assets/images/img-profile_small.png" alt="프로필 이미지" class="profile-img">
-            <p class="chat-txt">안녕하세요. 감귤 사고싶어요요요요</p>
-            <p class="time-txt">12:41</p>
-        </div>
-        <div class="chatres-container">
-            <h3 class="sr-only">채팅 메시지</h3>
-            <p class="time-txt">12:50</p>
-            <p class="chat-txt">네 말씀하세요.</p>
-        </div>
-        <div class="chatres-container img">
-            <h3 class="sr-only">채팅 메시지</h3>
-            <p class="time-txt next-img">12:51</p>
-            <img src="../assets/images/img-send.png" alt="전송 이미지" class="post-img">
-        </div>
+      <div class="chatreq-container">
+        <h3 class="sr-only">채팅 메시지</h3>
+        <img
+          src="../assets/images/img-profile_small.png"
+          alt="프로필 이미지"
+          class="profile-img"
+        />
+        <p class="chat-txt">
+          옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여,
+          뿐이다.이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다.대고,못할 넣는
+          풍부하게 뛰노는 인생의 힘있다.
+        </p>
+        <p class="time-txt">12:39</p>
+      </div>
+      <div class="chatreq-container">
+        <h3 class="sr-only">채팅 메시지</h3>
+        <img
+          src="../assets/images/img-profile_small.png"
+          alt="프로필 이미지"
+          class="profile-img"
+        />
+        <p class="chat-txt">안녕하세요. 감귤 사고싶어요요요요</p>
+        <p class="time-txt">12:41</p>
+      </div>
+      <div class="chatres-container">
+        <h3 class="sr-only">채팅 메시지</h3>
+        <p class="time-txt">12:50</p>
+        <p class="chat-txt">네 말씀하세요.</p>
+      </div>
+      <div class="chatres-container img">
+        <h3 class="sr-only">채팅 메시지</h3>
+        <p class="time-txt next-img">12:51</p>
+        <img
+          src="../assets/images/img-send.png"
+          alt="전송 이미지"
+          class="post-img"
+        />
+      </div>
     </main>
     <footer class="footer">
-        <section class="send-container">
-            <h3 class="sr-only">파일 선택과 메세지 전송 버튼</h3>
-            <img src="../assets/images/img-button_gray.svg" alt="버튼 이미지" class="button-img">
-            <input type="text" placeholder="메세지 입력하기..." class="message-inp">
-            <button type="button" class="send-btn"><span>전송</span></button>
-        </section>
+      <section class="send-container">
+        <h3 class="sr-only">파일 선택과 메세지 전송 버튼</h3>
+        <img
+          src="../assets/images/img-button_gray.svg"
+          alt="버튼 이미지"
+          class="button-img"
+        />
+        <input
+          type="text"
+          placeholder="메세지 입력하기..."
+          class="message-inp"
+        />
+        <button type="button" class="send-btn"><span>전송</span></button>
+      </section>
     </footer>
     <article class="modal hidden">
-        <h1 class="sr-only">채팅방모달창</h1>
-        <div class="modal-bg"></div>
-        <div class="modal-window-bottom">
+      <h1 class="sr-only">채팅방모달창</h1>
+      <div class="modal-bg"></div>
+      <div class="modal-window-bottom">
         <button type="button" class="modal-close-bar">
-        <img
-        src="../assets/images/icon/icon-modal-closebtn.svg"
-        alt="모달창
+          <img
+            src="../assets/images/icon/icon-modal-closebtn.svg"
+            alt="모달창
         닫기 아이콘"
-        class="modal-close-icon"
-        />
+            class="modal-close-icon"
+          />
         </button>
         <ul class="modal-list">
-        <li>
+          <li>
             <button id="back" class="modal-list-btn">채팅방 나가기</button>
-        </li>
+          </li>
         </ul>
-    </div>
+      </div>
     </article>
     <!-- 채팅방 모달 -->
     <article class="chatroom-modal hidden">
-    <h1 class="sr-only">채팅방 모달창</h1>
-    <div class="chatroommodal-bg"></div>
-    <div class="modal-window-center">
+      <h1 class="sr-only">채팅방 모달창</h1>
+      <div class="chatroommodal-bg"></div>
+      <div class="modal-window-center">
         <p class="modal-center-text">채팅방을 나가시겠어요?</p>
         <div class="modal-center-btn">
-        <button type="button" id="cancel-btn" class="center-btn-left">
+          <button type="button" id="cancel-btn" class="center-btn-left">
             취소
-        </button>
-        <button type="button" id="back-chatroom-btn" class="center-btn-right">
+          </button>
+          <button type="button" id="back-chatroom-btn" class="center-btn-right">
             나가기
-        </button>
+          </button>
         </div>
-    </div>
+      </div>
     </article>
     <script src="../js/chatroom.js"></script>
-</body>
+  </body>
 </html>

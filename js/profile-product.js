@@ -53,7 +53,6 @@ function setUserProduct(userProduct) {
 
           document.querySelector('#product-detail .product-chat-btn').addEventListener('click', () => {
             location.href = '../pages/chatroom.html';
-            //location.href = `../pages/chatroom.html/?accountname=${i.author.accountname}`;
           });
           document.querySelector('#product-detail .modal-bg').addEventListener('click', () => {
             productDetail.classList.add("hidden");
@@ -61,9 +60,7 @@ function setUserProduct(userProduct) {
           document.querySelector('#product-detail .cancel-btn').addEventListener('click', () => {
             productDetail.classList.add("hidden");
           })
-          
         }
-
       })
     })
   }

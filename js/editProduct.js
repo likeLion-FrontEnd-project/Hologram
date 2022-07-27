@@ -14,7 +14,6 @@ const productId = location.search.replace("?", "").split("=")[1];
 getProductData(productId);
 
 async function getProductData(productId) {
-  console.log(productId);
   const token = localStorage.getItem('token');
   try {
     const resRegistProduct = await fetch(`${url}/product/detail/${productId}`, {
@@ -26,7 +25,6 @@ async function getProductData(productId) {
     });
     const resRegitProductJson = await resRegistProduct.json();
     const productData = resRegitProductJson.product;
-    console.log(resRegitProductJson);
     setProduct(productData);
   } catch (err) {
     console.log(err);
@@ -141,7 +139,6 @@ async function editProduct() {
       }),
     });
     const resRegitProductJson = await resRegistProduct.json();
-    console.log(resRegitProductJson);
     if (resRegitProductJson.type === 'entity.too.large') {
       alert('이미지의 용량이 너무 큽니다. 이미지를 변경해주세요.');
     } else {

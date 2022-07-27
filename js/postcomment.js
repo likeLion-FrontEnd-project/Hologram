@@ -28,7 +28,6 @@ const modalPostReportBtn = document.querySelector('#report-post-btn');
 const modalDeleteBtn = document.querySelector('#delete-post-btn');
 const modalCancelBtn = document.querySelector('#cancel-post-btn');
 
-console.log(modalCommentReportBtn)
 let commentCount; 
 let curAccountname;
 let commentId;
@@ -51,7 +50,6 @@ async function handleMyInfo () {
                       .then((response)=> {return response;})
                       .catch((error) => {location.href="/pages/404.html";})
   const json = await res.json();
-  console.log('내 정보', json);
   profileImg.src = json.profile.image;
 }
 
@@ -70,7 +68,6 @@ async function handleGetPost() {
                       .then((response)=> {return response;})
                       .catch((error) => {location.href="/pages/404.html";})
   const json = await res.json();
-  console.log('게시글 가져오기',json.post);
   commentCount = json.post.commentCount;
   const postWrap = document.createElement('div');
   postWrap.setAttribute('class', 'post-list-wrap');
@@ -340,10 +337,8 @@ async function handleGetComment() {
                         .then((response)=> {return response;})
                         .catch((error) => {location.href="/pages/404.html";})
     const json = await res.json()
-    console.log('댓글 가져오기',json.comments);
     commentList.textContent='';
     json.comments.slice().reverse().forEach((value,index) => {
-        console.log('댓글 정보' ,value);
         const comment = document.createElement('li');
         comment.setAttribute('class','usercomment-container');
 
@@ -389,7 +384,6 @@ async function handleGetComment() {
             curAccountname=  value.author.accountname;
             commentId =  value.id;
             curComment = comment;
-            console.log(curComment);
             executeCommentModal();
         })
 
@@ -400,14 +394,12 @@ async function handleGetComment() {
     })
 }
 
-
 handleGetComment();
 
 // 댓글 생성
 async function handlePostComment() {
   const post_txt = commentInput.value;
   commentInput.value='';
-  console.log('댓글 작성 내용',commentInput.value);
   const PostData = {
       "comment": {
           "content": post_txt,
@@ -426,7 +418,6 @@ async function handlePostComment() {
                       .then((response) => {return response;})
                       .catch((error) => {location.href="/pages/404.html";})
   const json = await res.json();
-  console.log('댓글 생성 결과',json.comment);
   handleGetComment();
   commentCount += 1;
   commentNum.textContent = commentCount;
@@ -448,7 +439,7 @@ async function handleDoCommentReportBtn() {
                       .then((response) => {return response;})
                       .catch((error) => {location.href="/pages/404.html";})
   const json = await res.json();
-  console.log('댓글  신고 결과',json);
+  console.log('댓글 신고 결과',json);
   modalCenter[0].classList.add('hidden');
   modalBg[1].classList.add('hidden');
 }
@@ -468,16 +459,10 @@ async function handleCancleBtn() {
                       .then((response)=> {return response;})
                       .catch((error) => {location.href="/pages/404.html";})
   const json = await res.json();
-  console.log('댓글  삭제 결과',json);
-  console.log(curComment);
   commentList.removeChild(curComment);
   commentCount -= 1;
   commentNum.textContent = commentCount;
 }
-
-
-
-
 
 // 게시 버튼 색상 on
 async function handleChangeBtnColor(e) {
@@ -558,9 +543,6 @@ async function handleDeletePost() {
                       .then((response)=> {return response;})
                       .catch((error) => {location.href="/pages/404.html";})
   const json = await res.json();
-  console.log('게시물  삭제 결과',json);
-  console.log(curPost);
-  console.log(curAccountname,"여기봐줘");
   location.href = `/pages/profile.html?accountname=${curAccountname}`;
 }
 
@@ -605,7 +587,6 @@ function executePostModal() {
       modalBg[2].addEventListener('click', () => {
         modalCenter[1].classList.add('hidden');
       })
-  
     })
 
     modalDeleteBtn.addEventListener('click',handleDeletePost);
@@ -643,8 +624,6 @@ function executePostModal() {
       modalBg[3].addEventListener('click', () => {
         modalPostReportCenter.classList.add('hidden');
       })
-  
-
     })
     modalPostReportBtn.addEventListener('click',handleReportPost);
 
@@ -655,8 +634,6 @@ function executePostModal() {
   }
 
 }
-
-
 
 // 로그아웃
 

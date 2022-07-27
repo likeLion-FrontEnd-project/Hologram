@@ -52,7 +52,6 @@ async function imageUpload(file) {
                       .then((response)=> { return response;})
                       .catch((error)=> { console.log('이미지 불러올 때 에러가 발생했습니다.',error);})
   const json = await res.json();
-  console.log('json',json);
   if(imgFile.length<=2) {
       imgFile.push(url+"/"+json[0].filename);
   }
@@ -65,23 +64,17 @@ async function imageUpload(file) {
 
 // 미리보기 이미지 삭제
 async function handleRemoveImg(e) {
-  console.log("삭제할 이미지 url",e.target.parentNode.childNodes[0].currentSrc);
-  console.log('선택한 이미지 요소의 부모요소',e.target.parentNode);
   const index = imgFile.findIndex((element) => {
       return element == e.target.parentNode.childNodes[0].currentSrc;
   })
   imgFile.splice(index,1);
-  console.log('삭제하고 남은 보낼 이미지 file',imgFile);
   ImgList.removeChild(e.target.parentNode);
 }
 
 // 업로드할 이미지 미리보기
 async function handleGetImageUrl(e) {
-  console.log(e.target.files);
   const file = e.target.files[0];
   const imgSrc = await imageUpload(file);
-  console.log('이미지 url', imgSrc);
-  console.log('보낼 이미지 file',imgFile);
   if(imgSrc !== null) {
       const uploadList = document.createElement('li');
       const imgInput = document.createElement('img')
@@ -122,7 +115,6 @@ async function postUpload() {
       else {
           imgUrl = imgFile.join(",");
       }
-      console.log(imgUrl);
       const PostData = {
           "post": {
               "content": post_txt,
@@ -142,8 +134,6 @@ async function postUpload() {
                           .then((response)=> { return response;})
                           .catch((error)=> { console.log('이미지 불러올 때 에러가 발생했습니다.',error);})
       const json = await res.json()
-      console.log('post 전송',json);
-      console.log('게시글 id',json.post.id);
       window.localStorage.setItem('post_id',json.post.id);
       const accountName = json.post.author.accountname;
       location.href=`/pages/profile.html?accountname=${accountName}`
