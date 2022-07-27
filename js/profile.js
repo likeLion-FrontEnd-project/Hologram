@@ -184,3 +184,8 @@ function checkUserPost(userPost){
     postSection.style.display = 'none' : postSection.style.display = 'flex'
   )
 }
+
+// 채팅 버튼 선택
+document.querySelector('.chat-btn').addEventListener('click',() => {
+  location.href = '../pages/chatroom.html';
+})
