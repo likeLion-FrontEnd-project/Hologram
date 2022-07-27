@@ -77,14 +77,14 @@
 
 .profile-name {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   margin-bottom: 2px;
 }
 
 .profile-account {
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   color: var(--gray-text-color);
   word-break: break-word;
@@ -102,7 +102,7 @@
 .post-main .post-category {
   cursor: default;
   display: inline-block;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 400;
   margin-bottom: 15px;
   padding: 6px 12px;
@@ -112,28 +112,21 @@
 }
 
 .post-main .post-title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 .post-main .post-content {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 18px;
-}
-
-.post-main .post-content .detail-button {
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--gray-text-color);
-  background-color: transparent;
 }
 
 /* 포스트 리스트 푸터 타입1 */
 .post-footer {
   padding: 11px 15px;
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -141,7 +134,7 @@
 }
 
 .post-footer .post-time {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--gray-text-color);
 }
@@ -190,7 +183,7 @@
 
 .post-footer-button span {
   display: inline-block;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--gray-text-color);
   width: 20px;
