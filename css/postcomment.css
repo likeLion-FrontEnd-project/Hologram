@@ -137,11 +137,12 @@
 }
 
 /* 포스트 리스트 푸터 타입1 */
-.post-list-item .post-footer {
+.post-footer {
+  padding: 11px 15px;
+  font-size: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 11px 15px;
   border-top: 1px solid var(--light-gray-color);
 }
 
@@ -160,35 +161,53 @@
   align-items: center;
 }
 
-.post-footer-button .like-button,
-.post-footer-button .comment-button {
-  margin-right: 5px;
-  background-repeat: no-repeat;
-  background-position: center;
+.like-button::before {
+  content: '';
+  display: block;
   width: 24px;
   height: 24px;
-}
-
-.like-button {
   background-image: url(../assets/images/icon/icon-like-gray.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
 }
 
-.comment-button {
+.comment-button::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
   background-image: url(../assets/images/icon/icon-comments.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
 }
 
-.like-button.clicked {
+.like-button.clicked::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
   background-image: url(../assets/images/icon/icon-like-purple.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
 }
 
 .post-footer-button span {
+  display: inline-block;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--gray-text-color);
+  width: 20px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  margin-right: -3px;
 }
 
 .post-footer-button span:first-of-type {
-  margin-right: 14px;
+  margin-right: 10px;
 }
 
 /* 포스트 리스트 푸터 타입2(찬반) */
