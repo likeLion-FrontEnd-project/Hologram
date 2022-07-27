@@ -41,10 +41,11 @@ const isError = () => {
 
 // API 데이터를 받아온 후 이메일 중복 확인
 async function checkEmail() {
-  const url =
-    location.protocol === 'https:'
-      ? 'https://mandarin.api.weniv.co.kr'
-      : 'http://146.56.183.55:3000/';
+  // const url =
+  //   location.protocol === 'https:'
+  //     ? 'https://mandarin.api.weniv.co.kr'
+  //     : 'http://146.56.183.55:3000/';
+  const url = 'https://mandarin.api.weniv.co.kr';
   try {
     const res = await fetch(`${url}/user/emailvalid`, {
       method: 'POST',
@@ -271,10 +272,11 @@ const checkUsername = () => {
 
 // 회원가입 데이터 전송
 async function joinData() {
-  const url =
-    location.protocol === 'https:'
-      ? 'https://mandarin.api.weniv.co.kr'
-      : 'http://146.56.183.55:3000';
+  // const url =
+  //   location.protocol === 'https:'
+  //     ? 'https://mandarin.api.weniv.co.kr'
+  //     : 'http://146.56.183.55:3000';
+  const url = 'https://mandarin.api.weniv.co.kr';
   const image =
     editImgHidden.value !== ''
       ? editImgHidden.value
