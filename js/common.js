@@ -20,8 +20,6 @@ function followData(followList) {
       checkFollow(followUserData, followState, targetButton);
     });
   }
-
-  // 따로 isfollow값만 넘겨서 처리해줄수는없나?
 }
 
 // 팔로우, 언팔로우 하기
@@ -43,8 +41,6 @@ async function checkFollow(followUserData, followState, targetButton) {
         }
       );
       const resUnfollowJson = await resUnfollow.json();
-      console.log('언팔로우중');
-      // console.log(resUnfollowJson);
       targetButton.classList.remove('cancel');
       targetButton.textContent = '팔로우';
     } catch (err) {
@@ -64,15 +60,12 @@ async function checkFollow(followUserData, followState, targetButton) {
         }
       );
       const resFollowJson = await resFollow.json();
-      console.log('널 팔로우했다');
-      // console.log(resFollowJson);
       targetButton.classList.add('cancel');
       targetButton.textContent = '취소';
     } catch (err) {
       console.error('err', err);
     }
   }
-  // 만약 내 아이디라면 버튼을 안보여준다.
 }
 
 // 로그아웃
@@ -90,7 +83,6 @@ document.querySelector('.modal-bg ').addEventListener('click', close);
 document.querySelector('.modal-close-bar').addEventListener('click', close);
 const profileSetBtn = document.querySelector('#profile-setting');
 const logoutChoose = document.querySelector('#logout');
-console.log(logoutChoose);
 
 async function handleprofileSetBtn() {
   location.href = '../pages/profile.html';
@@ -103,7 +95,6 @@ profileSetBtn.addEventListener('click', () => {
 });
 logoutChoose.addEventListener('click', () => {
   close();
-  // 로그아웃 모달이 보여진다.
   document.querySelector('.logout-modal').classList.remove('hidden');
 });
 

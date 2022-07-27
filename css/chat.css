@@ -1,56 +1,56 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 48px;
 }
 
 .chatlist-container {
-    position: relative;
-    width: 358px;
-    height: 42px;
-    display: flex;
-    margin:22px 16px  0;
+  position: relative;
+  width: 358px;
+  height: 42px;
+  display: flex;
+  margin: 22px 16px 0;
 }
 
 .chatlist-container .profile-img {
-    margin-right:12px;
+  margin-right: 12px;
 }
 
 .chatlist-container .live-img {
-    width:12px;
-    height: 12px;
-    position: absolute;
+  width: 12px;
+  height: 12px;
+  position: absolute;
 }
 
 .info-sec .chatroom-link {
-    text-decoration: none;
-    color:black;
+  text-decoration: none;
+  color: black;
 }
 
 .chatroom-link .nickname-txt {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 4px;
-    line-height: 16.71px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  line-height: 16.71px;
 }
 
-.chatroom-link  .chat-txt {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 14.32px;
-    color:var(--gray-text-color);
+.chatroom-link .chat-txt {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.32px;
+  color: var(--gray-text-color);
 }
 
 .chatlist-container .date-txt {
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 12px;
-    letter-spacing: 0em;
-    position: absolute;
-    left: 86.03%;
-    right: 0%;
-    top: 64.29%;
-    bottom: 7.14%;
-    color:var(--light-gray-color);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0em;
+  position: absolute;
+  left: 86.03%;
+  right: 0%;
+  top: 64.29%;
+  bottom: 7.14%;
+  color: var(--light-gray-color);
 }

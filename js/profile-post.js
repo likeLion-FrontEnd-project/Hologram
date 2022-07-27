@@ -151,7 +151,6 @@ async function getMyFeed () {
         // 프로필사진 클릭 시 해당 프로필 페이지로 이동
         userImage.addEventListener('click', () => {
           location.href = `/pages/profile.html?accountname=${accountName}`;
-          
         })
 
         // 피드 컨텐츠 내용
@@ -323,11 +322,8 @@ async function getMyFeed () {
           curPost = postList; 
           curPostId = value.id;
           executePostModal();
-
         })
-        
     });
-
 }
   
 // 피드 업로드 시간 확인하는 함수
@@ -370,8 +366,6 @@ async function handleDeletePost() {
                       .then((response)=> {return response;})
                       .catch((error) => {location.href="/pages/404.html";})
   const json = await res.json();
-  console.log('게시물  삭제 결과',json);
-  console.log(curPost);
   postListWrap.removeChild(curPost);
 }
 
@@ -416,7 +410,6 @@ function executePostModal() {
       modalBg[1].addEventListener('click', () => {
         modalCenter[1].classList.add('hidden');
       })
-  
     })
 
     modalDeleteBtn.addEventListener('click',handleDeletePost);
@@ -429,11 +422,7 @@ function executePostModal() {
     // 게시물 수정 
     modalModify.addEventListener('click',() => {
       location.href = `/pages/editpost.html?postId=${curPostId}`;
-    }
-
-    )
-    
-
+    })
   } else {
     modalBg[1].classList.remove('hidden');
     modalReportBottom.classList.remove('hidden');
@@ -455,8 +444,6 @@ function executePostModal() {
       modalBg[1].addEventListener('click', () => {
         modalReportCenter.classList.add('hidden');
       })
-  
-
     })
     modalPostReportBtn.addEventListener('click',handleReportPost);
 
@@ -464,7 +451,5 @@ function executePostModal() {
       modalReportCenter.classList.add('hidden');
       modalBg[1].classList.add('hidden');
     })
-
   }
-
 }

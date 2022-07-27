@@ -18,7 +18,6 @@ async function productImgShow(event) {
   reader.readAsDataURL(event.target.files[0]);
   // 파일명 filename에 저장
   filename = await productImgUpload(event.target);
-  console.log(event.target.files[0]);
   checkInputState();
 }
 

@@ -1,183 +1,195 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/postcomment.css">
-    <link rel="stylesheet" href="../css/modal.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/postcomment.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
     <title>게시글 댓글 | Hologram</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="nav">
-        <button class="back-btn">
-            <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
-        </button>
-        <button class="more-menu-btn">
-            <img src="../assets/images/icon/icon-nav-menu.svg" alt="메뉴 더보기" />
-        </button>
+      <button class="back-btn">
+        <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
+      </button>
+      <button class="more-menu-btn">
+        <img src="../assets/images/icon/icon-nav-menu.svg" alt="메뉴 더보기" />
+      </button>
     </header>
     <main class="main">
-        <ul class="post-ul"></ul>
-        <ul class="comment-list"></ul>
+      <ul class="post-ul"></ul>
+      <ul class="comment-list"></ul>
     </main>
     <footer class="footer">
-        <section class="comment-container">
-            <h3 class="sr-only">댓글 입력</h3>
-            <img src="../assets/images/img-profile_small.png" alt="프로필 이미지" class="profile-img">
-            <input type="text" placeholder="댓글 입력하기..." class="comment-inp">
-            <button type="button" class="post-btn"><span>게시</span></button>
-        </section>
+      <section class="comment-container">
+        <h3 class="sr-only">댓글 입력</h3>
+        <img
+          src="../assets/images/img-profile_small.png"
+          alt="프로필 이미지"
+          class="profile-img"
+        />
+        <input type="text" placeholder="댓글 입력하기..." class="comment-inp" />
+        <button type="button" class="post-btn"><span>게시</span></button>
+      </section>
     </footer>
     <article class="modal-bg hidden">
-        <div class="modal-window-bottom hidden">
-            <h1 class="sr-only">댓글삭제 모달창</h1>
-            <button type="button" class="modal-close-bar">
-                <img
-                src="../assets/images/icon/icon-modal-closebtn.svg"
-                alt="모달창 닫기 아이콘"
-                class="modal-close-icon"
-                />
-            </button>
-            <ul class="modal-list">
-                <li>
-                <button id="delete-comment" class="modal-list-btn remove">삭제</button>
-                </li>
-            </ul>
-        </div>
-    </article>
-    <div class="modal-bg hidden"></div>
-    <section class="modal-window-bottom hidden">
-        <h1 class="sr-only">댓글신고 모달창</h1>
+      <div class="modal-window-bottom hidden">
+        <h1 class="sr-only">댓글삭제 모달창</h1>
         <button type="button" class="modal-close-bar">
-            <img
+          <img
             src="../assets/images/icon/icon-modal-closebtn.svg"
             alt="모달창 닫기 아이콘"
             class="modal-close-icon"
-            />
+          />
         </button>
         <ul class="modal-list">
-            <li>
-            <button id="report-comment" class="modal-list-btn report">신고하기</button>
-            </li>
+          <li>
+            <button id="delete-comment" class="modal-list-btn remove">
+              삭제
+            </button>
+          </li>
         </ul>
+      </div>
+    </article>
+    <div class="modal-bg hidden"></div>
+    <section class="modal-window-bottom hidden">
+      <h1 class="sr-only">댓글신고 모달창</h1>
+      <button type="button" class="modal-close-bar">
+        <img
+          src="../assets/images/icon/icon-modal-closebtn.svg"
+          alt="모달창 닫기 아이콘"
+          class="modal-close-icon"
+        />
+      </button>
+      <ul class="modal-list">
+        <li>
+          <button id="report-comment" class="modal-list-btn report">
+            신고하기
+          </button>
+        </li>
+      </ul>
     </section>
     <article class="modal-window-center hidden">
-        <h1 class="sr-only">댓글 신고 확인 모달창</h1>
-        <p class="modal-center-text">신고하시겠습니까?</p>
-        <div class="modal-center-btn">
-            <button type="button" id="cancel-comment-btn" class="center-btn-left">
-            취소
-            </button>
-            <button type="button" id="report-comment-btn" class="center-btn-right">
-            신고
-            </button>
-        </div>
+      <h1 class="sr-only">댓글 신고 확인 모달창</h1>
+      <p class="modal-center-text">신고하시겠습니까?</p>
+      <div class="modal-center-btn">
+        <button type="button" id="cancel-comment-btn" class="center-btn-left">
+          취소
+        </button>
+        <button type="button" id="report-comment-btn" class="center-btn-right">
+          신고
+        </button>
+      </div>
     </article>
     <!-- 게시글 모달창 -->
     <div class="modal-bg hidden"></div>
     <article class="modal-window-bottom hidden">
-        <h1 class="sr-only">게시글 삭제 모달창</h1>
-        <button type="button" class="modal-close-bar">
+      <h1 class="sr-only">게시글 삭제 모달창</h1>
+      <button type="button" class="modal-close-bar">
         <img
-            src="../assets/images/icon/icon-modal-closebtn.svg"
-            alt="모달창 닫기 아이콘"
-            class="modal-close-icon"
+          src="../assets/images/icon/icon-modal-closebtn.svg"
+          alt="모달창 닫기 아이콘"
+          class="modal-close-icon"
         />
-        </button>
-        <ul class="modal-list">
+      </button>
+      <ul class="modal-list">
         <li>
-            <button id="delete-post" class="modal-list-btn">삭제</button>
+          <button id="delete-post" class="modal-list-btn">삭제</button>
         </li>
         <li>
-            <button id="modify-post" class="modal-list-btn">수정</button>
+          <button id="modify-post" class="modal-list-btn">수정</button>
         </li>
-        </ul>
+      </ul>
     </article>
 
     <article class="modal-window-center hidden">
-        <h1 class="sr-only">게시글 삭제 확인 모달창</h1>
-        <p class="modal-center-text">게시글을 삭제할까요?</p>
-        <div class="modal-center-btn">
+      <h1 class="sr-only">게시글 삭제 확인 모달창</h1>
+      <p class="modal-center-text">게시글을 삭제할까요?</p>
+      <div class="modal-center-btn">
         <button type="button" id="cancel-post-btn" class="center-btn-left">
-            취소
+          취소
         </button>
         <button type="button" id="delete-post-btn" class="center-btn-right">
-            삭제
+          삭제
         </button>
-        </div>
+      </div>
     </article>
 
     <div class="modal-bg hidden"></div>
     <article class="modal-window-bottom-report hidden">
-        <h1 class="sr-only">게시글 신고 모달창</h1>
-        <button type="button" class="modal-close-bar">
+      <h1 class="sr-only">게시글 신고 모달창</h1>
+      <button type="button" class="modal-close-bar">
         <img
-            src="../assets/images/icon/icon-modal-closebtn.svg"
-            alt="모달창 닫기 아이콘"
-            class="modal-close-icon"
+          src="../assets/images/icon/icon-modal-closebtn.svg"
+          alt="모달창 닫기 아이콘"
+          class="modal-close-icon"
         />
-        </button>
-        <ul class="modal-list">
+      </button>
+      <ul class="modal-list">
         <li>
-            <button id="report-post" class="modal-list-btn">신고하기</button>
+          <button id="report-post" class="modal-list-btn">신고하기</button>
         </li>
-        </ul>
+      </ul>
     </article>
     <article class="modal-window-center-post-report hidden">
-        <h1 class="sr-only">게시글 신고 확인 모달창</h1>
-        <p class="modal-center-text">신고하시겠습니까?</p>
-        <div class="modal-center-btn">
-            <button type="button" id="report-cancel-post-btn" class="center-btn-left">
-            취소
-            </button>
-            <button type="button" id="report-post-btn" class="center-btn-right">
-            신고
-            </button>
-        </div>
+      <h1 class="sr-only">게시글 신고 확인 모달창</h1>
+      <p class="modal-center-text">신고하시겠습니까?</p>
+      <div class="modal-center-btn">
+        <button
+          type="button"
+          id="report-cancel-post-btn"
+          class="center-btn-left"
+        >
+          취소
+        </button>
+        <button type="button" id="report-post-btn" class="center-btn-right">
+          신고
+        </button>
+      </div>
     </article>
     <article class="modal hidden">
-        <h1 class="sr-only">프로필 설정, 로그아웃 모달창</h1>
-        <div class="modal-bg"></div>
-        <div class="modal-window-bottom">
+      <h1 class="sr-only">프로필 설정, 로그아웃 모달창</h1>
+      <div class="modal-bg"></div>
+      <div class="modal-window-bottom">
         <button type="button" class="modal-close-bar">
-        <img
-        src="../assets/images/icon/icon-modal-closebtn.svg"
-        alt="모달창
+          <img
+            src="../assets/images/icon/icon-modal-closebtn.svg"
+            alt="모달창
         닫기 아이콘"
-        class="modal-close-icon"
-        />
+            class="modal-close-icon"
+          />
         </button>
         <ul class="modal-list">
-        <li>
+          <li>
             <button id="profile-setting" class="modal-list-btn">
-            설정 및 개인정보
+              설정 및 개인정보
             </button>
-        </li>
-        <li>
+          </li>
+          <li>
             <button id="logout" class="modal-list-btn">로그아웃</button>
-        </li>
+          </li>
         </ul>
-    </div>
+      </div>
     </article>
     <!-- 로그아웃 모달 -->
     <article class="logout-modal hidden">
-    <h1 class="sr-only">로그아웃 확인 모달창</h1>
-    <div class="logoutmodal-bg"></div>
-    <div class="modal-window-center">
+      <h1 class="sr-only">로그아웃 확인 모달창</h1>
+      <div class="logoutmodal-bg"></div>
+      <div class="modal-window-center">
         <p class="modal-center-text">로그아웃 하시겠어요?</p>
         <div class="modal-center-btn">
-        <button type="button" id="cancel-btn" class="center-btn-left">
+          <button type="button" id="cancel-btn" class="center-btn-left">
             취소
-        </button>
-        <button type="button" id="logout-btn" class="center-btn-right">
+          </button>
+          <button type="button" id="logout-btn" class="center-btn-right">
             로그아웃
-        </button>
+          </button>
         </div>
-    </div>
+      </div>
     </article>
     <script src="../js/common.js"></script>
     <script src="../js/postcomment.js"></script>
-</body>
+  </body>
 </html>

@@ -29,6 +29,7 @@
   width: 360px;
   height: 240px;
   overflow-y: hidden;
+  border-radius: 5px 5px 0 0;
 }
 
 .post-img-list::-webkit-scrollbar {

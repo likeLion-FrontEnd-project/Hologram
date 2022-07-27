@@ -42,7 +42,6 @@ async function GetPost() {
         const imgUrl = post.image;
 
         if(imgUrl.split(',').length >= 1 && imgUrl.split(',')[0] !== '') {
-            console.log("ehlsk?")
             imgUrl.split(',').map((src) => {
             const uploadList = document.createElement('li');
             const imgInput = document.createElement('img')
@@ -61,7 +60,6 @@ async function GetPost() {
                 return null;
             }
             closeBtn.addEventListener('click',handleRemoveImg);
-            
             })
         }
 
@@ -112,7 +110,6 @@ async function imageUpload(file) {
                       .then((response)=> { return response;})
                       .catch((error)=> { console.log('이미지 불러올 때 에러가 발생했습니다.',error);})
   const json = await res.json();
-  console.log('json',json);
   if(imgFile.length<=2) {
       imgFile.push(url+"/"+json[0].filename);
   }
@@ -131,17 +128,14 @@ async function handleRemoveImg(e) {
       return element == e.target.parentNode.childNodes[0].currentSrc;
   })
   imgFile.splice(index,1);
-  console.log('삭제하고 남은 보낼 이미지 file',imgFile);
   ImgList.removeChild(e.target.parentNode);
 }
 
 // 업로드할 이미지 미리보기
 async function handleGetImageUrl(e) {
-  console.log(e.target.files);
   const file = e.target.files[0];
   const imgSrc = await imageUpload(file);
-  console.log('이미지 url', imgSrc);
-  console.log('보낼 이미지 file',imgFile);
+
   if(imgSrc !== null) {
       const uploadList = document.createElement('li');
       const imgInput = document.createElement('img')
@@ -182,7 +176,6 @@ async function postUpdate() {
       else {
           imgUrl = imgFile.join(",");
       }
-      console.log(imgUrl);
       const PostData = {
           "post": {
               "content": post_txt,
@@ -202,7 +195,6 @@ async function postUpdate() {
                           .then((response)=> { return response;})
                           .catch((error)=> { console.log('이미지 불러올 때 에러가 발생했습니다.',error);})
       const json = await res.json()
-      console.log('post 전송',json);
       window.localStorage.setItem('post_id',postId);
       const accountName = json.post.author.accountname;
       location.href=`/pages/profile.html?accountname=${accountName}`

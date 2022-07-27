@@ -41,7 +41,6 @@ let readURL = function (input) {
   }
 };
 
-// 이미지 변경 시 미리보기와
 editImg.addEventListener('change', function () {
   readURL(this);
 });
