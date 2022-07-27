@@ -186,11 +186,8 @@
   font-size: 14px;
   font-weight: 500;
   color: var(--gray-text-color);
-  width: 20px;
-  height: 24px;
-  line-height: 24px;
   text-align: center;
-  margin-right: -3px;
+  margin-left: 3px;
 }
 
 .post-footer-button span:first-of-type {
