@@ -7,6 +7,7 @@ const url =
 const backBtn = document.querySelector('.back-btn');
 function goBack() {
   window.history.back();
+  location.href = document.referrer; 
 }
 backBtn.addEventListener('click', goBack);
 
