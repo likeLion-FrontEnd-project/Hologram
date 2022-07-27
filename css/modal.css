@@ -1,5 +1,5 @@
 /* 페이지 중앙 모달창 기본 틀 */
-.modal-window-center,.modal-window-center-report {
+.modal-window-center,.modal-window-center-report,.modal-window-center-post-report {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -109,6 +109,6 @@
 }
 
 .modal-window-bottom-report,
-.modal-window-center-report {
+.modal-window-center-report,.modal-window-center-post-report {
   z-index: 40;
 }
