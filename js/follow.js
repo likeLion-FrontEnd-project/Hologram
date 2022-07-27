@@ -25,18 +25,16 @@ async function getFollowList() {
   const userProfile = userProfileJson.profile;
 
   // following
-  const followingData = await fetch(`${url}/profile/${accountName}/following/?limit=100`, getFollowingData);
+  const followingData = await fetch(`${url}/profile/${accountName}/following/?limit=infinity`, getFollowingData);
   const followingList = await followingData.json();
 
-  const followerData = await fetch(`${url}/profile/${accountName}/follower/?limit=100`, getFollowingData);
+  const followerData = await fetch(`${url}/profile/${accountName}/follower/?limit=infinity`, getFollowingData);
   const followerList = await followerData.json();
   
   if ( pageTitle === 'Followings') {
     setFollowingList(followingList);
-    console.log(followingList.length);
   } else if( pageTitle === 'Followers') {
     setFollowerList(followerList);
-    console.log(followerList.length);
   }
 }
 

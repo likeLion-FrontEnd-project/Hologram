@@ -29,9 +29,9 @@
 .user-info {
   flex-grow: 2;
   margin-right: 12px;
-  overflow: hidden;
+  /* overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: nowrap; */
 }
 .user-info .user-name {
   display: block;
@@ -43,11 +43,15 @@
   align-self: flex-start;
 }
 .user-info .user-intro {
-  margin-bottom: 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   color: var(--gray-text-color);
+  width: 225px;
+  display: inline-block;
 }
 
 /* 유저 검색 목록*/
