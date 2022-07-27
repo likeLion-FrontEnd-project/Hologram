@@ -361,7 +361,6 @@ async function handleGetComment() {
         const texttime = document.createElement('span');
         texttime.setAttribute('class',"time-txt");
         const Difference = getTimeDifference(value.createdAt);
-        console.log("시간 차",Difference);
         texttime.innerText=`${Difference}`;
         userContainer.append(nickname,texttime);
 
@@ -530,7 +529,6 @@ function executeCommentModal() {
 async function handleDeletePost() {
   modalCenter[1].classList.add('hidden');
   modalBg[1].classList.add('hidden'); 
-  console.log("curPostId" , curPostId);
   const token = window.localStorage.getItem('token');
   const requestDeleteInformation = {
       method:"DELETE",

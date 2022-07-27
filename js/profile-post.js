@@ -353,7 +353,6 @@ function timeForToday(value) {
 async function handleDeletePost() {
   modalCenter[1].classList.add('hidden');
   modalBg[1].classList.add('hidden'); 
-  console.log("curPostId" , curPostId);
   const token = window.localStorage.getItem('token');
   const requestDeleteInformation = {
       method:"DELETE",
