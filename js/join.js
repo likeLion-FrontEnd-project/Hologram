@@ -41,10 +41,6 @@ const isError = () => {
 
 // API 데이터를 받아온 후 이메일 중복 확인
 async function checkEmail() {
-  // const url =
-  //   location.protocol === 'https:'
-  //     ? 'https://mandarin.api.weniv.co.kr'
-  //     : 'http://146.56.183.55:3000/';
   const url = 'https://mandarin.api.weniv.co.kr';
   try {
     const res = await fetch(`${url}/user/emailvalid`, {
@@ -59,7 +55,6 @@ async function checkEmail() {
       }),
     });
     const resJson = await res.json();
-    console.log(resJson);
     // resJson 값에 따라 버튼 활성/에러 메세지, 스타일 출력 여부 결정
     if (resJson.message === '이미 가입된 이메일 주소 입니다.') {
       emailInput.classList.add('error');
@@ -247,7 +242,6 @@ let readURL = function (input) {
         '.setprofile-edit-wrap'
       ).style.background = `url(${e.target.result}) center center / cover`;
       editImgHidden.value = e.target.result;
-      console.log(editImgHidden.value);
       activeSubmitBtn();
     };
     reader.readAsDataURL(input.files[0]);
@@ -272,15 +266,11 @@ const checkUsername = () => {
 
 // 회원가입 데이터 전송
 async function joinData() {
-  // const url =
-  //   location.protocol === 'https:'
-  //     ? 'https://mandarin.api.weniv.co.kr'
-  //     : 'http://146.56.183.55:3000';
   const url = 'https://mandarin.api.weniv.co.kr';
   const image =
     editImgHidden.value !== ''
       ? editImgHidden.value
-      : 'https://mandarin.api.weniv.co.kr/Ellipse.png';
+      : '../assets/images/img-profile_large.png';
   try {
     const res = await fetch(`${url}/user`, {
       method: 'POST',
@@ -299,8 +289,6 @@ async function joinData() {
       }),
     });
     const resJson = await res.json();
-    console.log(resJson);
-
     if (
       resJson.message === '이미 사용중인 계정 ID입니다.' ||
       resJson.message === '영문, 숫자, 밑줄, 마침표만 사용할 수 있습니다.'
