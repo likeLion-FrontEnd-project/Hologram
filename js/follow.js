@@ -2,6 +2,7 @@
 const userListWrap = document.querySelector('.user-list-wrap');
 const pageTitle = document.querySelector('.page-title').textContent;
 
+
 getFollowList();
 
 /* 팔로잉 리스트 받아오기  */
@@ -68,7 +69,7 @@ function setFollowingList(followingList) {
 
       const userProfileImg = document.createElement('img');
       userProfileImg.setAttribute('class', 'user-img');
-      userProfileImg.setAttribute('src', i.image);
+      userProfileImg.setAttribute('src', imgCheck(i.image));
 
       /* user-info */
       const userInfoWrap = document.createElement('div');
@@ -145,7 +146,7 @@ function setFollowerList(followerList) {
 
       const userProfileImg = document.createElement('img');
       userProfileImg.setAttribute('class', 'user-img');
-      userProfileImg.setAttribute('src', i.image);
+      userProfileImg.setAttribute('src', imgCheck(i.image));
 
       /* user-info */
       const userInfoWrap = document.createElement('div');
@@ -189,4 +190,19 @@ function setFollowerList(followerList) {
     });
   }
   followData(followerList)
+}
+
+const marketImg = "http://146.56.183.55:5050/Ellipse.png"; // 감귤마켓 기본이미지 
+const mandarinImg = "https://mandarin.api.weniv.co.kr/Ellipse.png"; // 감귤마켓 기본이미지 
+const defaultImg = "../assets/images/img-profile_large.png"; 
+
+// 이미지 예외처리
+function imgCheck(img) {
+  if (img === marketImg || img == mandarinImg || img == defaultImg) {
+    return defaultImg;
+  } else if (img.search(url) !== -1 || img.search('base64') !== -1 || img.search('.svg') !== -1 || img.search('http://') !== -1 || img.search('https://') !== -1) {
+    return img;
+  } else if (img.search(url) === -1) { // 이미지가 뜨지 않을 때
+    return `${url}/${img}`  
+  } 
 }
