@@ -48,7 +48,10 @@ editImg.addEventListener('change', function () {
 
 // 계정 검증 API
 async function accountnameValid() {
-  const url = 'https://mandarin.api.weniv.co.kr';
+  const url =
+    location.protocol === 'https:'
+      ? 'https://mandarin.api.weniv.co.kr'
+      : 'http://146.56.183.55:3000';
   const currentId = localStorage.getItem('accountname');
   try {
     const res = await fetch(`${url}/user/accountnamevalid`, {
@@ -108,7 +111,10 @@ editAccountInput.addEventListener('input', (e) => {
 
 // 프로필 수정 데이터 갱신
 async function editUserInfo() {
-  const url = 'https://mandarin.api.weniv.co.kr';
+  const url =
+    location.protocol === 'https:'
+      ? 'https://mandarin.api.weniv.co.kr'
+      : 'http://146.56.183.55:3000';
   const token = localStorage.getItem('token');
   try {
     const res = await fetch(`${url}/user`, {
@@ -156,7 +162,10 @@ function setEditUserInfo(editUserInfo) {
 
 // 프로필 수정 데이터 전송
 async function getEditUserInfo() {
-  const url = 'https://mandarin.api.weniv.co.kr';
+  const url =
+    location.protocol === 'https:'
+      ? 'https://mandarin.api.weniv.co.kr'
+      : 'http://146.56.183.55:3000';
   const accountName = localStorage.getItem('accountname');
   const token = localStorage.getItem('token');
   try {
