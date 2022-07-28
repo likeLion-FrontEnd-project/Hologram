@@ -116,7 +116,7 @@ async function getFeedInfo() {
         imgUrl.split(',').map((src) => {
           const postImg = document.createElement('img');
           postImg.setAttribute('class', 'post-image');
-          postImg.src = src;
+          postImg.src = imgCheck(src);
           postImgList.append(postImg);
         });
       } else {
