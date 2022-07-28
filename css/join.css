@@ -109,6 +109,8 @@
   font-size: 14px;
   border-bottom: 1px solid var(--light-gray-color);
   transition: all 0.2s;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
 }
 
 .setprofile-input:focus {
