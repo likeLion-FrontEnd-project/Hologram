@@ -65,6 +65,7 @@
 }
 
 .post-user .profile-image {
+  cursor: pointer;
   width: 32px;
   height: 32px;
   border: 0.5px solid var(--light-gray-color);

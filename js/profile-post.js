@@ -426,7 +426,7 @@ function executePostModal() {
     modalBg[1].classList.remove('hidden');
     modalReportBottom.classList.remove('hidden');
   
-    modalCloseBar[1].addEventListener('click', () => {
+    modalCloseBar[2].addEventListener('click', () => {
       modalReportBottom.classList.add('hidden');
       modalBg[1].classList.add('hidden');
     })

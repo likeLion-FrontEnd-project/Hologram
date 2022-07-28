@@ -421,7 +421,9 @@ async function handlePostComment() {
                       .catch((error) => {location.href="/pages/404.html";})
   const json = await res.json();
   handleGetComment();
-  commentCount += 1;
+  if(post_txt !== '') {
+    commentCount += 1;
+  }
   commentNum.textContent = commentCount;
 }
 
@@ -639,3 +641,4 @@ function executePostModal() {
 // 로그아웃
 
 modalBg[4].addEventListener("click", close); 
+modalCloseBar[4].addEventListener('click',close);
