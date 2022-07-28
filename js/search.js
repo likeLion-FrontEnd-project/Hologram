@@ -4,6 +4,20 @@ const searchInp = document.querySelector('.search');
 const searchMain = document.querySelector('.search-main');
 const userListWrap = document.querySelector('.user-list-wrap');
 
+const marketImg = "http://146.56.183.55:5050/Ellipse.png"; // 감귤마켓 기본이미지 
+const mandarinImg = "https://mandarin.api.weniv.co.kr/Ellipse.png"; // 감귤마켓 기본이미지 
+const defaultImg = "../assets/images/img-profile_large.png"; 
+
+function imgCheck(img) {
+  if (img === marketImg || img == mandarinImg || img == defaultImg) {
+    return defaultImg;
+  } else if (img.search(url) !== -1 || img.search('base64') !== -1 || img.search('.svg') !== -1 || img.search('http://') !== -1 || img.search('https://') !== -1) {
+    return img;
+  } else if (img.search(url) === -1) { // 이미지가 뜨지 않을 때
+    return `${url}/${img}`  
+  } 
+}
+
 // 검색창 계정 정보 불러오기  
 async function searchUser () {
   const inpValue = searchInp.value;
@@ -31,7 +45,7 @@ async function searchUser () {
       json.forEach((el) => {
         const userName = el.username;
         const accountName = el.accountname;
-        const userImg = el.image;
+        const userImg = imgCheck(el.image);
   
         const userprofileLI = document.createElement('li');
         const searchA = document.createElement('a');
