@@ -1,3 +1,4 @@
+const url = 'https://mandarin.api.weniv.co.kr';
 const accountName = localStorage.getItem('accountname');
 const token = localStorage.getItem('token');
 const searchInp = document.querySelector('.search');
@@ -17,6 +18,14 @@ function imgCheck(img) {
     return `${url}/${img}`  
   } 
 }
+
+/* 뒤로 가기 */
+const backBtn = document.querySelector('.back-btn');
+function goBack() {
+  window.history.back();
+}
+backBtn.addEventListener('click', goBack);
+
 
 // 검색창 계정 정보 불러오기  
 async function searchUser () {
