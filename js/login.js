@@ -32,29 +32,26 @@ async function loginData() {
       }),
     });
     const resJson = await res.json();
-    console.log(resJson.user.token);
     if (resJson.status !== 422) {
-      checkToken(resJson.user.token);
       localStorage.setItem('token', resJson.user.token);
       localStorage.setItem('accountname', resJson.user.accountname);
-    } else {
-      errMsg.style.display = 'block';
-      loginBtn.classList.remove('active');
+      checkToken(resJson.user.token);
     }
   } catch (err) {
     console.error(err);
   }
 }
 
-loginBtn.addEventListener('click', (e) => {
+loginBtn.addEventListener('click', async (e) => {
   e.preventDefault();
-  loginData();
+  await loginData();
+  checkToken();
 });
 
 // 토큰 검증
-async function checkToken(token) {
+async function checkToken() {
   const url = 'https://mandarin.api.weniv.co.kr';
-  console.log(token);
+  const token = localStorage.getItem('token');
   try {
     const res = await fetch(`${url}/user/checktoken/`, {
       method: 'GET',
@@ -66,6 +63,9 @@ async function checkToken(token) {
     const resJson = await res.json();
     if (resJson.isValid) {
       location.href = './home.html';
+    } else {
+      errMsg.style.display = 'block';
+      loginBtn.classList.remove('active');
     }
   } catch (err) {
     console.error(err);
