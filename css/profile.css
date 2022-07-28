@@ -408,12 +408,16 @@
   border: 0.5px solid var(--light-gray-color);
 }
 
-.product-detail-modal .product-title {
-  display: block;
-  margin-bottom: 4px;
+.product-detail-modal .product-title,
+.product-detail-modal .product-chat-btn {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+}
+
+.product-detail-modal .product-title {
+  display: block;
+  margin-bottom: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
