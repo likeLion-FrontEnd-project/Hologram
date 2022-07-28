@@ -14,7 +14,7 @@ function setUserProduct(userProduct) {
 
       const productImg = document.createElement('img');
       productImg.setAttribute('class', 'product-img');
-      productImg.setAttribute('src', i.itemImage);
+      productImg.setAttribute('src', imgCheck(i.itemImage));
       
       const productTitle = document.createElement('strong');
       productTitle.setAttribute('class', 'product-title');
@@ -47,7 +47,7 @@ function setUserProduct(userProduct) {
         } else {
           productDetail.classList.remove("hidden");
           
-          document.querySelector('#product-detail .product-img').src = i.itemImage
+          document.querySelector('#product-detail .product-img').src = imgCheck(i.itemImage);
           document.querySelector('#product-detail .product-title').innerText = i.itemName;
           document.querySelector('#product-detail .product-price').innerText = i.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 

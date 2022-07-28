@@ -104,7 +104,7 @@ async function getMyFeed () {
           imgUrl.split(',').map((src) => {
           const postImg = document.createElement('img');
           postImg.setAttribute('class', 'post-image');
-          postImg.src = src;
+          postImg.src = imgCheck(src);
           postImgList.append(postImg);        
         })
           postAlbumWrap.append(postAlbum);
@@ -129,7 +129,7 @@ async function getMyFeed () {
         const menuBtnImg = document.createElement('img');
 
         userImage.setAttribute('class', 'profile-image');
-        userImage.setAttribute('src', POST.author.image);
+        userImage.setAttribute('src', imgCheck(POST.author.image));
         userName.setAttribute('class', 'profile-name');
         account.setAttribute('class', 'profile-account');
         postMenuBtn.setAttribute('class', 'post-menu-button');

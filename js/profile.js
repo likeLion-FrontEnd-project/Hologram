@@ -1,3 +1,6 @@
+const marketImg = "http://146.56.183.55:5050/Ellipse.png"; // 감귤마켓 기본이미지 
+const mandarinImg = "https://mandarin.api.weniv.co.kr/Ellipse.png"; // 감귤마켓 기본이미지 
+const defaultImg = "../assets/images/img-profile_large.png"; 
 getUserProfile();
 
 /* 유저 정보 받아오기  */
@@ -58,7 +61,7 @@ function setUserProfile(userProfile, followList) {
   document.querySelector('.follower-wrap').setAttribute('href', `/pages/followers.html?accountname=${userProfile.accountname}`);
   document.querySelector('.following-num').textContent = userProfile.followingCount;
   document.querySelector('.following-wrap').setAttribute('href', `/pages/followings.html?accountname=${userProfile.accountname}`);
-  document.querySelector('.profile-img-wrap img').src = user_image;
+  document.querySelector('.profile-img-wrap img').src = imgCheck(user_image);
   document.querySelector('.profile-section .profile-name').textContent = userProfile.username;
   document.querySelector('.profile-section .profile-account').textContent = `@ ${userProfile.accountname}`;
   document.querySelector('.profile-section .profile-intro').textContent = userProfile.intro;
@@ -140,3 +143,4 @@ function checkUserPost(userPost){
 document.querySelector('.chat-btn').addEventListener('click',() => {
   location.href = '../pages/chatroom.html';
 })
+
