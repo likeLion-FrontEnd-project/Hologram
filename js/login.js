@@ -32,9 +32,9 @@ async function loginData() {
       }),
     });
     const resJson = await res.json();
-
+    console.log(resJson.user.token);
     if (resJson.status !== 422) {
-      location.href = './home.html';
+      checkToken(resJson.user.token);
       localStorage.setItem('token', resJson.user.token);
       localStorage.setItem('accountname', resJson.user.accountname);
     } else {
@@ -50,3 +50,24 @@ loginBtn.addEventListener('click', (e) => {
   e.preventDefault();
   loginData();
 });
+
+// 토큰 검증
+async function checkToken(token) {
+  const url = 'https://mandarin.api.weniv.co.kr';
+  console.log(token);
+  try {
+    const res = await fetch(`${url}/user/checktoken/`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+    });
+    const resJson = await res.json();
+    if (resJson.isValid) {
+      location.href = './home.html';
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
