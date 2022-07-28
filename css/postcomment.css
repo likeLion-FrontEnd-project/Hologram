@@ -195,6 +195,7 @@
 
 .post-footer-button span {
   display: inline-block;
+  width: 18px;
   font-size: 14px;
   font-weight: 500;
   color: var(--gray-text-color);
