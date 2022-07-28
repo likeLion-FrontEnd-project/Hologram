@@ -14,11 +14,12 @@
   display: flex;
   align-items: center;
   width: 100%;
+  justify-content: space-between;
 }
 .user-img {
   margin-right: 12px;
   width: 100%;
-  max-width: 50px;
+  min-width: 50px;
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
@@ -27,7 +28,6 @@
 
 /* 유저 정보 */
 .user-info {
-  flex-grow: 2;
   margin-right: 12px;
 }
 .user-info .user-name {
@@ -47,7 +47,7 @@
   font-size: 12px;
   line-height: 14px;
   color: var(--gray-text-color);
-  width: 225px;
+  width: 210px;
   display: inline-block;
 }
 
@@ -59,7 +59,7 @@
 
 /* 팔로우 */
 .user-profile-li a {
-  display: contents;
+  display: flex;
   width: 50px;
   height: 50px;
   margin-right: 12px;
