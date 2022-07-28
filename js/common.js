@@ -12,9 +12,9 @@ backBtn.addEventListener('click', goBack);
 function imgCheck(img) {
   if (img === marketImg || img == mandarinImg || img == defaultImg) {
     return defaultImg;
-  } else if (img.search(url) !== -1 || img.search('base64') !== -1 || img.search('.svg') !== -1 || img.search('http://') !== -1 || img.search('https://') !== -1) {
+  } else if (img?.search(url) !== -1 || img?.search('base64') !== -1 || img?.search('.svg') !== -1 || img.search('http://') !== -1 || img.search('https://') !== -1) {
     return img;
-  } else if (img.search(url) === -1) { // 이미지가 뜨지 않을 때
+  } else if (img?.search(url) === -1) { // 이미지가 뜨지 않을 때
     return `${url}/${img}`  
   } 
 } 
