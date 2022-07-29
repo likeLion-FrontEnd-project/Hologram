@@ -88,6 +88,9 @@ body {
 }
 
 .send-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
   width: 100%;
   background-color: var(--background-color);
@@ -117,7 +120,6 @@ body {
   float: right;
   border: none;
   background-color: var(--background-color);
-  margin-top: 8px;
 }
 .send-container .send-btn span {
   font-weight: 500;
