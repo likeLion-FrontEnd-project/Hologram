@@ -1,52 +1,86 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon/favicon1-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/favicon/favicon1-16x16.png"
+    />
+    <title>상품 등록 | 홀로그램</title>
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/input.css" />
+    <link rel="stylesheet" href="../css/imageRegister.css" />
+    <link rel="stylesheet" href="../css/product.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>상품 등록 | 홀로그램</title>
-  <link rel="stylesheet" href="../css/default.css" />
-  <link rel="stylesheet" href="../css/input.css" />
-  <link rel="stylesheet" href="../css/imageRegister.css" />
-  <link rel="stylesheet" href="../css/product.css" />
-</head>
+  <body>
+    <header class="nav">
+      <button class="back-btn">
+        <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
+      </button>
+      <button class="nav-btn save" disabled>저장</button>
+    </header>
+    <main class="main">
+      <section class="product-wrap">
+        <h2 class="sr-only">상품 정보 입력</h2>
+        <form action="product-form" autocomplete="off">
+          <label for="product-img-upload" class="input-label"
+            >이미지 등록</label
+          >
+          <div class="product-img-wrap">
+            <label class="product-img-screen" for="product-img-upload">
+              <img
+                src=""
+                alt="상품이미지 미리보기"
+                class="product-img"
+                id="product-img"
+              />
+              <input
+                type="file"
+                accept="image/*"
+                onchange="productImgShow(event)"
+                id="product-img-upload"
+                class="sr-only product-img-input"
+              />
+            </label>
+          </div>
 
-<body>
-  <header class="nav">
-    <button class="back-btn">
-      <img src="../assets/images/icon/icon-arrow-left.svg" alt="뒤로가기" />
-    </button>
-    <button class="nav-btn save" disabled>저장</button>
-  </header>
-  <main class="main">
-    <section class="product-wrap">
-      <h2 class="sr-only">상품 정보 입력</h2>
-      <form action="product-form" autocomplete="off">
-        <label for="product-img-upload" class="input-label">이미지 등록</label>
-        <div class="product-img-wrap">
-          <label class="product-img-screen" for="product-img-upload">
-            <img src="" alt="상품이미지 미리보기" class="product-img" id="product-img" />
-            <input type="file" accept="image/*" onchange="productImgShow(event)" id="product-img-upload"
-              class="sr-only product-img-input" />
-          </label>
-        </div>
+          <div class="input-wrapper">
+            <label for="product-name-input" class="input-label">상품명</label>
+            <input
+              type="text"
+              class="input"
+              id="product-name-input"
+              placeholder="2~15자 이내여야 합니다."
+              maxlength="15"
+            />
+            <strong class="error-msg">*2~15자 이내여야 합니다.</strong>
+          </div>
 
-        <div class="input-wrapper">
-          <label for="product-name-input" class="input-label">상품명</label>
-          <input type="text" class="input" id="product-name-input" placeholder="2~15자 이내여야 합니다." maxlength="15" />
-          <strong class="error-msg">*2~15자 이내여야 합니다.</strong>
-        </div>
-
-        <div class="input-wrapper">
-          <label for="price-input" class="input-label">가격</label>
-          <input type="text" class="input" id="price-input" placeholder="숫자만 입력 가능합니다." maxlength="12" />
-        </div>
-      </form>
-    </section>
-  </main>
-  <script src="../js/common.js"></script>
-  <script src="../js/editProduct.js"></script>
-</body>
-
+          <div class="input-wrapper">
+            <label for="price-input" class="input-label">가격</label>
+            <input
+              type="text"
+              class="input"
+              id="price-input"
+              placeholder="숫자만 입력 가능합니다."
+              maxlength="12"
+            />
+          </div>
+        </form>
+      </section>
+    </main>
+    <script src="../js/common.js"></script>
+    <script src="../js/editProduct.js"></script>
+  </body>
 </html>
