@@ -107,45 +107,45 @@
 
 |0. Splash|1. 회원가입|2. 로그인|
 |:---:|:---:|:---:|
-|<img src="https://user-images.githubusercontent.com/76831344/182029520-bc2d63b1-bbe6-402a-bfab-29fadb69ed65.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182029555-a76980b9-d70b-42d4-97eb-073a54c98f8c.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182029631-805261fe-ed01-435a-bddb-827f14364a2d.gif" width=250 /> 
+|<img src="https://user-images.githubusercontent.com/76831344/182029520-bc2d63b1-bbe6-402a-bfab-29fadb69ed65.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182029555-a76980b9-d70b-42d4-97eb-073a54c98f8c.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182029631-805261fe-ed01-435a-bddb-827f14364a2d.gif" width=245 /> 
 
 <br>
 
 
 |3. 홈 피드|4. 계정 검색|5. 마이 프로필|
 |:---:|:---:|:---:|
-|<img src="https://user-images.githubusercontent.com/76831344/182029657-29aab0e7-d7ab-4497-a796-7e543833581a.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182029414-20576bb9-1f88-475e-9582-baec0a1b44d4.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182029864-4ae722bd-84f7-48c9-8a5c-509817d92d09.gif" width=250 /> 
+|<img src="https://user-images.githubusercontent.com/76831344/182029657-29aab0e7-d7ab-4497-a796-7e543833581a.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182029414-20576bb9-1f88-475e-9582-baec0a1b44d4.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182029864-4ae722bd-84f7-48c9-8a5c-509817d92d09.gif" width=245 /> 
 
 
 <br>
 
 |5-1. 마이 프로필 수정|6. 상품 등록|6-1. 상품 수정, 삭제
 |:---:|:---:|:---:|
-|<img src="https://user-images.githubusercontent.com/76831344/182029776-c0ad77b7-1ede-426d-a132-fd8badb98ac1.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182029791-5ab93c8b-8a3b-49fa-9add-129f545f0454.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182029812-449905f1-6cd2-489d-9447-c4f59c9d8b7d.gif" width=250 /> 
+|<img src="https://user-images.githubusercontent.com/76831344/182029776-c0ad77b7-1ede-426d-a132-fd8badb98ac1.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182029791-5ab93c8b-8a3b-49fa-9add-129f545f0454.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182029812-449905f1-6cd2-489d-9447-c4f59c9d8b7d.gif" width=245 /> 
 
 <br>
 
 |6-2. 상품 상세|7. 게시글 등록|7-1. 게시글 수정, 삭제|
 |:---:|:---:|:---:|
-|<img src="https://user-images.githubusercontent.com/76831344/182029949-719250c5-19ed-4039-9e7d-ddfd73bd8ff6.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182030005-13caeb50-8bd0-454b-a9b8-bc816244c767.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182030034-4c30f21b-e5b5-4a7b-8981-f5d3173d8f25.gif" width=250 /> 
+|<img src="https://user-images.githubusercontent.com/76831344/182029949-719250c5-19ed-4039-9e7d-ddfd73bd8ff6.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182030005-13caeb50-8bd0-454b-a9b8-bc816244c767.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182030034-4c30f21b-e5b5-4a7b-8981-f5d3173d8f25.gif" width=245 /> 
 
 <br>
 
 |8.팔로잉, 팔로워 리스트|9. 팔로우 기능|10. 유저 프로필|
 |:---:|:---:|:---:|
-|<img src="https://user-images.githubusercontent.com/76831344/182030082-e3491999-0bf0-49e4-ad36-38970b6cdd89.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182030117-d23ebb4a-e6fa-41cc-a69d-a4fe39245973.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182030337-eff4b3b4-430d-4097-bf77-05a4305b41c5.gif" width=250 /> 
+|<img src="https://user-images.githubusercontent.com/76831344/182030082-e3491999-0bf0-49e4-ad36-38970b6cdd89.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182030117-d23ebb4a-e6fa-41cc-a69d-a4fe39245973.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182030337-eff4b3b4-430d-4097-bf77-05a4305b41c5.gif" width=245 /> 
 	
 <br>
 
 |11. 댓글 생성, 삭제|11-1. 댓글 신고|12. 좋아요, 찬반투표 기능|
 |:---:|:---:|:---:|
-|<img src="https://user-images.githubusercontent.com/76831344/182030194-e4db600d-2dfc-4846-b161-9b6ddf47e7ab.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182030225-f589a818-91aa-40c3-8157-70ccb0f41af2.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182030296-f67ed800-c4a7-4d99-8eb2-e920bca41396.gif" width=250 /> 
+|<img src="https://user-images.githubusercontent.com/76831344/182030194-e4db600d-2dfc-4846-b161-9b6ddf47e7ab.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182030225-f589a818-91aa-40c3-8157-70ccb0f41af2.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182030296-f67ed800-c4a7-4d99-8eb2-e920bca41396.gif" width=245 /> 
 
 <br>
 
 |13. 게시글 신고|14. 채팅 목록 UI, 모달|15. 로그아웃|
 |:---:|:---:|:---:|
-|<img src="https://user-images.githubusercontent.com/76831344/182030365-b5f3c91c-9cd2-46d0-bdd4-ad1a83528371.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182030459-2909c5a5-3ce1-415d-9072-8af8ebb7cfba.gif" width=250 />|<img src="https://user-images.githubusercontent.com/76831344/182030569-1edd1d83-d93f-401a-82f0-b1c8cb1b1100.gif" width=250 /> 
+|<img src="https://user-images.githubusercontent.com/76831344/182030365-b5f3c91c-9cd2-46d0-bdd4-ad1a83528371.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182030459-2909c5a5-3ce1-415d-9072-8af8ebb7cfba.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182030569-1edd1d83-d93f-401a-82f0-b1c8cb1b1100.gif" width=245 /> 
 </div>
 
 <br>
