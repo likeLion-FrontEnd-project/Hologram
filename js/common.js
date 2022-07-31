@@ -18,7 +18,6 @@ function imgCheck(img) {
   } 
 } 
 
-
 // 팔로우 & 언팔로에 필요한 매개변수값들 넘겨주기
 function followData(followList) {
   let btnFollow = document.querySelectorAll('.user-follow-btn');

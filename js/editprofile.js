@@ -6,7 +6,7 @@ const errEditProfile = document.querySelector('.editprofile-error-msg');
 const saveBtn = document.querySelector('.save');
 const marketImg = "http://146.56.183.55:5050/Ellipse.png"; // 감귤마켓 기본이미지 
 const mandarinImg = "https://mandarin.api.weniv.co.kr/Ellipse.png"; // 감귤마켓 기본이미지 
-const defaultImg = "../assets/images/img-profile_large.png"; 
+const defaultImg = "../assets/images/img-profile_large.png";  // 홀로그램 기본이미지
 
 // 버튼 활성화
 const activateBtn = () => {
