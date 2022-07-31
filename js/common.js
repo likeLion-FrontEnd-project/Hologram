@@ -1,4 +1,7 @@
-const url = 'https://mandarin.api.weniv.co.kr';
+const url =
+  location.protocol === 'https:'
+    ? 'https://mandarin.api.weniv.co.kr'
+    : 'http://146.56.183.55:3000';
 
 /* 뒤로 가기 */
 const backBtn = document.querySelector('.back-btn');

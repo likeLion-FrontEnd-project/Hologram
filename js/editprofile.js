@@ -4,6 +4,9 @@ const editAccountInput = document.querySelector('#editAccId-input');
 const editIntroInput = document.querySelector('#editIntroduce-input');
 const errEditProfile = document.querySelector('.editprofile-error-msg');
 const saveBtn = document.querySelector('.save');
+const marketImg = "http://146.56.183.55:5050/Ellipse.png"; // 감귤마켓 기본이미지 
+const mandarinImg = "https://mandarin.api.weniv.co.kr/Ellipse.png"; // 감귤마켓 기본이미지 
+const defaultImg = "../assets/images/img-profile_large.png"; 
 
 // 버튼 활성화
 const activateBtn = () => {
@@ -145,9 +148,9 @@ saveBtn.addEventListener('click', () => {
 function setEditUserInfo(editUserInfo) {
   document.querySelector(
     '.editprofile-edit-wrap'
-  ).style.background = `url(${editUserInfo.image}) no-repeat center / 110px`;
+  ).style.background = `url(imgCheck(${editUserInfo.image})) no-repeat center / 110px`;
 
-  hiddenImgSrc.value = editUserInfo.image;
+  hiddenImgSrc.value = imgCheck(editUserInfo.image);
   editUsernameInput.value = editUserInfo.username;
   editAccountInput.value = editUserInfo.accountname;
   editIntroInput.value = editUserInfo.intro;
