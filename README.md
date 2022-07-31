@@ -103,6 +103,7 @@
 ### 기능 구현
 🔗[기능 상세 설명](https://github.com/likeLion-FrontEnd-project/Hologram/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85)
 
+<div>
 
 |0. Splash|1. 회원가입|2. 로그인|
 |:---:|:---:|:---:|
