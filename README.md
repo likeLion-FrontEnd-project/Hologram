@@ -35,10 +35,9 @@
   
 <br>
 
-  ```
-  ❓ Vanilla JS를 사용한 이유
-  : 처음 진행하는 프로젝트이기에 라이브러리 사용이 아닌 Vanilla JS를 이용해 JavaScript만으로 제작하였습니다. 리팩토링도 경험해보고싶어 먼저 Vanilla JS로 구현 후 React로 리팩토링 할 예정입니다. 
-  ```
+**❓ Vanilla JS를 사용한 이유** 
+- 처음 진행하는 프로젝트이기에 라이브러리 사용이 아닌 Vanilla JS를 이용해 JavaScript만으로 제작하였습니다. 리팩토링도 경험해보고싶어 먼저 Vanilla JS로 구현 후 React로 리팩토링 할 예정입니다. 
+  
 <br>
 
 **2. 개발환경** 
