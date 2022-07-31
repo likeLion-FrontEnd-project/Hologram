@@ -7,7 +7,6 @@ function goBack() {
 }
 backBtn.addEventListener('click', goBack);
 
-
 // 이미지 예외처리
 function imgCheck(img) {
   if (img === marketImg || img == mandarinImg || img == defaultImg) {
