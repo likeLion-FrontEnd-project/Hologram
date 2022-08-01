@@ -189,8 +189,156 @@
 <br>
 
 ## 🚨 트러블슈팅
-- 프로젝트를 진행하는 과정에서 생겼던 트러블슈팅에 대해 정리하였습니다. 
-- 🔗 [트러블 슈팅](https://github.com/likeLion-FrontEnd-project/Hologram/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85) 에 대한 자세한 내용은 링크 연결해두었습니다.
+## 팔로우, 팔로잉 리스트
+- 에러: 다른 유저의 팔로우, 팔로잉 리스트에서 로그인한 유저(나)가 있을 경우 팔로우 버튼이 보인다.
+- 해결 방안: isfollow가 false(언팔로우인 상태) 일 때 그 목록 중 accountname이 localStorage.getItem('accountname')와 같다면 버튼을 보여주지 않는다.
+
+``` JavaScript
+/* 팔로우한 상태 구분 */
+const userFollowBtn = document.createElement('button');
+
+if (i.isfollow) {
+  userFollowBtn.setAttribute('class', 'user-follow-btn cancel');
+  userFollowBtn.setAttribute('id', 'user-follow-btn-cancel');
+  userFollowBtn.innerText = '취소';
+} else {
+  if (i.accountname === localStorage.getItem('accountname')) {
+    userFollowBtn.style.display = 'none';
+  } else {
+    userFollowBtn.setAttribute('class', 'user-follow-btn');
+    userFollowBtn.setAttribute('id', 'user-follow-btn');
+    userFollowBtn.innerText = '팔로우';
+  }
+}
+```
+
+## 댓글 작성 시 프로필 이미지 변경
+- 에러: 에러 내용: 댓글 작성 시 로그인한 유저의 프로필 이미지가 바뀌지 않는다.
+- 해결 방안: 로그인한 유저를 불러오는 함수에서 받아온 유저 정보의 이미지를 프로필 이미지에 넣어준다.
+
+``` JavaScript
+async function handleMyInfo () {
+  const token = window.localStorage.getItem('token');
+  const accointMe = localStorage.getItem('accountname') 
+  const requestMyInformation = {
+      method:"GET",
+      headers:{
+          "Authorization" : `Bearer ${token}`,
+          "Content-type" : "application/json"
+      }
+  }
+  const res = await fetch(url+`/profile/${accointMe}`, requestMyInformation)
+                      .then((response)=> {return response;})
+                      .catch((error) => {location.href="/pages/404.html";})
+  const json = await res.json();
+  console.log('내 정보', json);
+  profileImg.src = json.profile.image;
+}
+```
+
+## 앨범뷰 이미지 클릭 시 해당 게시글로 이동
+- 에러 : 앨범 뷰에서 이미지 클릭 시 해당 게시글이 아닌 모두 동일한 하나의 게시글로만 이동된다.
+- 해결 방안 : 페이지 이동 URL에 필요한 데이터 값을 수정하여 클릭 시 해당되는 게시글로 이동할 수 있다.
+
+```JavaScript
+postAlbumLink.addEventListener('click', () => {
+          location.href = `/pages/postcomment.html?postId=${value.id}`;
+})
+```
+- 수정 전
+
+<img src="https://user-images.githubusercontent.com/99578007/182034228-8120f5d8-4fb0-4afc-b2a1-5646ff8e7e11.png" width=250 /><img src="https://user-images.githubusercontent.com/99578007/182034261-6a271e7f-7195-4768-aa15-42bdc88dead5.png" width=250 />
+- 수정 후
+
+<img src="https://user-images.githubusercontent.com/99578007/182034301-637218c2-7544-4314-beab-408ec9a04783.gif" width=250 />
+
+## 프로필 수정 페이지, 수정한 프로필 데이터 미적용 에러
+- 에러 : 비동기 처리 순서 문제로 프로필 수정 페이지에서 저장 버튼을 눌려 수정한 데이터를 갱신하고 내 프로필 페이지로 이동하면 아무런 데이터 없이 적용이 되지 않는 현상이 발생했습니다.
+- 해결 방안 : 멘토님의 팁을 받아 log를 찍으며 처리 순서 파악해서 코드를 수정했습니다.
+
+<img src="https://user-images.githubusercontent.com/96808980/182034530-fccf9489-a47a-4994-9d00-c5935852b47f.gif" width=250 />
+
+```JavaScript
+async function editUserInfo() {
+  const url = 'https://mandarin.api.weniv.co.kr';
+  const token = localStorage.getItem('token');
+  try {
+    const res = await fetch(`${url}/user`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: {
+          username: editUsernameInput.value,
+          accountname: editAccountInput.value,
+          intro: editIntroInput.value,
+          image: hiddenImgSrc.value,
+        },
+      }),
+    });
+    console.log('데이터 처리'); // 3
+    const resJson = await res.json();
+    console.log('프로필 갱신 완료', resJson); // 4
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+saveBtn.addEventListener('click', () => {
+  console.log('클릭'); // 1
+  localStorage.setItem('accountname', editAccountInput.value);
+  console.log('페이지 이동'); // 2
+  location.href = './profile.html';
+  editUserInfo();
+});
+```
+![error_nonclear](https://user-images.githubusercontent.com/96808980/182034773-6c11c758-9d4d-4bdf-a2ee-e1ec23bccd52.png)
+
+수정 전 코드에서는 `클릭` 후에 `페이지 이동`이 먼저 이루어지고 `데이터 처리`하며 `프로필 갱신`이 완료되어 아무런 데이터를 받아올 수 없었다. 그래서 데이터를 적용하지 못한 페이지가 출력이 되고 있었습니다.    
+
+그래서 비동기 처리 순서 문제로 코드의 순서를 변경하는 것으로 해결하였습니다.
+
+```JavaScript
+async function editUserInfo() {
+  const url = 'https://mandarin.api.weniv.co.kr';
+  const token = localStorage.getItem('token');
+  try {
+    const res = await fetch(`${url}/user`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: {
+          username: editUsernameInput.value,
+          accountname: editAccountInput.value,
+          intro: editIntroInput.value,
+          image: hiddenImgSrc.value,
+        },
+      }),
+    });
+		console.log("데이터 처리"); // 2
+    const resJson = await res.json();
+    console.log('프로필 갱신', resJson); // 3
+    localStorage.setItem('accountname', editAccountInput.value);
+    console.log('페이지 이동'); // 4
+    location.href = './profile.html';
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+saveBtn.addEventListener('click', () => {
+  console.log('클릭'); // 1
+  editUserInfo();
+});
+```
+![clear](https://user-images.githubusercontent.com/96808980/182034742-164c16db-59d4-4178-bb44-1de5d6465817.png)
+
+수정 후 코드에서는 `클릭` 후 `데이터 처리`를 하고 `프로필 갱신`이 이루어지고 완료한 후 `페이지 이동`이 됩니다.
 
 <br>
 
