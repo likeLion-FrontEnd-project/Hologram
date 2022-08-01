@@ -5,7 +5,7 @@
 - **URL**: [https://hologram-pi.vercel.app/](https://hologram-pi.vercel.app/)
 - **테스트 계정**
   - ID: `hologram-test@hologram.com`
-  - PassWord: `hologram1234`
+  - Password: `hologram1234`
 
 <br>
 
