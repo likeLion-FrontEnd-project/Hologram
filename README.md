@@ -146,6 +146,13 @@
 |13. 게시글 신고|14. 채팅 목록 UI, 모달|15. 로그아웃|
 |:---:|:---:|:---:|
 |<img src="https://user-images.githubusercontent.com/76831344/182030365-b5f3c91c-9cd2-46d0-bdd4-ad1a83528371.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182030459-2909c5a5-3ce1-415d-9072-8af8ebb7cfba.gif" width=245 />|<img src="https://user-images.githubusercontent.com/76831344/182030569-1edd1d83-d93f-401a-82f0-b1c8cb1b1100.gif" width=245 /> 
+
+<br>
+
+|16. 에러페이지|
+|:---:|
+|<img src="https://user-images.githubusercontent.com/76831344/182051625-95bceb51-3d8d-4e4e-aff1-7a63c9f9bd7a.gif" width=245 />|
+
 </div>
 
 <br>
