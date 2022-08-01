@@ -182,6 +182,9 @@
 
 <br>
 
+### 핵심기능
+<a href="https://github.com/likeLion-FrontEnd-project/Hologram/wiki/%ED%95%B5%EC%8B%AC-%EA%B8%B0%EB%8A%A5">🔗링크</a>
+
 ### 배운점
 
 - 프로젝트 시작 전 코드, 이슈, PR, 커밋 등 컨벤션을 설정
@@ -217,3 +220,4 @@
 - 코드의 가독성을 높이기 위한 클린 코드를 작성하지 못한 점
 - 에러가 발생할 수 있는 부분을 처리
 - Vanilla JS → react 리팩토링
+
