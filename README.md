@@ -9,7 +9,7 @@
 
 <br>
 
-## 프로젝트 소개
+## 📌 프로젝트 소개
 - Hologram은 혼자 사는 사람들의 일상 공유, 자신만의 팁, 고민거리 찬반투표 등 다양한 커뮤니티 활동을 할 수 있는 SNS입니다.
 - **Hologram의 주요기능**
   - 일상 공유, 자신만의 팁, 고민거리 찬반투표 등 게시글을 작성하여 유저들간의 소통을 할 수 있습니다.
@@ -18,7 +18,7 @@
 <br>
 
 
-## 팀원 소개
+## 👨🏻‍💻 팀원 소개
 
 |주다빈|서가희|남위정|신현우|
 |:---:|:---:|:---:|:---:|
@@ -28,7 +28,7 @@
 <br>
 
 
-### 기술 및 개발 환경
+## 기술 및 개발 환경
 **1. 기술**
 - FrontEnd: HTML, CSS, Vanilla JS
 - BackEnd: 제공된 API 사용
@@ -95,12 +95,12 @@
 
 <br>
 
-### UI
+## 🎨 UI
 <img src="https://user-images.githubusercontent.com/76831344/182031996-f37cb0c1-9742-4447-b602-22e44631e044.png" width=1200 />
 
 <br>
 
-### 기능 구현
+## 💻 기능 시연
 🔗[기능 상세 설명](https://github.com/likeLion-FrontEnd-project/Hologram/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85)
 
 <div>
@@ -157,7 +157,7 @@
 
 <br>
 
-### 폴더 구조
+## 📂 폴더 구조
 ```
 - assets/ : 이미지, 아이콘 등 이미지 소스를 저장한 디렉토리 
 - favicon/ : favicon을 위한 디렉토리 
@@ -182,15 +182,19 @@
 
 <br>
 
-### 핵심기능
+## 💡 핵심기능
 - 🔗 [핵심기능에 대한 설명](https://github.com/likeLion-FrontEnd-project/Hologram/wiki/%ED%95%B5%EC%8B%AC-%EA%B8%B0%EB%8A%A5) 에 대한 자세한 내용은 링크 연결해두었습니다.
 
-### 트러블슈팅
+<br>
+
+## 🚨 트러블슈팅
 - 프로젝트를 진행하는 과정에서 생겼던 트러블슈팅에 대해 정리하였습니다. 
 - 🔗 [트러블 슈팅](https://github.com/likeLion-FrontEnd-project/Hologram/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85) 에 대한 자세한 내용은 링크 연결해두었습니다.
 
+<br>
 
-### 프로젝트를 마치며
+
+## 💜 프로젝트를 마치며
 
 <hr>
 
@@ -228,4 +232,7 @@
 
 - 코드의 가독성을 높이기 위한 클린 코드를 작성하지 못한 점이 아쉬웠습니다.
 - 기간내에 Vanilla JS에서 React 리팩토링까지 하고싶었으나 기능 구현에서 시간이 걸려 Vanilla JS로만 구현하였습니다.
+
+
+
 
