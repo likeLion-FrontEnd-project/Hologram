@@ -71,6 +71,7 @@ function setFollowingList(followingList) {
     userListWrap.appendChild(noFollowMsg);
   } else {
     followingList.forEach((i) => {
+      console.log(i);
       const userProfileWrap = document.createElement('li');
       userProfileWrap.setAttribute('class', 'user-profile-li');
 
@@ -82,7 +83,12 @@ function setFollowingList(followingList) {
 
       const userProfileImg = document.createElement('img');
       userProfileImg.setAttribute('class', 'user-img');
-      userProfileImg.setAttribute('src', imgCheck(i.image));
+      userProfileImg.setAttribute(
+        'src',
+        imgCheck(
+          i.image.replaceAll('https://mandarin.api.weniv.co.kr/', `${url}/`)
+        )
+      );
 
       /* user-info */
       const userInfoWrap = document.createElement('div');
