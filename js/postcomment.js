@@ -110,7 +110,10 @@ async function handleGetPost() {
   // 피드 이미지
   const postImgWrap = document.createElement('ul');
   const postImgList = document.createElement('li');
-  const imgUrl = POST.image;
+  const imgUrl = POST.image.replaceAll(
+    'https://mandarin.api.weniv.co.kr/',
+    `${url}/`
+  );
 
   postImgWrap.setAttribute('class', 'post-img-wrap');
   postImgList.setAttribute('class', 'post-img-list');
