@@ -59,7 +59,18 @@ async function searchUser() {
       json.forEach((el) => {
         const userName = el.username;
         const accountName = el.accountname;
-        const userImg = imgCheck(el.image);
+
+        // 기존 api url 변경으로 이미지 url 변환
+        let userImg = imgCheck(
+          el.image.replaceAll('https://mandarin.api.weniv.co.kr', url)
+        );
+
+        // 만약 userImg에 undefined라는 문자열이 포함되어있을 시 userImg를 기본 프로필 이미지로 변경
+        if (userImg.includes('undefined') || userImg === `${url}/`) {
+          userImg = defaultImg;
+        }
+
+        console.log(userImg);
 
         const userprofileLI = document.createElement('li');
         const searchA = document.createElement('a');
