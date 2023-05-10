@@ -66,9 +66,13 @@ const unfollowBtnWrap = document.querySelector('.unfollow-btns');
 
 /* 유저 프로필 정보 뿌려주기 */
 function setUserProfile(userProfile, followList) {
+  // 기존 api 변경으로 이미지 url 변환
   const user_image = userProfile.image
-    ? userProfile.image
-    : '../assets/images/img-profile_large.png';
+    ? userProfile.image.replaceAll(
+        'https://mandarin.api.weniv.co.kr/',
+        `${url}/`
+      )
+    : defaultImg;
 
   document.querySelector('.follower-num').textContent =
     userProfile.followerCount;
