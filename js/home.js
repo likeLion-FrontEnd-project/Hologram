@@ -111,7 +111,12 @@ async function getFeedInfo() {
       // 피드 이미지
       const postImgWrap = document.createElement('ul');
       const postImgList = document.createElement('li');
-      const imgUrl = POSTS.image;
+
+      // api url 변경으로 기존 이미지 url 변경
+      const imgUrl = POSTS.image.replaceAll(
+        'https://mandarin.api.weniv.co.kr/',
+        `${url}/`
+      );
 
       postImgWrap.setAttribute('class', 'post-img-wrap');
       postImgList.setAttribute('class', 'post-img-list');
