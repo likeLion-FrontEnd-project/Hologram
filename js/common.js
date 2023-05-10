@@ -1,4 +1,4 @@
-const url = 'https://mandarin.api.weniv.co.kr';
+const url = 'https://api.mandarin.weniv.co.kr';
 
 /* 뒤로 가기 */
 const backBtn = document.querySelector('.back-btn');
@@ -11,12 +11,19 @@ backBtn.addEventListener('click', goBack);
 function imgCheck(img) {
   if (img === marketImg || img == mandarinImg || img == defaultImg) {
     return defaultImg;
-  } else if (img?.search(url) !== -1 || img?.search('base64') !== -1 || img?.search('.svg') !== -1 || img.search('http://') !== -1 || img.search('https://') !== -1) {
+  } else if (
+    img?.search(url) !== -1 ||
+    img?.search('base64') !== -1 ||
+    img?.search('.svg') !== -1 ||
+    img.search('http://') !== -1 ||
+    img.search('https://') !== -1
+  ) {
     return img;
-  } else if (img?.search(url) === -1) { // 이미지가 뜨지 않을 때
-    return `${url}/${img}`  
-  } 
-} 
+  } else if (img?.search(url) === -1) {
+    // 이미지가 뜨지 않을 때
+    return `${url}/${img}`;
+  }
+}
 
 // 팔로우 & 언팔로에 필요한 매개변수값들 넘겨주기
 function followData(followList) {

@@ -1,4 +1,4 @@
-const url = 'https://mandarin.api.weniv.co.kr';
+const url = 'https://api.mandarin.weniv.co.kr';
 const getAccount = location.search.replace('?', '').split('=');
 const accountName =
   getAccount == '' ? localStorage.getItem('accountname') : getAccount[1];
@@ -14,18 +14,25 @@ const modalCenter = document.querySelector('.modal-window-center');
 const modalCancelBtn = document.querySelector('#cancel-btn');
 const modalReportBtn = document.querySelector('#report-btn');
 
-const marketImg = "http://146.56.183.55:5050/Ellipse.png"; // 감귤마켓 기본이미지 
-const mandarinImg = "https://mandarin.api.weniv.co.kr/Ellipse.png"; // 감귤마켓 기본이미지 
-const defaultImg = "../assets/images/img-profile_large.png"; 
+const marketImg = 'http://146.56.183.55:5050/Ellipse.png'; // 감귤마켓 기본이미지
+const mandarinImg = 'https://api.mandarin.weniv.co.kr/Ellipse.png'; // 감귤마켓 기본이미지
+const defaultImg = '../assets/images/img-profile_large.png';
 
 function imgCheck(img) {
   if (img === marketImg || img == mandarinImg || img == defaultImg) {
     return defaultImg;
-  } else if (img.search(url) !== -1 || img.search('base64') !== -1 || img.search('.svg') !== -1 || img.search('http://') !== -1 || img.search('https://') !== -1) {
+  } else if (
+    img.search(url) !== -1 ||
+    img.search('base64') !== -1 ||
+    img.search('.svg') !== -1 ||
+    img.search('http://') !== -1 ||
+    img.search('https://') !== -1
+  ) {
     return img;
-  } else if (img.search(url) === -1) { // 이미지가 뜨지 않을 때
-    return `${url}/${img}`  
-  } 
+  } else if (img.search(url) === -1) {
+    // 이미지가 뜨지 않을 때
+    return `${url}/${img}`;
+  }
 }
 
 // 피드 정보 불러오기

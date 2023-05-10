@@ -1,22 +1,29 @@
-const url = 'https://mandarin.api.weniv.co.kr';
+const url = 'https://api.mandarin.weniv.co.kr';
 const accountName = localStorage.getItem('accountname');
 const token = localStorage.getItem('token');
 const searchInp = document.querySelector('.search');
 const searchMain = document.querySelector('.search-main');
 const userListWrap = document.querySelector('.user-list-wrap');
 
-const marketImg = "http://146.56.183.55:5050/Ellipse.png"; // 감귤마켓 기본이미지 
-const mandarinImg = "https://mandarin.api.weniv.co.kr/Ellipse.png"; // 감귤마켓 기본이미지 
-const defaultImg = "../assets/images/img-profile_large.png"; 
+const marketImg = 'http://146.56.183.55:5050/Ellipse.png'; // 감귤마켓 기본이미지
+const mandarinImg = 'https://api.mandarin.weniv.co.kr/Ellipse.png'; // 감귤마켓 기본이미지
+const defaultImg = '../assets/images/img-profile_large.png';
 
 function imgCheck(img) {
   if (img === marketImg || img == mandarinImg || img == defaultImg) {
     return defaultImg;
-  } else if (img.search(url) !== -1 || img.search('base64') !== -1 || img.search('.svg') !== -1 || img.search('http://') !== -1 || img.search('https://') !== -1) {
+  } else if (
+    img.search(url) !== -1 ||
+    img.search('base64') !== -1 ||
+    img.search('.svg') !== -1 ||
+    img.search('http://') !== -1 ||
+    img.search('https://') !== -1
+  ) {
     return img;
-  } else if (img.search(url) === -1) { // 이미지가 뜨지 않을 때
-    return `${url}/${img}`  
-  } 
+  } else if (img.search(url) === -1) {
+    // 이미지가 뜨지 않을 때
+    return `${url}/${img}`;
+  }
 }
 
 /* 뒤로 가기 */
@@ -26,9 +33,8 @@ function goBack() {
 }
 backBtn.addEventListener('click', goBack);
 
-
-// 검색창 계정 정보 불러오기  
-async function searchUser () {
+// 검색창 계정 정보 불러오기
+async function searchUser() {
   const inpValue = searchInp.value;
   try {
     if (inpValue === '') {
@@ -37,25 +43,24 @@ async function searchUser () {
     } else {
       const searchPath = `/user/searchuser/?keyword=${inpValue}`;
       const reqInfo = {
-      method : 'GET',
-      headers : {
-        Authorization : `Bearer ${token}`,
-        'Content-type' : 'application/json',
-      },
-    }
-      const res = await fetch(url + searchPath, reqInfo)
-                        .then((response) => {
-                          return response;
-                        })
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-type': 'application/json',
+        },
+      };
+      const res = await fetch(url + searchPath, reqInfo).then((response) => {
+        return response;
+      });
       const json = await res.json();
       userListWrap.textContent = '';
-  
-      // 검색 결과 
+
+      // 검색 결과
       json.forEach((el) => {
         const userName = el.username;
         const accountName = el.accountname;
         const userImg = imgCheck(el.image);
-  
+
         const userprofileLI = document.createElement('li');
         const searchA = document.createElement('a');
         const userProfileImg = document.createElement('img');
@@ -84,11 +89,11 @@ async function searchUser () {
         // 유저 프로필 클릭 시 해당 페이지로 이동
         searchA.addEventListener('click', () => {
           location.href = `/pages/profile.html?accountname=${accountName}`;
-        })
-      })
+        });
+      });
     }
   } catch (error) {
     console.error(error);
   }
 }
-searchInp.addEventListener('input', searchUser)
+searchInp.addEventListener('input', searchUser);
