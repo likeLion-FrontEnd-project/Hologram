@@ -16,8 +16,8 @@ function loginBtnActive() {
 emailInput.addEventListener('input', loginBtnActive);
 pwInput.addEventListener('input', loginBtnActive);
 
-async function loginData() {
-  const url = 'https://mandarin.api.weniv.co.kr';
+async function postLoginData() {
+  const url = 'https://api.mandarin.weniv.co.kr';
   try {
     const res = await fetch(`${url}/user/login/`, {
       method: 'POST',
@@ -42,15 +42,9 @@ async function loginData() {
   }
 }
 
-loginBtn.addEventListener('click', async (e) => {
-  e.preventDefault();
-  await loginData();
-  checkToken();
-});
-
 // 토큰 검증
 async function checkToken() {
-  const url = 'https://mandarin.api.weniv.co.kr';
+  const url = 'https://api.mandarin.weniv.co.kr';
   const token = localStorage.getItem('token');
   try {
     const res = await fetch(`${url}/user/checktoken/`, {
@@ -71,3 +65,9 @@ async function checkToken() {
     console.error(err);
   }
 }
+
+loginBtn.addEventListener('click', async (e) => {
+  e.preventDefault();
+  await postLoginData();
+  checkToken();
+});

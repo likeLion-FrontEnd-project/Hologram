@@ -5,7 +5,7 @@ const editIntroInput = document.querySelector('#editIntroduce-input');
 const errEditProfile = document.querySelector('.editprofile-error-msg');
 const saveBtn = document.querySelector('.save');
 const marketImg = 'http://146.56.183.55:5050/Ellipse.png'; // 감귤마켓 기본이미지
-const mandarinImg = 'https://mandarin.api.weniv.co.kr/Ellipse.png'; // 감귤마켓 기본이미지
+const mandarinImg = 'https://api.mandarin.weniv.co.kr/Ellipse.png'; // 감귤마켓 기본이미지
 const defaultImg = '../assets/images/img-profile_large.png'; // 홀로그램 기본이미지
 
 // 버튼 활성화
@@ -50,7 +50,7 @@ editImg.addEventListener('change', function () {
 
 // 계정 검증 API
 async function accountnameValid() {
-  const url = 'https://mandarin.api.weniv.co.kr';
+  const url = 'https://api.mandarin.weniv.co.kr';
   const currentId = localStorage.getItem('accountname');
   try {
     const res = await fetch(`${url}/user/accountnamevalid`, {
@@ -110,7 +110,7 @@ editAccountInput.addEventListener('input', (e) => {
 
 // 프로필 수정 데이터 갱신
 async function editUserInfo() {
-  const url = 'https://mandarin.api.weniv.co.kr';
+  const url = 'https://api.mandarin.weniv.co.kr';
   const token = localStorage.getItem('token');
   try {
     const res = await fetch(`${url}/user`, {
@@ -158,7 +158,7 @@ function setEditUserInfo(editUserInfo) {
 
 // 프로필 수정 데이터 전송
 async function getEditUserInfo() {
-  const url = 'https://mandarin.api.weniv.co.kr';
+  const url = 'https://api.mandarin.weniv.co.kr';
   const accountName = localStorage.getItem('accountname');
   const token = localStorage.getItem('token');
   try {

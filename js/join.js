@@ -41,7 +41,7 @@ const isError = () => {
 
 // API 데이터를 받아온 후 이메일 중복 확인
 async function checkEmail() {
-  const url = 'https://mandarin.api.weniv.co.kr';
+  const url = 'https://api.mandarin.weniv.co.kr';
   try {
     const res = await fetch(`${url}/user/emailvalid`, {
       method: 'POST',
@@ -266,7 +266,7 @@ const checkUsername = () => {
 
 // 회원가입 데이터 전송
 async function joinData() {
-  const url = 'https://mandarin.api.weniv.co.kr';
+  const url = 'https://api.mandarin.weniv.co.kr';
   const image =
     editImgHidden.value !== ''
       ? editImgHidden.value
